@@ -1,0 +1,171 @@
+/* main page and shared section styles */
+
+body {
+    min-height: 100vh;
+}
+
+#header-div {
+    margin-bottom: 150px;
+}
+
+#header-title {
+    padding-top: 50px;
+    background-color: #ED6B47;
+}
+
+#header-logo {
+    display: flex;
+    justify-content: center;
+}
+
+#header-nav {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: teko, sans-serif;
+}
+
+#header-nav li {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+h1 {
+    text-align: center;
+    font-family: teko, sans-serif;
+    font-size: 52px;
+}
+
+#about-container {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+#about-image {
+    width: 100%;
+    border-radius: 15px;
+}
+
+h2 {
+    text-align: center;
+    font-family: teko, sans-serif;
+    font-size: 32px;
+}
+
+.about-text {
+    text-align: center;
+    font-family: teko, sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.card-body {
+    padding-top: 0;
+    border-radius: 15px;
+}
+
+#about-card {
+    display: flex;
+    flex-direction: column;
+    align-items: middle;
+    padding-top: 10%;
+    padding-bottom: 7%;
+}
+
+#about-card:hover {
+    background-color: rgba(182, 56, 21, 0.85);
+}
+
+.card {
+    border: transparent;
+}
+
+/* Signup and member area styles */
+
+#about-signup {
+    background-color: #28b0b8b3;
+    border-color: transparent;
+    font-family: teko, sans-serif;
+    font-size: 24px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-container {
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    text-align: center;
+    background-color: #494B49;
+    border-radius: 15px;
+}
+
+.login-container input {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: teko, sans-serif;
+    font-size: 20px;
+}
+
+#registered-submit,
+#register-button {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#login-block {
+    background-color: #112A46;
+    border-radius: 15px;
+}
+
+.login-container h3,
+.login-container a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #F3CFCE;
+    font-family: teko, sans-serif;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+.form-group input {
+    margin-top: 15x;
+    margin-bottom: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Plan area styles */
+
+#plan-examples {
+    margin-top: 150px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#plan-carousel {
+    margin-top: 150px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: teko,
+        sans-serif;
+    font-size: 22px;
+    font-weight: 300px;
+}
+
+.carousel-control {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
