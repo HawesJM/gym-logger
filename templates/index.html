@@ -1,0 +1,234 @@
+{% extends "base.html" %} {% block content %}
+<!-- Introduction and about section -->
+
+<section>
+    <div id="about-container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div id="about-card" class="card-body">
+                        <h2>About Gym Logger</h2>
+                        <p class="about-text text-center">
+                            <strong>Record your workouts | Build your plan | Share and support
+                                other users</strong><br />
+                            <em>Gym Logger is a responsive and adaptable library where you
+                                can browse, develop and record individual workout plans to
+                                be tried & tested against modern metrics, current
+                                information and community demographics.</em>
+                        </p>
+                        <a href="#" id="about-signup" class="btn btn-primary">Sign-up for free access</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <img id="about-image" src="static/images/pexels-karolina-grabowska-4397840.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Login and member section -->
+
+<section>
+    <div class="container login-container">
+        <div class="row">
+            <div id="login-block" class="col-md-6 login-form-1">
+                <h3>Login</h3>
+                <form>
+                    <div class="form-group">
+                        <input id="registered-email-input" type="text" class="form-control"
+                            placeholder="Type Your User Email and Hit Enter *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input id="registered-password" type="password" class="form-control hidden"
+                            placeholder="Your Registered Password *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input id="registered-submit" type="submit" class="btn-submit hidden" value="Login" />
+                    </div>
+                    <div class="form-group">
+                        <a href="#" class="ForgetPwd hidden">Forget Password?</a>
+                    </div>
+                </form>
+            </div>
+            <div id="register-block" class="col-md-6 login-form-2">
+                <h3>Register</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your Email *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input id="register-button" type="submit" class="btn-submit" value="Register" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Example plan section -->
+
+<div id="plan-carousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="card-group">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                            This is a wider card with supporting text below as a natural
+                            lead-in to additional content. This content is a little bit
+                            longer.
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                            This card has supporting text below as a natural lead-in to
+                            additional content.
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                            This is a wider card with supporting text below as a natural
+                            lead-in to additional content. This card has even longer
+                            content than the first to show that equal height action.
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="card-group">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                            This is a wider card with supporting text below as a natural
+                            lead-in to additional content. This content is a little bit
+                            longer.
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                            This card has supporting text below as a natural lead-in to
+                            additional content.
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                            This is a wider card with supporting text below as a natural
+                            lead-in to additional content. This card has even longer
+                            content than the first to show that equal height action.
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="card-group">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                            This is a wider card with supporting text below as a natural
+                            lead-in to additional content. This content is a little bit
+                            longer.
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                            This card has supporting text below as a natural lead-in to
+                            additional content.
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                            This is a wider card with supporting text below as a natural
+                            lead-in to additional content. This card has even longer
+                            content than the first to show that equal height action.
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    {% endblock %}
