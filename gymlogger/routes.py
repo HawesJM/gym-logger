@@ -12,6 +12,6 @@ def profile():
     return render_template("profile.html")
 
 
-@app.route("/register")
+@app.route("/register",  methods=["GET", "POST"])
 def register():
     return render_template("register.html")
