@@ -22,7 +22,7 @@
     <div id="header-div">
         <header>
             <div id="header-logo">
-                <img src="static/images/gym-logger-logo.jpg" />
+                <img src="{{url_for('static', filename='/images/gym-logger-logo.jpg')}}" />
             </div>
             <div id="header-title">
                 <h1>Record, Save, and Share Your Workouts</h1>
@@ -41,7 +41,10 @@
                                         class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('profile') }}">Your Profile</a>
+                                <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">Your Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('signout') }}">Sign Out</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
