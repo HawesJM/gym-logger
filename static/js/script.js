@@ -2,16 +2,16 @@
 
 let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-document.getElementById("registered-email-input").addEventListener("change", validateRegisteredUserEmail);
+document.getElementById("registered-username-input").addEventListener("change", validateRegisteredUserName);
 
 // check registered and new user input information
 
-function validateRegisteredUserEmail() {
-    if (document.getElementById("registered-email-input").value.match(validRegex)) {
+function validateRegisteredUserName() {
+    if (document.getElementById("registered-username-input").value.match(validRegex)) {
         $("#registered-password").removeClass("hidden");
     }
     else {
-        alert("please type a valid email address and hit 'enter' to login");
+        alert("please type a valid username and hit 'enter' to login");
     }
 }
 

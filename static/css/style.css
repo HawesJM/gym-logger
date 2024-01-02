@@ -19,9 +19,6 @@ body {
 }
 
 #header-nav {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     font-family: teko, sans-serif;
 }
 
@@ -90,6 +87,11 @@ h2 {
     border: transparent;
 }
 
+#footer-span {
+    font-family: teko, sans-serif;
+    font-size: 22px;
+}
+
 /* Signup and member area styles */
 
 #about-signup {
@@ -150,6 +152,7 @@ h2 {
 .hidden {
     display: none;
 }
+
 
 /* Register page styles */
 
