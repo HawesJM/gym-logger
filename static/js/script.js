@@ -7,13 +7,9 @@ document.getElementById("registered-username-input").addEventListener("change", 
 // check registered and new user input information
 
 function validateRegisteredUserName() {
-    if (document.getElementById("registered-username-input").value.match(validRegex)) {
         $("#registered-password").removeClass("hidden");
     }
-    else {
-        alert("please type a valid username and hit 'enter' to login");
-    }
-}
+
 
     //if (document.getElementByIegistered-email-input").value != "") {
     //let reg;isteredUserEmailInput = docu.getElementById("registered-email-input").value;
