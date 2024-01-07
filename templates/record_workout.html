@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="workout-record-container" class = "col-sm-12 col-md-6 shadow-lg p-3 mb-5 bg-white rounded">
+    <form class="col-sm-12" method="POST" action="{{url_for('record_workout')}}">
+        <div class = "row">
+            <input type="text" class = "input-field col-sm-6" id="workout_description" name="workout_description" minlength="5" maxlength="200">    
+            </input>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

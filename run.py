@@ -49,8 +49,8 @@ def register():
     return render_template("register.html")
 
 
-@app.route("/signin", methods=["GET", "POST"])
-def signin():
+@app.route("/sign_in", methods=["GET", "POST"])
+def sign_in():
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -67,14 +67,14 @@ def signin():
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
-                return redirect(url_for("signin"))
+                return redirect(url_for("sign_in"))
 
         else:
             # username doesn't exist
             flash("Incorrect Username and/or Password")
-            return redirect(url_for("signin"))
+            return redirect(url_for("sign_in"))
 
-    return render_template("signin.html")
+    return render_template("sign_in.html")
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
@@ -85,15 +85,28 @@ def profile(username):
     if session["user"]:
         return render_template("profile.html", username=username)
 
-    return redirect(url_for("signin"))
+    return redirect(url_for("sign_in"))
 
 
-@app.route("/signout")
-def signout():
+@app.route("/sign_out")
+def sign_out():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("signin"))
+    return redirect(url_for("sign_in"))
+
+@app.route("/record_workout", methods=["GET", "POST"])
+def record_workout():
+    if request.method == "POST":
+        logged_workout = {
+            "workout_description": request.form.get("workout_description").lower(),
+            "created_by": session["user"]
+        }
+        mongo.db.workouts.insert_one(logged_workout)
+        flash("Workout successfully logged!")
+        return redirect(url_for("profile", username=session["user"]))
+
+    return render_template("record_workout.html")
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

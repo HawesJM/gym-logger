@@ -41,6 +41,10 @@ h3 {
     font-family: teko, sans-serif;
 }
 
+h4 {
+    font-family: teko, sans-serif;
+}
+
 #about-container {
     width: 50%;
     margin-left: auto;
@@ -204,4 +208,45 @@ h3 {
 .carousel-control {
     margin-top: 100px;
     margin-bottom: 50px;
+}
+
+/* workout record page styles */
+
+#workout-record-container {
+    background-color: fuchsia;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* profile page styles */
+
+#profile-header {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+#profile-name{
+    text-decoration: underline;
+    text-transform: lowercase;
+    margin-left: 0;
+}
+
+#recorded-workouts {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#saved-workouts {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#workout-plans {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
