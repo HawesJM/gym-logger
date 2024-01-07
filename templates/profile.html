@@ -15,14 +15,20 @@
         <h4>
             My recorded workouts
         </h4>
+        {% for workout in workouts %}
+        {% if workout.created_by|lower == session.user|lower %}
+            print(workout_description)
+                <div class="card-body col-md-4">
+                    <p>{{ workout_description }}</p>
+                </div>
+        {% endif %}
+        {% endfor %}
+
         <div class="card-body col-md-4">
-            Sausage
-        </div>
+
+         </div>
         <div class="card-body col-md-4">
-            Sausage
-        </div>
-        <div class="card-body col-md-4">
-            Sausage
+
         </div>
     </div>
 </div>
@@ -33,13 +39,13 @@
             My saved workouts
         </h4>
         <div class="card-body col-md-4">
-            Sausage
+            saved workout 1
         </div>
         <div class="card-body col-md-4">
-            Sausage
+            saved workout 2
         </div>
         <div class="card-body col-md-4">
-            Sausage
+            saved workout 3
         </div>
     </div>
 </div>
@@ -50,13 +56,13 @@
             My workout plans
         </h4>
         <div class="card-body col-md-4">
-            Sausage
+            plan 1
         </div>
         <div class="card-body col-md-4">
-            Sausage
+            plan 2
         </div>
         <div class="card-body col-md-4">
-            Sausage
+            plan 3
         </div>
     </div>
 </div>

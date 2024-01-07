@@ -24,6 +24,34 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/workouts")
+def workouts():
+    workouts = list(mongo.db.workouts.find_many())
+    return render_template("workouts.html", workouts=workouts)
+
+
+
+@app.route("/categories")
+def categories():
+    categories = list(mongo.db.categories.find().sort("category_name", 1))
+    return render_template("categories.html", categories=categories)
+
+
+
+@app.route("/add_category", methods=["GET", "POST"])
+def add_category():
+    if request.method == "POST":
+        category = {
+            "category_name": request.form.get("category_name")
+        }
+        mongo.db.categories.insert_one(category)
+        flash("New Category Added")
+        return redirect(url_for("add_category"))
+
+    return render_template("add_category.html")
+
+
+
 @app.route("/register",  methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -84,6 +112,7 @@ def profile(username):
         {"username": session["user"]})["username"]
     if session["user"]:
         return render_template("profile.html", username=username)
+        workouts = list(mongo.db.workouts.find_many())
 
     return redirect(url_for("sign_in"))
 
