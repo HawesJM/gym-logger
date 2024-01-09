@@ -30,26 +30,10 @@ def workouts():
     return render_template("workouts.html", workouts=workouts)
 
 
-
 @app.route("/categories")
 def categories():
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     return render_template("categories.html", categories=categories)
-
-
-
-@app.route("/add_category", methods=["GET", "POST"])
-def add_category():
-    if request.method == "POST":
-        category = {
-            "category_name": request.form.get("category_name")
-        }
-        mongo.db.categories.insert_one(category)
-        flash("New Category Added")
-        return redirect(url_for("add_category"))
-
-    return render_template("add_category.html")
-
 
 
 @app.route("/register",  methods=["GET", "POST"])
@@ -128,14 +112,54 @@ def sign_out():
 def record_workout():
     if request.method == "POST":
         logged_workout = {
-            "workout_description": request.form.get("workout_description").lower(),
-            "created_by": session["user"]
+            "date": request.form.get("workout-date"),
+            "workout_description": request.form.get("workout-description").lower(),
+            "created_by": session["user"],
+            "exercise": request.form.get("exercise").lower(),
+            "category": request.form.get("category").lower(),
+            "modifier": request.form.get("modifier").lower(),
+            "total": request.form.get(str("total")).lower(),
+
+        }
+        logged_exercise = {
+            "exercise": request.form.get("exercise"),
+            "created_by": session["user"],
+        }
+
+        logged_category = {
+            "category": request.form.get("category"),
+            "created_by": session["user"],
         }
         mongo.db.workouts.insert_one(logged_workout)
+        mongo.db.exercises.insert_one(logged_exercise)
+        mongo.db.categories.insert_one(logged_category)
         flash("Workout successfully logged!")
         return redirect(url_for("profile", username=session["user"]))
 
     return render_template("record_workout.html")
+
+
+@app.route("/add_category", methods=["GET", "POST"])
+def add_category():
+    if request.method == "POST":
+        category = {
+            "category": request.form.get("category")
+        }
+        mongo.db.categories.insert_one(category)
+        flash("New Category Added")
+
+    return render_template("add_workout.html")
+
+@app.route("/add_exercise", methods=["GET", "POST"])
+def add_exercise():
+    if request.method == "POST":
+        exercise = {
+            "exercise": request.form.get("exercise")
+        }
+        mongo.db.categories.insert_one(exercise)
+        flash("New Exercise Added")
+
+    return render_template("add_workout.html")
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

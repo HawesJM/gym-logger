@@ -1,16 +1,49 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div id="workout-record-container" class = "col-sm-12 col-md-6 shadow-lg p-3 mb-5 bg-white rounded">
-    <form class="col-sm-12" method="POST" action="{{url_for('record_workout')}}">
-        <div class = "row">
-            <input type="text" class = "input-field col-sm-6" id="workout_description" name="workout_description" minlength="5" maxlength="200">    
-            </input>
-        </div>
-        <div class="col-sm-12 col-md-6">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
+<div id="workout-record-container" class="col-sm-12 col-md-6 shadow-lg p-3 mb-5 bg-white rounded">
+  <form class="row" method="POST" action="{{url_for('record_workout')}}">
+    <div class="form-row row">
+      <div id="date-picker" class="col-sm-12 col-md-3">
+        <label for="workout-date">Workout Date</label>
+        <input id="workout-date" name="workout-date" class="form-control" type="date" />
+      </div>
+    </div>
+    <div class="col-md-12">
+      <label for="workout-description">Workout Description</label>
+      <input type="text" class="form-control" id="workout-description" name="workout-description" minlength="5"
+        maxlength="200" required>
+      </input>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="exercise">Exercise</label>
+      <input type="text" class="form-control" id="exercise" name="exercise" placeholder="First exercise" required>
+      <i class="fa fa-plus-circle">
+      </i>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="category">Category</label>
+      <input type="text" class="form-control" id="category" name="category" placeholder="Time/Distance/Repetitions">
+      <i class="fa fa-plus-circle">
+      </i>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="modifier">Modifiers</label>
+      <input type="text" class="form-control" id="modifier" name="modifier" placeholder="First exercise" required>
+      <i class="fa fa-plus-circle">
+      </i>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="total">Totals</label>
+      <input type="number" class="form-control" id="total" name="total" placeholder="Time/Distance/Repetitions">
+      <i class="fa fa-plus-circle">
+      </i>
+    </div>
+    <div>
+      <button type="submit" class="col-sm-12 col-md-3">Record Workout</button>
+    </div>
+</div>
+</form>
 </div>
 
 {% endblock %}
