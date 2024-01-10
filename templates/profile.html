@@ -16,10 +16,10 @@
             My recorded workouts
         </h4>
         {% for workout in workouts %}
-        {% if workout.created_by|lower == session.user|lower %}
-            print(workout_description)
+            {% if workout.created_by|lower == session.user|lower %}
                 <div class="card-body col-md-4">
-                    <p>{{ workout_description }}</p>
+                    <p>{{ workout.date }}</p>
+                    <p>{{ workout.workout_description }}</p>
                 </div>
         {% endif %}
         {% endfor %}

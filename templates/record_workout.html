@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!--workout form header-->
+
 <div id="workout-record-container" class="col-sm-12 col-md-6 shadow-lg p-3 mb-5 bg-white rounded">
   <form class="row" method="POST" action="{{url_for('record_workout')}}">
     <div class="form-row row">
@@ -9,34 +11,45 @@
         <input id="workout-date" name="workout-date" class="form-control" type="date" />
       </div>
     </div>
+
+<!--form row one-->
+
     <div class="col-md-12">
       <label for="workout-description">Workout Description</label>
       <input type="text" class="form-control" id="workout-description" name="workout-description" minlength="5"
-        maxlength="200" required>
+        maxlength="50" required>
       </input>
     </div>
     <div class="form-group col-md-3">
       <label for="exercise">Exercise</label>
-      <input type="text" class="form-control" id="exercise" name="exercise" placeholder="First exercise" required>
-      <i class="fa fa-plus-circle">
+      <input type="text" class="form-control" id="exercise" name="exercise" placeholder="exercise 1" required>
+      <i id="exercise-add" class="fa fa-plus-circle">
       </i>
     </div>
     <div class="form-group col-md-3">
       <label for="category">Category</label>
-      <input type="text" class="form-control" id="category" name="category" placeholder="Time/Distance/Repetitions">
+      <input type="text" class="form-control" id="category" name="category" placeholder="e.g. cardio, or weights">
       <i class="fa fa-plus-circle">
       </i>
     </div>
     <div class="form-group col-md-3">
       <label for="modifier">Modifiers</label>
-      <input type="text" class="form-control" id="modifier" name="modifier" placeholder="First exercise" required>
+      <input type="text" class="form-control" id="modifier" name="modifier" placeholder="metrics e.g. distance in KM:" required>
       <i class="fa fa-plus-circle">
       </i>
     </div>
     <div class="form-group col-md-3">
       <label for="total">Totals</label>
-      <input type="number" class="form-control" id="total" name="total" placeholder="Time/Distance/Repetitions">
+      <input type="number" class="form-control" id="total" name="total" placeholder="e.g. distance run or reps done">
       <i class="fa fa-plus-circle">
+      </i>
+    </div>
+  
+<!--form row 2 -->
+
+    <div id="exercise-two-container" class="form-group col-md-3 hidden">
+      <input type="text" class="form-control" id="exercise-two" name="exercise-two" placeholder="exercise 2" required>
+      <i id="exercise-add-two" class="fa fa-plus-circle">
       </i>
     </div>
     <div>

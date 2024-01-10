@@ -26,7 +26,7 @@ def index():
 
 @app.route("/workouts")
 def workouts():
-    workouts = list(mongo.db.workouts.find_many())
+    workouts = list(mongo.db.workouts.find())
     return render_template("workouts.html", workouts=workouts)
 
 
@@ -92,11 +92,11 @@ def sign_in():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab session user's username from db
+    workouts = list(mongo.db.workouts.find())
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     if session["user"]:
-        return render_template("profile.html", username=username)
-        workouts = list(mongo.db.workouts.find_many())
+        return render_template("profile.html", username=username, workouts=workouts)
 
     return redirect(url_for("sign_in"))
 
@@ -116,6 +116,7 @@ def record_workout():
             "workout_description": request.form.get("workout-description").lower(),
             "created_by": session["user"],
             "exercise": request.form.get("exercise").lower(),
+            "exercise2": request.form.get("exercise-two").lower(),
             "category": request.form.get("category").lower(),
             "modifier": request.form.get("modifier").lower(),
             "total": request.form.get(str("total")).lower(),
@@ -160,6 +161,14 @@ def add_exercise():
         flash("New Exercise Added")
 
     return render_template("add_workout.html")
+
+
+@app.route("/workout_details/<workout_id>")
+def workout_details(workout_id):
+    workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
+
+    return render_template("workout_details.html", workout=workout)
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

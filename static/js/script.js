@@ -1,8 +1,11 @@
 // global variables and event listeners
 
+
 let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-document.getElementById("registered-username-input").addEventListener("change", validateRegisteredUserName);
+// document.getElementById("registered-username-input").addEventListener("change", validateRegisteredUserName);//
+
+document.getElementById("exercise-add").addEventListener("click", duplicateExerciseOne);
 
 // check registered and new user input information
 
@@ -10,6 +13,10 @@ function validateRegisteredUserName() {
         $("#registered-password").removeClass("hidden");
     }
 
+function duplicateExerciseOne() {
+    $("#exercise-two-container").removeClass("hidden");
+    $("")
+}
 
     //if (document.getElementByIegistered-email-input").value != "") {
     //let reg;isteredUserEmailInput = docu.getElementById("registered-email-input").value;

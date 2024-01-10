@@ -242,6 +242,10 @@ h3 {
     margin-top: 20px;
 }
 
+.hidden {
+    display: none;
+}
+
 /* profile page styles */
 
 #profile-header {
@@ -260,6 +264,8 @@ h3 {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    font-family: teko, sans-serif;
+    font-size: 18px;
 }
 
 #saved-workouts {
