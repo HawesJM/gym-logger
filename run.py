@@ -111,17 +111,39 @@ def sign_out():
 @app.route("/record_workout", methods=["GET", "POST"])
 def record_workout():
     if request.method == "POST":
+        is_visible = "on" if request.form.get("is-visible") else "off"
         logged_workout = {
             "date": request.form.get("workout-date"),
             "workout_description": request.form.get("workout-description").lower(),
             "created_by": session["user"],
-            "exercise": request.form.get("exercise").lower(),
-            "exercise2": request.form.get("exercise-two").lower(),
-            "category": request.form.get("category").lower(),
-            "modifier": request.form.get("modifier").lower(),
-            "total": request.form.get(str("total")).lower(),
-
+            "exercise": request.form.get("exercise"),
+            "exercise2": request.form.get("exercise-two"),
+            "exercise3": request.form.get("exercise-three"),
+            "exercise4": request.form.get("exercise-three"),
+            "exercise5": request.form.get("exercise-three"),
+            "category": request.form.get("category"),
+            "category2": request.form.get("category-two"),
+            "category3": request.form.get("category-three"),
+            "category4": request.form.get("category-three"),
+            "category5": request.form.get("category-three"),
+            "modifier": request.form.get("modifier"),
+            "modifier2": request.form.get("modifier-two"),
+            "modifier3": request.form.get("modifier-three"),
+            "modifier4": request.form.get("modifier-three"),
+            "modifier5": request.form.get("modifier-three"),
+            "total": request.form.get(str("total")),
+            "total2": request.form.get(str("total-two")),
+            "total3": request.form.get(str("total-three")),
+            "total4": request.form.get(str("total-three")),
+            "total5": request.form.get(str("total-three")),
+            "is_visible": is_visible,
         }
+
+        #
+        for key in logged_workout.keys():
+            if logged_workout[key]:
+                logged_workout[key] = logged_workout[key].lower()
+        
         logged_exercise = {
             "exercise": request.form.get("exercise"),
             "created_by": session["user"],
@@ -168,7 +190,8 @@ def delete_workout(workout_id):
     mongo.db.workouts.delete_one({"_id": 
     ObjectId(workout_id)})
     flash("workout successfully deleted")
-    return render_template("profile.html", username=session["user"])
+    workouts = list(mongo.db.workouts.find())
+    return render_template("profile.html", username=session["user"], workouts=workouts)
 
 
 @app.route("/workout_details/<workout_id>")

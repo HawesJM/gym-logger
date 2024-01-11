@@ -41,11 +41,14 @@
                 {% endif %}
             </div>
         </div>
+        <!--publicly viewable function-->
+        {% if workout.is_visible == "on" %}
         <div class="collapsible-body">
             <strong>{{ workout.category_name }}</strong>
             <p>{{ workout.workout_description }}</p>
             <p><em>by: {{ workout.created_by }}</em></p>
         </div>
+        {% endif %}
     </li>
     {% endfor %}
 </ul>

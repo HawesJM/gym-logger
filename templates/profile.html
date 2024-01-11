@@ -19,7 +19,7 @@
             {% if workout.created_by|lower == session.user|lower %}
                 <div class="card-body col-md-4">
                     <p>{{ workout.date }}</p>
-                    <p>{{ workout.workout_description }}</p>
+                    <a href="{{ url_for('workout_details', workout_id=workout._id) }}">{{ workout.workout_description }}</a>
                     <div>
                         <a href={{ url_for('delete_workout', workout_id=workout._id) }} class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Delete</a>
                     </div>

@@ -28,30 +28,79 @@
     </div>
     <div class="form-group col-md-3">
       <label for="category">Category</label>
-      <input type="text" class="form-control" id="category" name="category" placeholder="e.g. cardio, or weights">
-      <i class="fa fa-plus-circle">
+      <input type="text" class="form-control" id="category" name="category" placeholder="e.g. cardio, or weights" required>
+      <i id="category-add" class="fa fa-plus-circle">
       </i>
     </div>
     <div class="form-group col-md-3">
       <label for="modifier">Modifiers</label>
-      <input type="text" class="form-control" id="modifier" name="modifier" placeholder="metrics e.g. distance in KM:" required>
-      <i class="fa fa-plus-circle">
+      <input type="text" class="form-control" id="modifier" name="modifier" placeholder="metrics e.g. distance in KMs:" required>
+      <i id="modifier-add"class="fa fa-plus-circle">
       </i>
     </div>
     <div class="form-group col-md-3">
       <label for="total">Totals</label>
-      <input type="number" class="form-control" id="total" name="total" placeholder="e.g. distance run or reps done">
-      <i class="fa fa-plus-circle">
+      <input type="number" class="form-control" id="total" name="total" placeholder="e.g. distance run or reps done" required>
+      <i id="total-add" class="fa fa-plus-circle">
       </i>
     </div>
   
 <!--form row 2 -->
 
     <div id="exercise-two-container" class="form-group col-md-3 hidden">
-      <input type="text" class="form-control" id="exercise-two" name="exercise-two" placeholder="exercise 2" required>
+      <input type="text" class="form-control" id="exercise-two" name="exercise-two" placeholder="exercise 2">
       <i id="exercise-add-two" class="fa fa-plus-circle">
       </i>
     </div>
+    <div id="category-two-container" class="form-group col-md-3 hidden">
+      <input type="text" class="form-control" id="category-two" name="category-two" placeholder="e.g. stretching, or yoga">
+      <i id="category-add-two"class="fa fa-plus-circle">
+      </i>
+    </div>
+    <div id="modifier-two-container" class="form-group col-md-3 hidden">
+      <input type="text" class="form-control" id="modifier" name="modifier" placeholder="metrics e.g. weights in KGs:">
+      <i id="modifier-add-two" class="fa fa-plus-circle">
+      </i>
+    </div>
+    <div id="total-two-container" class="form-group col-md-3 hidden">
+      <input type="number" class="form-control" id="total" name="total" placeholder="e.g. distance run or reps done">
+      <i id="total-add-two" class="fa fa-plus-circle">
+      </i>
+    </div>
+  
+<!--form row 3 -->
+
+<div id="exercise-three-container" class="form-group col-md-3 hidden">
+  <input type="text" class="form-control" id="exercise-three" name="exercise-three" placeholder="exercise 2">
+  <i id="exercise-add-three" class="fa fa-plus-circle">
+  </i>
+</div>
+<div id="category-three-container" class="form-group col-md-3 hidden">
+  <input type="text" class="form-control" id="category-two" name="category-two" placeholder="e.g. cardio, or weights" >
+  <i id="category-add-three" class="fa fa-plus-circle">
+  </i>
+</div>
+<div id="modifier-three-container" class="form-group col-md-3 hidden">
+  <input type="text" class="form-control" id="modifier" name="modifier" placeholder="metrics e.g. weights in KGs:">
+  <i id="modifier-add-three" class="fa fa-plus-circle">
+  </i>
+</div>
+<div id="total-two-container" class="form-group col-md-3 hidden">
+  <input type="number" class="form-control" id="total" name="total" placeholder="e.g. distance run or reps done">
+  <i id="total-add-three" class="fa fa-plus-circle">
+  </i>
+</div>
+
+<!--workout visibility function -->  
+
+<div class="form-check form-switch row">
+  <label class="form-check-label" for="is-visble">Publicly Visible</label>
+  <br>
+  <input class="form-check-input" type="checkbox" role="switch" id="is-visible" name="is-visible" checked>
+</div>
+  
+  <!-- submit row -->
+
     <div>
       <button type="submit" class="col-sm-12 col-md-3">Record Workout</button>
     </div>

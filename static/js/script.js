@@ -5,18 +5,74 @@ let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9
 
 // document.getElementById("registered-username-input").addEventListener("change", validateRegisteredUserName);//
 
-document.getElementById("exercise-add").addEventListener("click", duplicateExerciseOne);
+//event listeners //
 
-// check registered and new user input information
+document.getElementById("exercise-add").addEventListener("click", duplicateExerciseOne);
+document.getElementById("category-add").addEventListener("click", duplicateCategoryOne);
+document.getElementById("modifier-add").addEventListener("click", duplicateModifierOne);
+document.getElementById("total-add").addEventListener("click", duplicateTotalOne);
+document.getElementById("exercise-add-two").addEventListener("click", duplicateExerciseTwo);
+document.getElementById("category-add-two").addEventListener("click", duplicateCategoryTwo);
+
+
+// check registered and new user input information //
 
 function validateRegisteredUserName() {
         $("#registered-password").removeClass("hidden");
     }
 
+// record workout section 1 functions //    
+
 function duplicateExerciseOne() {
     $("#exercise-two-container").removeClass("hidden");
-    $("")
+    $("#exercise-add").addClass("hidden");
+}  
+
+function duplicateCategoryOne() {
+    $("#category-two-container").removeClass("hidden");
+    $("#category-add").addClass("hidden");
 }
+
+function duplicateModifierOne() {
+    $("#modifier-two-container").removeClass("hidden");
+    $("#modifier-add").addClass("hidden");
+}
+
+function duplicateTotalOne() {
+    $("#total-two-container").removeClass("hidden");
+    $("#total-add").addClass("hidden");
+}
+
+// record workout section 2 functions //   
+
+function duplicateExerciseTwo() {
+    $("#exercise-three-container").removeClass("hidden");
+    $("#exercise-add-two").addClass("hidden");
+}  
+
+function duplicateCategoryTwo() {
+    $("#category-three-container").removeClass("hidden");
+    $("#category-add-three").addClass("hidden");
+}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //if (document.getElementByIegistered-email-input").value != "") {
     //let reg;isteredUserEmailInput = docu.getElementById("registered-email-input").value;
@@ -55,5 +111,5 @@ function duplicateExerciseOne() {
 
 //if (registeredUserEmailInput != "")
     //else {
-    //$("#registered-password").removeClass("hidden");
-        ////document.getElementById("registered-password").removeClass("hidden");
+    //$("#registered-password").removeClass("hidden"); ////document.getElementById("registered-password").removeClass("hidden");
+

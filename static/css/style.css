@@ -158,6 +158,7 @@ h2 {
 }
 
 
+
 /* Register page styles */
 
 .center-align {
@@ -244,6 +245,14 @@ h3 {
 
 .hidden {
     display: none;
+}
+
+#is-visible {
+    margin-left: 0;
+    float: none;
+    width: 4em;
+    background-color: #28b0b8b3;
+    border-color: #28b0b8b3;
 }
 
 /* profile page styles */
