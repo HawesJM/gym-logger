@@ -163,6 +163,14 @@ def add_exercise():
     return render_template("add_workout.html")
 
 
+@app.route("/delete_workout/<workout_id>")
+def delete_workout(workout_id):
+    mongo.db.workouts.delete_one({"_id": 
+    ObjectId(workout_id)})
+    flash("workout successfully deleted")
+    return render_template("profile.html", username=session["user"])
+
+
 @app.route("/workout_details/<workout_id>")
 def workout_details(workout_id):
     workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
