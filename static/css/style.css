@@ -308,7 +308,7 @@ h3 {
 }
 
 #workout-list-container {
-    text-align: center;
+    text-align: left;
     font-family: teko;
 }
 
@@ -328,3 +328,20 @@ h3 {
     background-color: #ED6B47;
     color: #fafafa;
 }
+
+.row {
+    --bs-gutter-x: 0; 
+}
+
+.workout-row > span {
+    text-transform: capitalize;
+}
+
+#workout-collapse-button {
+    text-align: left;
+    background-color: #494B49;
+    color: #fafafa;
+    text-transform: capitalize;
+}
+
+
