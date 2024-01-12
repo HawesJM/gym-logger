@@ -186,13 +186,20 @@ def add_exercise():
     return render_template("add_workout.html")
 
 
+@app.route("/edit_workout/<workout_id>", methods=["GET", "POST"])
+def edit_workout(workout_id):
+    workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
+    return render_template("edit_workout.html", workout=workout)
+
+
 @app.route("/delete_workout/<workout_id>")
 def delete_workout(workout_id):
     mongo.db.workouts.delete_one({"_id": 
     ObjectId(workout_id)})
     flash("workout successfully deleted")
     workouts = list(mongo.db.workouts.find())
-    return render_template("profile.html", username=session["user"], workouts=workouts)
+    return render_template("profile.html", username=session["user"], workout=workout)
+
 
 
 @app.route("/workout_details/<workout_id>")
@@ -201,6 +208,11 @@ def workout_details(workout_id):
 
     return render_template("workout_details.html", workout=workout)
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    workouts = list(mongo.db.workouts.find({"$text": {"$search": query}}))
+    return render_template("workouts.html", workouts=workouts)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

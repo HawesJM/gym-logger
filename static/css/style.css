@@ -277,6 +277,10 @@ h3 {
     font-size: 18px;
 }
 
+#recorded-workouts {
+    text-align: center;
+}
+
 #saved-workouts {
     margin-left: auto;
     margin-right: auto;
@@ -287,4 +291,40 @@ h3 {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+
+.card-head{
+    height: 150px;
+    border-radius: 3%;
+    box-shadow: 8px 3px 3px #ED6B47;
+    margin-bottom: 10px;
+}
+
+/* full workout list page styles */
+
+h3 {
+    font-size: 32px;
+    text-align: center;
+}
+
+#workout-list-container {
+    text-align: center;
+    font-family: teko;
+}
+
+#workout-search {
+    margin-bottom: 10px;
+}
+
+#workout-search-button-container {
+    text-align: right;
+}
+
+#search-button {
+    border-color: #ED6B47 !important 
+}
+
+#search-button:hover {
+    background-color: #ED6B47;
+    color: #fafafa;
 }

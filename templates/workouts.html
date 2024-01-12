@@ -1,24 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">All Workouts</h3>
-
-<div class="row card-panel grey lighten-5">
-    <form action="#" method="post" class="col s12">
-        <div class="row valign-wrapper center-align">
-            <div class="input-field col s12 m8">
-                <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
-                <input type="text" name="query" id="query" minlength="3" class="validate" required>
-                <label for="query">Search Workouts</label>
+<h3>All Workouts</h3>
+<div id ="workout-list-container" class= "row col-12 col-md-6 shadow-lg p-3 mb-5 bg-white rounded mx-auto">
+    <form id="workout-search" action="{{url_for('search')}}" method="post" class="row">
+            <div class="col-8">
+                <input class="form-control me-2" type="text" name="query" id="query" placeholder="Enter your search e.g. by exercise type" aria-label="Search" required>
             </div>
-            <div class="col s12 m4">
-                <a href="{{ url_for('workouts') }}" class="red btn text-shadow">Reset</a>
-                <button type="submit" class="light-blue darken-1 btn text-shadow">
-                    <i class="fas fa-search left"></i> Search
-                </button>
+            <div id ="workout-search-button-container" class="col-4">
+                <button id="search-button" class="btn" type="submit"><label for="query"><i class="fas fa-search prefix light-blue-text text-darken-4"></i>Search</label></button>
+                <a href="{{ url_for('workouts') }}" class="btn btn-primary">Reset</a>
             </div>
-        </div>
     </form>
+    <hr>
 </div>
 
 {% if workouts|length > 0 %}
@@ -30,7 +24,7 @@
                 <i class="fas fa-caret-down"></i>
                 {% if session.user|lower == workout.created_by|lower %}
                 <a href="#" class="btn-small green accent-4">Done</a>
-                <a href="#" class="btn-small light-blue lighten-1">Edit</a>
+                <a href="{{ url_for('edit_workout', workout_id=workout._id) }}" class="btn btn-primary">Edit</a>
                 {% endif %}
             </div>
             <div class="col s9">
