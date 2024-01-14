@@ -115,6 +115,7 @@ def record_workout():
         logged_workout = {
             "date": request.form.get("workout-date"),
             "workout_description": request.form.get("workout-description"),
+            "workout_container_description": request.form.get("workout-description").replace(" ", ""),
             "created_by": session["user"],
             "exercise": request.form.get("exercise"),
             "exercise2": request.form.get("exercise-two"),
@@ -213,6 +214,7 @@ def search():
     query = request.form.get("query")
     workouts = list(mongo.db.workouts.find({"$text": {"$search": query}}))
     return render_template("workouts.html", workouts=workouts)
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

@@ -19,7 +19,7 @@
         {% if workout.created_by|lower == session.user|lower %}
         <div id="workout-card" class="card col-md-4">
             {% if workout.category == "cardio" %}
-            <img class="card-head" src="/static/images/cardio-card-header.jpg">
+            <img class="card-head col-md-11" src="/static/images/cardio-card-header.jpg">
             {% endif %}
             {% if workout.category == "resistance" %}
             <img class="card-head" src="/static/images/resistance-card-header.jpg">

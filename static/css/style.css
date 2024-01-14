@@ -255,6 +255,11 @@ h3 {
     border-color: #28b0b8b3;
 }
 
+#visible-switch {
+    text-align: center;
+    padding-left: 0;
+}
+
 /* profile page styles */
 
 #profile-header {
@@ -344,4 +349,44 @@ h3 {
     text-transform: capitalize;
 }
 
+#reset-search {
+    background-color: #28b0b8b3;
+    border-color: #28b0b8b3;
+}
 
+#reset-search:hover {
+    border-color: #fafafa;
+}
+
+#description-span {
+    float: left;
+}
+
+#action-span {
+    float: right;
+    margin-right: 0;
+}
+
+#action-span i {
+    padding: 10px;
+}
+
+#action-span i:hover {
+    transform: scale(1.5);
+}
+
+/* edit workout page styles */
+#workout-detail-header {
+    text-transform: capitalize;
+    text-decoration: underline;
+    padding-bottom: 5px;
+}
+
+#change-date-header {
+    text-transform: capitalize;
+}
+
+.btn-info {
+    background-color: #28b0b8b3;
+    color: fafafa;
+}

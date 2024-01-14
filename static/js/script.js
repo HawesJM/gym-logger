@@ -30,6 +30,13 @@ function validateRegisteredUserName() {
         $("#registered-password").removeClass("hidden");
     }
 
+// generate dropdown IDs function //   
+
+$(document).ready(function () {
+    $("#details-form")
+});
+
+
 // record workout section 2 functions //    
 
 function duplicateExerciseOne() {
