@@ -190,7 +190,9 @@ def add_exercise():
 @app.route("/edit_workout/<workout_id>", methods=["GET", "POST"])
 def edit_workout(workout_id):
     workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
-    return render_template("edit_workout.html", workout=workout)
+    workouts = list(mongo.db.workouts.find())
+    return render_template("edit_workout.html", workout=workout, workouts=workouts)
+    
 
 
 @app.route("/delete_workout/<workout_id>")
