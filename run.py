@@ -191,6 +191,12 @@ def add_exercise():
 def edit_workout(workout_id):
     workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
     workouts = list(mongo.db.workouts.find())
+    if request.method == "POST":
+        submit = {
+            "workout_description": request.form.get("workout-description")
+        }
+        mongo.db.workouts.update_one({"_id": ObjectId(workout_id)}, {"$set": submit})
+
     return render_template("edit_workout.html", workout=workout, workouts=workouts)
     
 

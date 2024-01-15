@@ -21,9 +21,11 @@
                 <span><i class="fa-regular fa-square-caret-down"></i> {{ workout.workout_description }} logged by : <em> {{ workout.created_by }}</em></span>
                 </div>
                 <div id = "action-span">
-                <span><i class="fa-regular fa-floppy-disk"></i><i class="fa-regular fa-pen-to-square"></i>
+                <span><i class="fa-regular fa-floppy-disk"></i>
                   {% if session.user == workout.created_by %}
+                  <a class="undecorated" href="{{ url_for('edit_workout',workout_id = workout._id) }}"><i class="fa-regular fa-pen-to-square"></i></a>
                   <i class="fa-regular fa-trash-can"></i></span>
+                  
                   {% endif %}
               </div>
               </button>

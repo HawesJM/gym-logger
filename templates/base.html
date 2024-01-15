@@ -22,6 +22,7 @@
     <!-- Header and navigation section -->
 
 <div id="header-div">
+    
     <header>
         <div id="header-logo">
             <img src="{{url_for('static', filename='/images/gym-logger-logo.jpg')}}" />
@@ -43,9 +44,6 @@
                 <a class="nav-link sidenav-trigger" href="{{ url_for('profile', username=session['user']) }}">Your Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link sidenav-trigger" href="{{ url_for('record_workout') }}">Log A Workout</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link sidenav-trigger" href="{{ url_for('sign_out') }}">Sign Out</a>
             </li>
             {% else %}
@@ -57,20 +55,18 @@
             </li>
             
             {% endif %}
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-            </ul>
-            </div>
+            {% if session.user %}
+            <div class="dropdown">
+                <button id="nav-dropdown" class="btn btn-lg btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="undecorated" href="{{ url_for('record_workout') }}"><button class="dropdown-item nav-item" type="button">Log A Workout</button></a></li>
+                  <li><a class="undecorated" href="{{ url_for('workouts') }}"><button class="dropdown-item nav-item" type="button">Browse & Edit Workouts</button></a></li>
+                  <li><a class="undecorated" href="{{ url_for('workouts') }}"><button class="dropdown-item nav-item" type="button">Glossary & FAQs</button></a></li>
+                </ul>
+              </div>
+              {% endif %}
         </div>
     </nav>
 </header>
