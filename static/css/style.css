@@ -106,6 +106,13 @@ h2 {
     background-color: #494B49;
 }
 
+/* Index member area styles */
+
+.btn-submit:hover {
+    background-color:#ED6B47;
+    transform: scale(1.1);
+}
+
 /* Signup and member area styles */
 
 #about-signup {
@@ -259,8 +266,6 @@ h3 {
     
 }
 
-
-}
 .hidden {
     display: none;
 }
