@@ -3,7 +3,6 @@
 
 let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-// document.getElementById("registered-username-input").addEventListener("change", validateRegisteredUserName);//
 
 //event listeners //
 
@@ -25,10 +24,6 @@ document.getElementById("modifier-add-four").addEventListener("click", duplicate
 document.getElementById("total-add-four").addEventListener("click", duplicateTotalFour);
 
 // check registered and new user input information //
-
-function validateRegisteredUserName() {
-        $("#registered-password").removeClass("hidden");
-    }
 
 // generate dropdown IDs function //   
 
