@@ -22,6 +22,7 @@ document.getElementById("exercise-add-four").addEventListener("click", duplicate
 document.getElementById("category-add-four").addEventListener("click", duplicateCategoryFour);
 document.getElementById("modifier-add-four").addEventListener("click", duplicateModifierFour);
 document.getElementById("total-add-four").addEventListener("click", duplicateTotalFour);
+document.getElementByIs("save-workout-submit").addEventListener("click", saveWorkoutSubmit)
 
 // check registered and new user input information //
 
@@ -121,7 +122,9 @@ function duplicateTotalFour() {
     $("#total-add-four").addClass("hidden");
 }
 
-
+function saveWorkoutSubmit() { 
+    document.getElementById("save-workout").submit(); 
+} 
 
 
 

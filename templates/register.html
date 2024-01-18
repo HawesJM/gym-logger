@@ -1,9 +1,9 @@
 {% extends "base.html" %} {% block content %}
 
+<h3 class="center-align">Register</h3>
 
+<div class="row panel shadow-lg p-3 mb-5 bg-white rounded col-md-6" id="register-container">
 
-<div class="row panel shadow-lg p-3 mb-5 bg-white rounded" id="register-container">
-    <h3 class="center-align">Register</h3>
     <form method="POST" action="{{ url_for('register') }}">
         <div class="panel">
             <!-- username -->
@@ -33,7 +33,7 @@
 </div>
 
 <div class="row">
-    <div class="col s12">
+    <div class="col s12 login-help">
         <p class="center-align">
             Already Registered?
             <a href="{{ url_for('sign_in') }}" class="light-blue-text text-darken-4">Sign In</a>

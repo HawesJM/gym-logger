@@ -223,6 +223,7 @@ def search():
     workouts = list(mongo.db.workouts.find({"$text": {"$search": query}}))
     return render_template("workouts.html", workouts=workouts)
 
+    
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

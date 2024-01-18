@@ -2,11 +2,11 @@
 
 <h3 class="center-align">Log In</h3>
 
-<div class="row shadow-lg p-3 mb-5 bg-white rounded" id="login-container">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('sign_in') }}">
-        <div class="panel">
+<div class="shadow-lg p-3 mb-5 bg-white rounded col-12 col-md-6" id="login-container">
+    <form method="POST" action="{{ url_for('sign_in') }}">
+        <div class="panel col-12">
             <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field">
                     <i class="fas fa-user-cog prefix light-blue-text text-darken-4"></i>
                     <input id="username" name="username" type="text" minlength="5" maxlength="15"
                     class="validate" required />
@@ -15,7 +15,7 @@
             </div>
 <!-- password -->
             <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col-12">
                     <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
                     <input id="password" name="password" type="password" minlength="5" maxlength="15"
                     class="validate" required />
@@ -25,7 +25,7 @@
             <!-- login -->
             <div class="row">
                 <div>
-                    <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
+                    <button id="login-button" type="submit" class="btn-large light-blue darken-4 text-shadow">
                         Log In <i class="fas fa-sign-in-alt"></i>
                     </button>
                 </div>
@@ -34,7 +34,7 @@
     </form>
 </div>
 
-<div class="row">
+<div class="row login-help"">
     <div class="col s12">
         <p class="center-align">
             New Here?
