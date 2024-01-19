@@ -161,11 +161,13 @@
 </div>
 
 <div id="mobile-workout-form" class="col-12 shadow-lg p-3 mb-5 bg-white rounded">
+  <p><em>These details can be edited later</em></p>
+  <hr>
   <form class="row" method="POST" action="{{url_for('record_workout')}}">
-    <div>
-      <div id="date-picker" class="col-6">
+    <div id="date-picker-mobile-container">
+      <div id="date-picker-mobile" class="col-6">
         <label for="workout-date">Workout Date</label>
-        <input id="workout-date" name="workout-date" class="form-control" type="date" />
+        <input id="workout-date-mobile-input" name="workout-date" class="form-control" type="date" />
       </div>
     </div>
 </div>

@@ -4,7 +4,7 @@
 let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 
-//event listeners //
+//workout form event listeners //
 
 document.getElementById("exercise-add").addEventListener("click", duplicateExerciseOne);
 document.getElementById("category-add").addEventListener("click", duplicateCategoryOne);
@@ -22,7 +22,12 @@ document.getElementById("exercise-add-four").addEventListener("click", duplicate
 document.getElementById("category-add-four").addEventListener("click", duplicateCategoryFour);
 document.getElementById("modifier-add-four").addEventListener("click", duplicateModifierFour);
 document.getElementById("total-add-four").addEventListener("click", duplicateTotalFour);
-document.getElementByIs("save-workout-submit").addEventListener("click", saveWorkoutSubmit)
+
+
+//mobile form event listeners //
+document.getElementById("workout-date-mobile-input").addEventListener("change", hideDatePicker)
+
+
 
 // check registered and new user input information //
 
@@ -126,12 +131,19 @@ function saveWorkoutSubmit() {
     document.getElementById("save-workout").submit(); 
 } 
 
+// mobile record workout section //
+
+function hideDatePicker() {
+    $("#date-picker-mobile-container").addClass("hidden");
+    let mobile_date = document.getElementById("workout-date-mobile-input").value 
+    alert(`selected workout date is ${mobile_date}`)
+
+}
 
 
+//save workout event listener //
 
-
-
-
+// document.getElementById("save-workout-submit").addEventListener("click", saveWorkoutSubmit) //
 
 
 

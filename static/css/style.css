@@ -304,6 +304,11 @@ h3 {
     text-align: center;
 }
 
+#date-picker-mobile {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* profile page styles */
 
 #profile-header {
@@ -378,9 +383,6 @@ h3 {
     color: #fafafa;
 }
 
-.row {
-    --bs-gutter-x: 0; 
-}
 
 .workout-row > span {
     text-transform: capitalize;
@@ -460,6 +462,13 @@ h3 {
 }
 
 /* media queries */
+
+@media (min-width: 576px) {
+    #mobile-workout-form {
+        display: none;
+    }
+    
+}
 
 @media (max-width: 575px) {
     #workout-record-container {
