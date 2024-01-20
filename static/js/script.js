@@ -26,6 +26,11 @@ document.getElementById("total-add-four").addEventListener("click", duplicateTot
 
 //mobile form event listeners //
 document.getElementById("workout-date-mobile-input").addEventListener("change", hideDatePicker)
+document.getElementById("workout-description-mobile").addEventListener("change", hideMobileDescription)
+document.getElementById("mobile-exercise-add-1").addEventListener("click", hideWorkoutRow1)
+document.getElementById("mobile-exercise-add-2").addEventListener("click", hideWorkoutRow2)
+document.getElementById("mobile-exercise-add-3").addEventListener("click", hideWorkoutRow3)
+document.getElementById("mobile-exercise-add-4").addEventListener("click", hideWorkoutRow4)
 
 
 
@@ -140,10 +145,42 @@ function hideDatePicker() {
 
 }
 
+function hideMobileDescription() {
+    $("#mobile-description").addClass("hidden");
+    let mobile_description = document.getElementById("workout-description-mobile").value 
+    alert(`workout description is ${mobile_description}`)
+
+}
+
+function hideWorkoutRow1() {
+    $("#mobile-exercise-row-1").addClass("hidden");
+    $("#mobile-exercise-row-2").removeClass("hidden");;
+}
+
+function hideWorkoutRow2() {
+    $("#mobile-exercise-row-2").addClass("hidden");
+    $("#mobile-exercise-add-2").addClass("hidden");
+    $("#mobile-exercise-row-3").removeClass("hidden");
+}
+
+function hideWorkoutRow3() {
+    $("#mobile-exercise-row-3").addClass("hidden");
+    $("#mobile-exercise-add-3").addClass("hidden");
+    $("#mobile-exercise-row-4").removeClass("hidden");
+}
+
+function hideWorkoutRow4() {
+    $("#mobile-exercise-row-4").addClass("hidden");
+    $("#mobile-exercise-add-4").addClass("hidden");
+    $("#mobile-exercise-row-5").removeClass("hidden");
+}
 
 //save workout event listener //
 
-// document.getElementById("save-workout-submit").addEventListener("click", saveWorkoutSubmit) //
+// document.getElementById("save-workout-submit").addEventListener("click", saveWorkoutSubmit) 
+ 
+//    if $("#mobile-exercise-row-1").hasClass("visible")
+//alert($("p").hasClass("intro")); //
 
 
 

@@ -207,7 +207,7 @@ def delete_workout(workout_id):
     ObjectId(workout_id)})
     flash("workout successfully deleted")
     workouts = list(mongo.db.workouts.find())
-    return render_template("profile.html", username=session["user"], workout=workout)
+    return render_template("profile.html", username=session["user"], workout=workouts)
 
 
 

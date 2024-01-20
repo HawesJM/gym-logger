@@ -309,6 +309,25 @@ h3 {
     margin-right: auto;
 }
 
+#mobile-description {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mobile-exercise-row {
+    margin-top: 15px;
+}
+
+#mobile-submit-button {
+    background-color:#ED6B47;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+#mobile-submit-button:hover {
+    background-color: #28b0b8b3;
+    color: #fafafa;
+}
 /* profile page styles */
 
 #profile-header {
@@ -491,5 +510,23 @@ h3 {
 
     #action-dropdown li {
         font-size: 8px;
+    }
+
+    #header-title {
+        padding-top: 15px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    h3 {
+        font-size: 16px;
+        padding-top: 5px;
+        padding-bottom: 2px;
+    }
+
+    #mobile-exercise-row-1, #mobile-exercise-row-2, #mobile-exercise-row-3, #mobile-exercise-row-4, #mobile-exercise-row-5 {
+        --bs-gutter-x: 0;
     }
 }
