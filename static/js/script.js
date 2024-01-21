@@ -223,4 +223,3 @@ function hideWorkoutRow4() {
 //if (registeredUserEmailInput != "")
     //else {
     //$("#registered-password").removeClass("hidden"); ////document.getElementById("registered-password").removeClass("hidden");
-

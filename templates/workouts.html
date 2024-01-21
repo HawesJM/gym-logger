@@ -22,8 +22,10 @@
                 </div>
                 <div id = "action-span">
                 <form id="save-workout" style="display: inline" method="POST" action="">  
+                  {% if not session.user == workout.created_by %} 
                    <label for="saved-workout"><i id="save-workout-submit" class="fa-regular fa-floppy-disk"></i></label>
                     <input id="saved-workout" name="workout-saved" class="form-control hidden" type="text" />
+                    {% endif %}
                 </form>
                   {% if session.user == workout.created_by %}
                   <a class="undecorated" href="{{ url_for('edit_workout',workout_id = workout._id) }}"><i class="fa-regular fa-pen-to-square"></i></a>
