@@ -4,20 +4,15 @@
 <!--Edit Workout Container-->
 
 <div id="edit-record-container" class="col-12 col-md-6 shadow-lg p-3 mb-5 bg-white rounded row form-group">
-  <form id="edit-workout-form" class="row" method="POST" action="{{url_for('edit_workout', workout_id = workout._id)}}">
-    <div mx-auto>
-      <div id="visible-switch" class="form-check form-switch row">
-        <label class="form-check-label" for="is-visble">Publicly Visible</label>
-        <br>
-        <input class="form-check-input" type="checkbox" role="switch" id="is-visible" name="is-visible" checked>
-      </div>
+  <form id="edit-workout-form" class="row" method="POST" action="{{url_for('save_workout', workout_id = workout._id)}}">
+    <div>
       <div class="btn btn-info col-12 col-md-12">
         <h3 id="workout-detail-header" class="center-align">{{ workout.workout_description
           }}</h3>
         <span><label for="edit-workout-description"></label><i class="fa-regular fa-pen-to-square"></i>Edit Workout
           Description</span>
         <input type="text" class="form-control" id="workout-description" name="workout-description" minlength="5"
-          maxlength="50" value="{{ workout.workout_description
+          maxlength="50" placeholder="{{ workout.workout_description
               }}">
         </input>
       </div>
@@ -29,7 +24,7 @@
         <span><label for="edit-workout-date"><i class="fa-regular fa-pen-to-square"></i>Change Workout
             Date</label></span>
         <input type="text" class="form-control" id="workout-date" name="workout-date" minlength="5" maxlength="50"
-          value="{{ workout.date
+          placeholder="{{ workout.date
             }}">
       </div>
       <div id="edit-workouts-container" class="btn btn-info col-md-12 gx-0">
@@ -38,16 +33,16 @@
         </span>
         <div class="row">
           <div class="btn col-md-3 gx-0">
-            <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.exercise}}:">
+            <input type="text" class="form-control" id="exercise" name="exercise" placeholder="{{workout.exercise}}:">
           </div>
           <div class="btn col-md-3 gx-0">
-            <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.category}}:">
+            <input type="text" class="form-control" id="exercise" name="exercise" placeholder="{{workout.category}}:">
           </div>
           <div class="btn col-md-3 gx-0">
-            <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.modifier}}:">
+            <input type="text" class="form-control" id="exercise" name="exercise" placeholder="{{workout.modifier}}:">
           </div>
           <div class=" btn col-md-3 gx-0">
-            <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.total}}">
+            <input type="text" class="form-control" id="exercise" name="exercise" placeholder="{{workout.total}}">
           </div>
         </div>
 
@@ -55,16 +50,16 @@
         {% if workout.exercise2 %}
         <div class=" row">
           <div class="btn col-md-3">
-            <input type="text" class="form-control" id="exercise2" name="exercise2" value="{{workout.exercise2}}">
+            <input type="text" class="form-control" id="exercise2" name="exercise2" placeholder="{{workout.exercise2}}">
           </div>
           <div class="btn col-md-3">
-            <input type="text" class="form-control" id="category2" name="category2" value="{{workout.category2}}">
+            <input type="text" class="form-control" id="category2" name="category2" placeholder="{{workout.category2}}">
           </div>
           <div class="btn col-md-3 gx-0">
-            <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.modifier2}}"":>
+            <input type="text" class="form-control" id="exercise" name="exercise" placeholder="{{workout.modifier2}}"":>
           </div>
           <div class=" btn col-md-3 gx-0">
-            <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.total2}}"">
+            <input type="text" class="form-control" id="exercise" name="exercise" placeholder="{{workout.total2}}"">
           </div>
         </div>
         {% endif %}
@@ -74,17 +69,17 @@
       {% if workout.exercise3 %}
       <div class=" row">
             <div class="btn col-md-3">
-              <input type="text" class="form-control" id="exercise3" name="exercise3" value={{workout.exercise3}}
+              <input type="text" class="form-control" id="exercise3" name="exercise3" placeholder={{workout.exercise3}}
                 :>
             </div>
             <div class="btn col-md-3">
-              <input type="text" class="form-control" id="category" name="exercise3" value={{workout.category3}}>
+              <input type="text" class="form-control" id="category" name="exercise3" placeholder={{workout.category3}}>
             </div>
             <div class="btn col-md-3 gx-0">
-              <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.modifier3}}"":>
+              <input type="text" class="form-control" id="exercise" name="exercise" placeholder="{{workout.modifier3}}"":>
         </div>
         <div class=" btn col-md-3 gx-0">
-              <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.total3}}"">
+              <input type="text" class="form-control" id="exercise" name="exercise" placeholder="{{workout.total3}}"">
         </div>
         {% endif %}
       </div>  
@@ -95,18 +90,18 @@
       <div class=" row">
               <div class="btn col-md-3">
                 <input type="text" class="form-control" id="exercise4" name="exercise4"
-                  value="{{workout.exercise4}}">
+                  placeholder="{{workout.exercise4}}">
               </div>
               <div class="btn col-md-3">
                 <input type="text" class="form-control" id="category4" name="category4"
-                  value={{workout.category4}}>
+                  placeholder={{workout.category4}}>
               </div>
               <div class="btn col-md-3 gx-0">
                 <input type="text" class="form-control" id="exercise" name="exercise"
-                  value="{{workout.modifier4}}"":>
+                  placeholder="{{workout.modifier4}}"":>
         </div>
         <div class=" btn col-md-3 gx-0">
-                <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.total4}}"">
+                <input type="text" class="form-control" id="exercise" name="exercise" placeholder="{{workout.total4}}"">
         </div>
         {% endif %}
 
@@ -116,19 +111,19 @@
       <div class=" row">
                 <div class="btn col-md-3">
                   <input type="text" class="form-control" id="exercise5" name="exercise5"
-                    value={{workout.exercise5}} :>
+                    placeholder={{workout.exercise5}} :>
                 </div>
                 <div class="btn col-md-3">
                   <input type="text" class="form-control" id="exercise5" name="exercise5"
-                    value={{workout.category5}}>
+                    placeholder={{workout.category5}}>
                 </div>
                 <div class="btn col-md-3 gx-0">
                   <input type="text" class="form-control" id="exercise5" name="exercise5"
-                    value="{{workout.modifier5}}"":>
+                    placeholder="{{workout.modifier5}}"":>
         </div>
         <div class=" btn col-md-3 gx-0">
                   <input type="text" class="form-control" id="exercise5" name="exercise5"
-                    value="{{workout.total5}}"">
+                    placeholder="{{workout.total5}}"">
         </div>
         {% endif %}
       </div> 
@@ -136,12 +131,13 @@
         <div class=" btn btn-info col-12 col-md-12">
                   <span><label for="edit-workout-description"></label><i class="fa-regular fa-pen-to-square"></i>Add
                     Additional Information</span>
-                  <input type="text" class="form-control" id="additional-information" name="additional-information"
-                    minlength="5" maxlength="50" value="{{ workout.additional_information}}">
+                  <input type="text" class="form-control" id="workout-description" name="workout-description"
+                    minlength="5" maxlength="50" placeholder="{{ workout.additional_information
+            }}">
                   </input>
                 </div>
                 <div>
-                  <button id="amend-workout" type="submit" class="col-sm-12 col-md-3">Amend Workout</button>
+                  <button id="amend-workout" type="submit" class="col-sm-12 col-md-3">Save Workout</button>
                 </div>
   </form>
 </div>

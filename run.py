@@ -139,6 +139,8 @@ def record_workout():
             "total5": request.form.get(str("total-five")),
             "is_visible": is_visible,
             "additional_information": request.form.get("additional-information"),
+            "saved_by": [],
+
         }
 
         #
@@ -191,9 +193,35 @@ def add_exercise():
 def edit_workout(workout_id):
     workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
     workouts = list(mongo.db.workouts.find())
+    is_visible = "on" if request.form.get("is-visible") else "off"
     if request.method == "POST":
         submit = {
-            "workout_description": request.form.get("workout-description")
+            "date": request.form.get("workout-date"),
+            "workout_description": request.form.get("workout-description"),
+            "workout_container_description": request.form.get("workout-description").replace(" ", ""),
+            "created_by": session["user"],
+            "exercise": request.form.get("exercise"),
+            "exercise2": request.form.get("exercise-two"),
+            "exercise3": request.form.get("exercise-three"),
+            "exercise4": request.form.get("exercise-four"),
+            "exercise5": request.form.get("exercise-five"),
+            "category": request.form.get("category"),
+            "category2": request.form.get("category-two"),
+            "category3": request.form.get("category-three"),
+            "category4": request.form.get("category-four"),
+            "category5": request.form.get("category-five"),
+            "modifier": request.form.get("modifier"),
+            "modifier2": request.form.get("modifier-two"),
+            "modifier3": request.form.get("modifier-three"),
+            "modifier4": request.form.get("modifier-four"),
+            "modifier5": request.form.get("modifier-five"),
+            "total": request.form.get(str("total")),
+            "total2": request.form.get(str("total-two")),
+            "total3": request.form.get(str("total-three")),
+            "total4": request.form.get(str("total-four")),
+            "total5": request.form.get(str("total-five")),
+            "is_visible": is_visible,
+            "additional_information": request.form.get("additional-information"),
         }
         mongo.db.workouts.update_one({"_id": ObjectId(workout_id)}, {"$set": submit})
 
@@ -223,6 +251,30 @@ def search():
     workouts = list(mongo.db.workouts.find({"$text": {"$search": query}}))
     return render_template("workouts.html", workouts=workouts)
 
+@app.route("/save_workout_page/<workout_id>", methods=["GET", "POST"])
+def save_workout_page(workout_id):
+    workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
+    workouts = list(mongo.db.workouts.find())
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    return render_template("save_workout.html", workout=workout, workouts=workouts) 
+
+@app.route("/save_workout/<workout_id>", methods=["GET", "POST"])
+def save_workout(workout_id):
+    workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
+    workouts = list(mongo.db.workouts.find())
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if request.method == "POST":
+        saved_workout = {
+            "saved_by": username,
+        }
+        mongo.db.workouts.update_one({"_id": ObjectId(workout_id)}, {"$push": saved_workout})
+    
+
+    return render_template("profile.html", workout=workout, workouts=workouts, username=username, saved_workout=saved_workout)
     
 
 if __name__ == "__main__":

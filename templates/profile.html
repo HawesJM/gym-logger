@@ -50,15 +50,19 @@
         <h4>
             My saved workouts
         </h4>
+        {% for workout in workouts %}
+            {% if workout.saved_by[]|lower == session.user|lower %}
         <div class="card-body col-md-4">
-            saved workout 1
+            {{workout.workout_description}}
         </div>
         <div class="card-body col-md-4">
-            saved workout 2
+            {{workout.workout_description}}
         </div>
         <div class="card-body col-md-4">
-            saved workout 3
+            {{workout.workout_description}}
         </div>
+        {% endif %}
+        {% endfor %}
     </div>
 </div>
 

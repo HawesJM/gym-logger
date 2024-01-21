@@ -20,11 +20,9 @@
                 <div id = "description-span">
                 <span><i class="fa-regular fa-square-caret-down"></i> {{ workout.workout_description }} logged by : <em> {{ workout.created_by }}</em></span>
                 </div>
-                <div id = "action-span">
-                <form id="save-workout" style="display: inline" method="POST" action="">  
+                <div id = "action-span"> 
                   {% if not session.user == workout.created_by %} 
-                   <label for="saved-workout"><i id="save-workout-submit" class="fa-regular fa-floppy-disk"></i></label>
-                    <input id="saved-workout" name="workout-saved" class="form-control hidden" type="text" />
+                  <a class="undecorated" href="{{ url_for('save_workout_page', workout_id = workout._id) }}"><i id="save-workout-submit" class="fa-regular fa-floppy-disk"></i></a>
                     {% endif %}
                 </form>
                   {% if session.user == workout.created_by %}
