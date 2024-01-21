@@ -243,7 +243,7 @@ def delete_workout(workout_id):
 def workout_details(workout_id):
     workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
 
-    return render_template("workout_details.html", workout=workout)
+    return render_template("workout_details.html", workout=workout, workouts=workouts)
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
