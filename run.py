@@ -1,3 +1,5 @@
+# required imports
+
 import os
 from flask import (Flask, flash, render_template,
                    redirect, request, session, url_for)
@@ -17,29 +19,36 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+# app routes
+
+# homepage route with example workouts from database
 
 @app.route("/")
 @app.route("/index")
 def index():
-    return render_template("index.html")
+    workouts = mongo.db.workouts.find().sort("created_date").limit(5)
+    return render_template("index.html", workouts=workouts)
 
+# full workout list from database
 
 @app.route("/workouts")
 def workouts():
     workouts = list(mongo.db.workouts.find())
     return render_template("workouts.html", workouts=workouts)
 
+# to show a list of exercise categories
 
 @app.route("/categories")
 def categories():
-    categories = list(mongo.db.categories.find().sort("category_name", 1))
+    categories = list(mongo.db.categories.find().sort("category_name"))
     return render_template("categories.html", categories=categories)
 
+# user registration function
 
 @app.route("/register",  methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        # check if username already exists in db
+        # check if username already exists in users collection in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
@@ -47,19 +56,20 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
 
-    # acts as the else statement if no existing user is found
+    # acts as the else statement if no existing user is found to create user
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(register)
 
-    # put the new user into 'session' cookie
+    # puts the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
+# user sign-in function
 
 @app.route("/sign_in", methods=["GET", "POST"])
 def sign_in():
@@ -73,7 +83,6 @@ def sign_in():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for
                     ("profile", username=session["user"]))
             else:
@@ -88,6 +97,7 @@ def sign_in():
 
     return render_template("sign_in.html")
 
+# function to display the current user's profile with saved information
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
@@ -100,6 +110,7 @@ def profile(username):
 
     return redirect(url_for("sign_in"))
 
+# sign in function
 
 @app.route("/sign_out")
 def sign_out():
@@ -107,6 +118,8 @@ def sign_out():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("sign_in"))
+
+# create workout record function
 
 @app.route("/record_workout", methods=["GET", "POST"])
 def record_workout():
@@ -143,7 +156,7 @@ def record_workout():
 
         }
 
-        #
+        # ensures key fields are not recorded as empty
         for key in logged_workout.keys():
             if logged_workout[key]:
                 logged_workout[key] = logged_workout[key].lower()
@@ -160,11 +173,12 @@ def record_workout():
         mongo.db.workouts.insert_one(logged_workout)
         mongo.db.exercises.insert_one(logged_exercise)
         mongo.db.categories.insert_one(logged_category)
-        flash("Workout successfully logged!")
         return redirect(url_for("profile", username=session["user"]))
+        flash("Workout successfully logged!")
 
     return render_template("record_workout.html")
 
+# for adding workout categories to the database
 
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
@@ -173,7 +187,7 @@ def add_category():
             "category": request.form.get("category")
         }
         mongo.db.categories.insert_one(category)
-        flash("New Category Added")
+
 
     return render_template("add_workout.html")
 
@@ -184,10 +198,11 @@ def add_exercise():
             "exercise": request.form.get("exercise")
         }
         mongo.db.categories.insert_one(exercise)
-        flash("New Exercise Added")
+
 
     return render_template("add_workout.html")
 
+# for editing an existing workout in the database
 
 @app.route("/edit_workout/<workout_id>", methods=["GET", "POST"])
 def edit_workout(workout_id):
@@ -224,20 +239,21 @@ def edit_workout(workout_id):
             "additional_information": request.form.get("additional-information"),
         }
         mongo.db.workouts.update_one({"_id": ObjectId(workout_id)}, {"$set": submit})
-
+        return redirect(url_for("profile", username=session["user"]))
+        flash("workout successfully amended")
     return render_template("edit_workout.html", workout=workout, workouts=workouts)
     
-
+# function for a user to delete an owned workout record from the database
 
 @app.route("/delete_workout/<workout_id>")
 def delete_workout(workout_id):
     mongo.db.workouts.delete_one({"_id": 
     ObjectId(workout_id)})
-    flash("workout successfully deleted")
     workouts = list(mongo.db.workouts.find())
-    return render_template("profile.html", username=session["user"], workout=workouts)
+    flash("workout successfully deleted")
+    return render_template("profile.html", username=session["user"], workouts=workouts)
 
-
+# shows the full details of a single workout record in its own page
 
 @app.route("/workout_details/<workout_id>")
 def workout_details(workout_id):
@@ -245,11 +261,15 @@ def workout_details(workout_id):
 
     return render_template("workout_details.html", workout=workout, workouts=workouts)
 
+# allows the user to search all workout records
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     workouts = list(mongo.db.workouts.find({"$text": {"$search": query}}))
     return render_template("workouts.html", workouts=workouts)
+
+# function for the user to save another's public workout to their own profile
 
 @app.route("/save_workout_page/<workout_id>", methods=["GET", "POST"])
 def save_workout_page(workout_id):
@@ -259,6 +279,7 @@ def save_workout_page(workout_id):
         {"username": session["user"]})["username"]
 
     return render_template("save_workout.html", workout=workout, workouts=workouts) 
+
 
 @app.route("/save_workout/<workout_id>", methods=["GET", "POST"])
 def save_workout(workout_id):
@@ -272,10 +293,10 @@ def save_workout(workout_id):
             "saved_by": username,
         }
         mongo.db.workouts.update_one({"_id": ObjectId(workout_id)}, {"$push": saved_workout})
-    
 
     return render_template("profile.html", workout=workout, workouts=workouts, username=username, saved_workout=saved_workout)
-    
+
+# how to run the app
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

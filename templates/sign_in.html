@@ -34,6 +34,19 @@
     </form>
 </div>
 
+<section>
+    <!-- flash messages -->
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for message
+    in messages %}
+        {% if message != "Workout successfully logged!" and message != "workout successfully deleted" %}
+        
+    <div class="row flashes">
+        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+    </div>
+    {% endif %}
+    {% endfor %} {% endif %} {% endwith %}
+</section>
+
 <div class="row login-help"">
     <div class="col s12">
         <p class="center-align">
@@ -43,14 +56,5 @@
     </div>
 </div>
 
-<section>
-    <!-- flash messages -->
-    {% with messages = get_flashed_messages() %} {% if messages %} {% for message
-    in messages %}
-    <div class="row flashes">
-        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
-    </div>
-    {% endfor %} {% endif %} {% endwith %}
-</section>
 
 {% endblock %}

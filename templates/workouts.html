@@ -21,7 +21,7 @@
                 <span><i class="fa-regular fa-square-caret-down"></i> {{ workout.workout_description }} logged by : <em> {{ workout.created_by }}</em></span>
                 </div>
                 <div id = "action-span"> 
-                  {% if not session.user == workout.created_by %} 
+                  {% if not session.user == workout.created_by and session.user not in workout.saved_by %} 
                   <a class="undecorated" href="{{ url_for('save_workout_page', workout_id = workout._id) }}"><i id="save-workout-submit" class="fa-regular fa-floppy-disk"></i></a>
                     {% endif %}
                 </form>

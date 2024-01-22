@@ -7,6 +7,24 @@
             {{ username }}'s Profile
         </h3>
     </div>
+
+    
+<section>
+    <!-- flash messages -->
+    {% with messages = get_flashed_messages() %} {% if messages %} 
+        {% if message == "Workout successfully logged!" %}
+    <div class="row flashes">
+        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+    </div>
+        {% endif %}
+        {% if message == "Workout successfully deleted!" %}
+        <div class="row flashes">
+            <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+        </div>
+            {% endif %}
+ {% endif %} {% endwith %}
+  </section>
+
 </div>
 
 
@@ -30,9 +48,15 @@
             <div class="card-body">
                 <p>{{ workout.date }}</p>
                 <a href="{{ url_for('workout_details', workout_id=workout._id) }}">{{ workout.workout_description }}</a>
-                <div>
+                <div id="profile-button-row" class="row">
+                    <div class="col-sm-6 col-md-6">
                     <a href={{ url_for('delete_workout', workout_id=workout._id) }} class="btn btn-danger"><i
                             class="fa-solid fa-trash-can"></i> Delete</a>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                    <a href={{ url_for('edit_workout', workout_id=workout._id) }} class="btn btn-primary"><i
+                            class="fa-regular fa-pen-to-square"></i>Edit</a>
+                        </div>
                 </div>
             </div>
         </div>
@@ -54,17 +78,17 @@
             My saved workouts
         </h4>
         {% for workout in workouts %}
-            {% if workout.saved_by[]|lower == session.user|lower %}
-        <div class="card-body col-md-4">
-            {{workout.workout_description}}
-        </div>
-        <div class="card-body col-md-4">
-            {{workout.workout_description}}
-        </div>
-        <div class="card-body col-md-4">
-            {{workout.workout_description}}
-        </div>
-        {% endif %}
+            {% if session.user|lower in workout.saved_by %}
+            <div class="card-body col-md-4">
+                {{workout.workout_description}}
+            </div>
+            <div class="card-body col-md-4">
+                {{workout.workout_description}}
+            </div>
+            <div class="card-body col-md-4">
+                {{workout.workout_description}}
+            </div>
+            {% endif %}
         {% endfor %}
     </div>
 </div>
