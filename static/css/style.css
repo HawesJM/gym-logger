@@ -45,6 +45,11 @@ h4 {
     font-family: teko, sans-serif;
 }
 
+h5 {
+    font-family: teko, sans-serif;
+    font-size: 18px;
+}
+
 #about-container {
     width: 50%;
     margin-left: auto;
@@ -111,11 +116,15 @@ h2 {
     text-align: center;
 }
 
-/* Index member area styles */
+/* Index homepage specific styles */
 
 .btn-submit:hover {
     background-color:#ED6B47;
     transform: scale(1.1);
+}
+
+#workout-plans-banner {
+    font-family: teko, sans-serif;
 }
 
 /* Signup and member area styles */
@@ -362,6 +371,11 @@ h3 {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    font-family: teko, sans-serif;
+}
+
+#saved-workouts p {
+    font-size: 16px;
 }
 
 #workout-plans {

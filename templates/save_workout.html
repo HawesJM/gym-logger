@@ -4,6 +4,7 @@
 <!--Save Workout Container-->
 
 <div id="save-record-container" class="col-12 col-md-6 shadow-lg p-3 mb-5 bg-white rounded row form-group">
+  <form id="save-workout-form" class="row" method="POST" action="{{url_for('save_workout', workout_id = workout._id)}}">
   <div>
     <div class="btn btn-dark col-12 col-md-12">
       <h3 id="workout-detail-header" class="center-align">{{ workout.workout_description
@@ -144,7 +145,7 @@
               Additional Information</span>
             <input type="text" class="form-control" id="workout-description" name="workout-description" minlength="5"
               maxlength="100" placeholder="{{ workout.additional_information
-            }}">
+            }}" disabled>
             </input>
           </div>
 

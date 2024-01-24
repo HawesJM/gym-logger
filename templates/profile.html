@@ -78,16 +78,24 @@
             My saved workouts
         </h4>
         {% for workout in workouts %}
-            {% if session.user|lower in workout.saved_by %}
-            <div class="card-body col-md-4">
-                {{workout.workout_description}}
-            </div>
-            <div class="card-body col-md-4">
-                {{workout.workout_description}}
-            </div>
-            <div class="card-body col-md-4">
-                {{workout.workout_description}}
-            </div>
+            {% if workout.workout_description %}
+                {% if session.user|lower in workout.saved_by %}
+                <div id="workout-card" class="card col-md-4">
+                    {% if workout.category == "cardio" %}
+                    <img class="card-head" src="/static/images/cardio-card-header.jpg">
+                    {% elif workout.category == "resistance" %}
+                    <img class="card-head" src="/static/images/resistance-card-header.jpg">
+                    {% elif workout.category == "weights" %}
+                    <img class="card-head" src="/static/images/weights-card-header.jpg">
+                    {% else %}
+                    <img class="card-head" src="/static/images/general-workout-card-header.jpg">
+                    {% endif %}
+                    <div class="card-body col-md-12">
+                        <h5>{{workout.workout_description}}</h5> 
+                            <p><em>logged by: {{workout.created_by}}</em></p>
+                    </div>
+                </div>
+                {% endif %}
             {% endif %}
         {% endfor %}
     </div>

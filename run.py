@@ -26,7 +26,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/index")
 def index():
-    workouts = mongo.db.workouts.find().sort("created_date").limit(5)
+    workouts = mongo.db.workouts.find().sort("date", -1).limit(3)
     return render_template("index.html", workouts=workouts)
 
 # full workout list from database

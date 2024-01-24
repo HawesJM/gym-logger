@@ -70,86 +70,78 @@
         </div>
         {% endif %}
 
-      <!--Edit Workout Exercises Line 3-->
+        <!--Edit Workout Exercises Line 3-->
 
-      {% if workout.exercise3 %}
-      <div class=" row">
+        {% if workout.exercise3 %}
+        <div class=" row">
+          <div class="btn col-md-3">
+            <input type="text" class="form-control" id="exercise3" name="exercise3" value="{{workout.exercise3}}" :>
+          </div>
+          <div class="btn col-md-3">
+            <input type="text" class="form-control" id="category3" name="category3" value="{{workout.category3}}">
+          </div>
+          <div class="btn col-md-3 gx-0">
+            <input type="text" class="form-control" id="modifier3" name="modifier3" value="{{workout.modifier3}}">
+          </div>
+          <div class=" btn col-md-3 gx-0">
+            <input type="text" class="form-control" id="total3" name="total3" value="{{workout.total3}}">
+          </div>
+          {% endif %}
+        </div>
+
+        <!--Edit Workout Exercises Line 4-->
+
+        {% if workout.exercise4 %}
+        <div class=" row">
+          <div class="btn col-md-3">
+            <input type="text" class="form-control" id="exercise4" name="exercise4" value="{{workout.exercise4}}">
+          </div>
+          <div class="btn col-md-3">
+            <input type="text" class="form-control" id="category4" name="category4" value="{{workout.category4}}">
+          </div>
+          <div class="btn col-md-3 gx-0">
+            <input type="text" class="form-control" id="modifier4" name="modifier4" value="{{workout.modifier4}}">
+          </div>
+          <div class=" btn col-md-3 gx-0">
+            <input type="text" class="form-control" id="total4" name="total4" value="{{workout.total4}}">
+          </div>
+          {% endif %}
+
+          <!--Edit Workout Exercises Line 5-->
+
+          {% if workouts.exercise5 %}
+          <div class=" row">
             <div class="btn col-md-3">
-              <input type="text" class="form-control" id="exercise3" name="exercise3" value="{{workout.exercise3}}"
-                :>
+              <input type="text" class="form-control" id="exercise5" name="exercise5" value="{{workout.exercise5}}">
             </div>
             <div class="btn col-md-3">
-              <input type="text" class="form-control" id="category3" name="category3" value="{{workout.category3}}">
+              <input type="text" class="form-control" id="category5" name="category5" value="{{workout.category5}}">
             </div>
             <div class="btn col-md-3 gx-0">
-              <input type="text" class="form-control" id="modifier3" name="modifier3" value="{{workout.modifier3}}">
-        </div>
-        <div class=" btn col-md-3 gx-0">
-              <input type="text" class="form-control" id="total3" name="total3" value="{{workout.total3}}">
-        </div>
-        {% endif %}
-      </div>  
+              <input type="text" class="form-control" id="modifier5" name="modifier5" value="{{workout.modifier5}}">
+            </div>
+            <div class=" btn col-md-3 gx-0">
+              <input type="text" class="form-control" id="total5" name="total5" value="{{workout.total5}}">
+            </div>
+            {% endif %}
+          </div>
+          <div>
 
-      <!--Edit Workout Exercises Line 4-->
+            <!--Edit Workout Additional Information -->
 
-      {% if workout.exercise4 %}
-      <div class=" row">
-              <div class="btn col-md-3">
-                <input type="text" class="form-control" id="exercise4" name="exercise4"
-                  value="{{workout.exercise4}}">
-              </div>
-              <div class="btn col-md-3">
-                <input type="text" class="form-control" id="category4" name="category4"
-                  value="{{workout.category4}}">
-              </div>
-              <div class="btn col-md-3 gx-0">
-                <input type="text" class="form-control" id="modifier4" name="modifier4"
-                  value="{{workout.modifier4}}">
-        </div>
-        <div class=" btn col-md-3 gx-0">
-                <input type="text" class="form-control" id="total4" name="total4" value="{{workout.total4}}">
-        </div>
-        {% endif %}
+            <div class=" btn btn-info col-12 col-md-12">
+              <span><label for="edit-workout-information"></label><i class="fa-regular fa-pen-to-square"></i>Add
+                Additional Information</span>
+              <input type="text" class="form-control" id="edit-additional-information" name="additional-information"
+                minlength="5" maxlength="100" value="{{ workout.additional_information}}">
+              </input>
+            </div>
 
-       <!--Edit Workout Exercises Line 5-->
+            <!--Edit Form Button -->
 
-       {% if workouts.exercise5 %}
-      <div class=" row">
-                <div class="btn col-md-3">
-                  <input type="text" class="form-control" id="exercise5" name="exercise5"
-                    value="{{workout.exercise5}}">
-                </div>
-                <div class="btn col-md-3">
-                  <input type="text" class="form-control" id="category5" name="category5"
-                    value="{{workout.category5}}">
-                </div>
-                <div class="btn col-md-3 gx-0">
-                  <input type="text" class="form-control" id="modifier5" name="modifier5"
-                    value="{{workout.modifier5}}">
-        </div>
-        <div class=" btn col-md-3 gx-0">
-                  <input type="text" class="form-control" id="total5" name="total5"
-                    value="{{workout.total5}}">
-        </div>
-        {% endif %}
-      </div> 
-      <div>
-
-      <!--Edit Workout Additional Information -->
-
-        <div class=" btn btn-info col-12 col-md-12">
-                  <span><label for="edit-workout-information"></label><i class="fa-regular fa-pen-to-square"></i>Add
-                    Additional Information</span>
-                  <input type="text" class="form-control" id="edit-additional-information" name="additional-information"
-                    minlength="5" maxlength="100" value="{{ workout.additional_information}}">
-                  </input>
-                </div>
-      
-      <!--Edit Form Button -->
-
-                <div>
-                  <button id="amend-workout" type="submit" class="col-sm-12 col-md-3">Amend Workout</button>
-                </div>
+            <div>
+              <button id="amend-workout" type="submit" class="col-sm-12 col-md-3">Amend Workout</button>
+            </div>
   </form>
 </div>
 </div>
