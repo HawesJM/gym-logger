@@ -4,6 +4,7 @@
 <!--workout form header-->
 
 <div id="workout-record-container" class="col-12 col-md-6 shadow-lg p-3 mb-5 bg-white rounded">
+  <h2><em>add up to 5 specific exercises, these details can be edited later</em></h2>
   <form class="row" method="POST" action="{{url_for('record_workout')}}">
     <div>
       <div id="date-picker" class="col-6 col-md-3">
@@ -17,7 +18,7 @@
     <div class="col-12 col-md-12">
       <label for="workout-description">Workout Description</label>
       <input type="text" class="form-control" id="workout-description" name="workout-description" minlength="5"
-        maxlength="60" required>
+        maxlength="100" required>
       </input>
     </div>
     <div class="form-group col-sm-6 col-md-3">
@@ -153,7 +154,7 @@
     <div class="col-md-12">
       <label for="additional-information">Additional Information</label>
       <input type="text" class="form-control" id="additional-information" name="additional-information" minlength="5"
-        maxlength="50"
+        maxlength="100"
         placeholder="additional information: e.g. number of sets/reps per workout, number of reps per set">
       </input>
     </div>
@@ -193,7 +194,7 @@
       <div class="col-6" id="mobile-description">
         <label for="workout-description">Workout Description</label>
         <input type="text" class="form-control" id="workout-description-mobile" name="workout-description" minlength="5"
-          maxlength="50" required>
+          maxlength="100" required>
         </input>
       </div>
     </div>
@@ -218,7 +219,7 @@
       </div>
       <div class="form-group col-3">
         <label for="total">Totals</label>
-        <input type="number" step="any "form-control" id="total" name="total" placeholder="e.g. reps">
+        <input type="number" step="any" class="form-control" id="total" name="total" placeholder="e.g. reps">
       </div>
       <div>
         <i id="mobile-exercise-add-1" class="fa fa-plus-circle"></i>
@@ -320,7 +321,7 @@
  <div class="col-6 mx-auto">
   <label for="additional-information">Additional Information</label>
   <input type="text" class="form-control" id="additional-information" name="additional-information" minlength="5"
-    maxlength="50"
+    maxlength="100"
     placeholder="e.g. number of sets/reps">
   </input>
 

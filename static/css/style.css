@@ -488,6 +488,51 @@ h3 {
     transform: scale(1.2);
 }
 
+
+/* view workout page styles */
+
+#view-record-container {
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: teko, sans-serif;
+    text-align: center;
+}
+
+#view-workout-date, #view-workouts-container, #view-additional-information {
+    margin-top: 10px;
+}
+
+.row-bsg-0 {
+    --bs-gutter-x: 0;
+}
+
+/* save workout page styles */
+
+#save-record-container {
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: teko, sans-serif;
+    text-align: center;
+}
+
+#save-record-date, #save-workouts-container, #save-workout-details {
+    margin-top: 10px;
+}
+
+#save-workout {
+    background-color: #494B49;
+    border-radius: 3px;
+    color: #fafafa;
+    margin-top: 20px;
+}
+
+#save-workout:hover {
+    background-color:#ED6B47;
+    transform: scale(1.2);
+}
+
 /* media queries */
 
 @media (min-width: 576px) {
