@@ -395,6 +395,19 @@ h3 {
     margin-top: 15px;
 }
 
+.logged-collapse-container {
+    padding: 5px;
+}
+
+.logged-collapse-button {
+    border-radius: 8px;
+}
+
+.logged-collapse-button :hover {
+    color: #ED6B47 ;
+    background-color: #fafafa;
+}
+
 /* full workout list page styles */
 
 h3 {
