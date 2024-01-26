@@ -92,6 +92,7 @@
         {% for workout in workouts %}
         {% if workout.workout_description %}
         {% if session.user|lower in workout.saved_by %}
+        {% if not session.user|lower in workout.un_saved_by %}
         <div class="col-md-4 saved-collapse-container">
             <button id="saved-workout-collapse-button" class="col-md-12 logged-collapse-button" type="button"
                 data-bs-toggle="collapse" data-bs-target="#{{workout.workout_container_description}}"
@@ -115,9 +116,14 @@
                     <a href="{{ url_for('workout_details', workout_id=workout._id) }}">{{
                         workout.workout_description
                         }}</a>
+                        <br>
+                        <form method="POST" action="{{url_for('un_save_workout', workout_id=workout._id)}}">
+                            <button type="submit" class="btn btn-danger"><i class="fa-regular fa-square-minus"></i><br>Remove Workout</a></button>
+                        </form>
                 </div>
             </div>
         </div>
+        {% endif %}
         {% endif %}
         {% endif %}
         {% endfor %}

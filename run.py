@@ -154,6 +154,7 @@ def record_workout():
             "is_visible": is_visible,
             "additional_information": request.form.get("additional-information"),
             "saved_by": [],
+            "unsaved_by": [],
 
         }
 
@@ -297,8 +298,25 @@ def save_workout(workout_id):
 
     return render_template("profile.html", workout=workout, workouts=workouts, username=username, saved_workout=saved_workout)
 
+# function for the user to remove a saved workout from their profile
 
-# function to add planned workout
+@app.route("/un_save_workout/<workout_id>", methods=["GET", "POST"])
+def un_save_workout(workout_id):
+    workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
+    workouts = list(mongo.db.workouts.find())
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if request.method == "POST":
+        un_saved_workout = {
+            "un_saved_by": username,
+        }
+        mongo.db.workouts.update_one({"_id": ObjectId(workout_id)}, {"$push": un_saved_workout})
+
+    return render_template("profile.html", workout=workout, workouts=workouts, username=username)
+
+# function to display full details of a workout to be added as a plan
+
 @app.route("/plan_workout_page/<workout_id>", methods=["GET", "POST"])
 def plan_workout_page(workout_id):
     workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
