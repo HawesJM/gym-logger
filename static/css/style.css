@@ -420,6 +420,11 @@ h3 {
     margin-top: 30px;
 }
 
+#plan-card-body p {
+    margin: 0;
+    padding: 0;
+}
+
 /* full workout list page styles */
 
 h3 {

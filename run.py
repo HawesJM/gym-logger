@@ -302,11 +302,12 @@ def save_workout(workout_id):
 @app.route("/plan_workout_page/<workout_id>", methods=["GET", "POST"])
 def plan_workout_page(workout_id):
     workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
+    planned_workouts = list(mongo.db.planned_workouts.find())
     workouts = list(mongo.db.workouts.find())
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
-    return render_template("plan_workout.html", workout=workout, workouts=workouts) 
+    return render_template("plan_workout.html", workout=workout, workouts=workouts, planned_workouts=planned_workouts) 
 
 
 @app.route("/plan_workout/<workout_id>", methods=["GET", "POST"])
@@ -319,6 +320,7 @@ def plan_workout(workout_id):
         {"username": session["user"]})["username"]
 
     if request.method == "POST":
+        planned_workouts = list(mongo.db.planned_workouts.find())
         planned_workout = {
             "workout_description": request.form.get("plan-workout-description"),
             "workout_container_description": request.form.get("plan-workout-description"),
@@ -348,11 +350,18 @@ def plan_workout(workout_id):
         }
         mongo.db.planned_workouts.insert_one(planned_workout)
 
-    return render_template("profile.html", username=session["user"], planned_workouts=planned_workouts, workout=workout, workouts=workouts)
-    
+    return render_template("profile.html", username=session["user"], planned_workout=planned_workout, planned_workouts=planned_workouts, workout=workout, workouts=workouts)
 
+# function to mark planned workout as complete   
 
-
+@app.route("/delete_planned_workout/<plan_workout_id>")
+def delete_planned_workout(plan_workout_id):
+    mongo.db.planned_workouts.delete_one({"_id": 
+    ObjectId(plan_workout_id)})
+    workouts = list(mongo.db.workouts.find())
+    planned_workouts = list(mongo.db.planned_workouts.find())
+    flash("workout successfully deleted")
+    return render_template("profile.html", username=session["user"], workouts=workouts, planned_workouts=planned_workouts)
 
 # how to run the app
 
