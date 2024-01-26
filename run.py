@@ -103,10 +103,11 @@ def sign_in():
 def profile(username):
     # grab session user's username from db
     workouts = list(mongo.db.workouts.find())
+    planned_workouts = list(mongo.db.planned_workouts.find())
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     if session["user"]:
-        return render_template("profile.html", username=username, workouts=workouts)
+        return render_template("profile.html", username=username, workouts=workouts, planned_workouts=planned_workouts)
 
     return redirect(url_for("sign_in"))
 
@@ -153,6 +154,8 @@ def record_workout():
             "is_visible": is_visible,
             "additional_information": request.form.get("additional-information"),
             "saved_by": [],
+            "planned_by": [],
+            "planned_date": [],
 
         }
 
@@ -295,6 +298,60 @@ def save_workout(workout_id):
         mongo.db.workouts.update_one({"_id": ObjectId(workout_id)}, {"$push": saved_workout})
 
     return render_template("profile.html", workout=workout, workouts=workouts, username=username, saved_workout=saved_workout)
+
+
+# function to add planned workout
+@app.route("/plan_workout_page/<workout_id>", methods=["GET", "POST"])
+def plan_workout_page(workout_id):
+    workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
+    workouts = list(mongo.db.workouts.find())
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    return render_template("plan_workout.html", workout=workout, workouts=workouts) 
+
+
+@app.route("/plan_workout/<workout_id>/<plan_workout_id>", methods=["GET", "POST"])
+def plan_workout(workout_id, plan_workout_id):
+    workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
+    workouts = list(mongo.db.workouts.find())
+    planned_workouts = list(mongo.db.planned_workouts.find())
+    planned_workout = mongo.db.planned_workouts.find_one({"_id": ObjectId(plan_workout_id)})
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if request.method == "POST":
+        planned_workout = {
+            "workout_description": request.form.get("plan-workout-description"),
+            "workout_container_description": request.form.get("plan-workout-description"),
+            "exercise": request.form.get("plan-exercise"),
+            "exercise2": request.form.get("plan-exercise-two"),
+            "exercise3": request.form.get("plan-exercise-three"),
+            "exercise4": request.form.get("plan-exercise-four"),
+            "exercise5": request.form.get("plan-exercise-five"),
+            "category": request.form.get("plan-category"),
+            "category2": request.form.get("plan-category-two"),
+            "category3": request.form.get("plan-category-three"),
+            "category4": request.form.get("plan-category-four"),
+            "category5": request.form.get("plan-category-five"),
+            "modifier": request.form.get("plan-modifier"),
+            "modifier2": request.form.get("plan-modifier-two"),
+            "modifier3": request.form.get("plan-modifier-three"),
+            "modifier4": request.form.get("plan-modifier-four"),
+            "modifier5": request.form.get("plan-modifier-five"),
+            "total": request.form.get(str("plan-total")),
+            "total2": request.form.get(str("plan-total-two")),
+            "total3": request.form.get(str("plan-total-three")),
+            "total4": request.form.get(str("plan-total-four")),
+            "total5": request.form.get(str("plan-total-five")),
+            "additional_information": request.form.get("plan-additional-information"),
+            "planned_by": session["user"],
+            "planned_date": request.form.get("plan-workout-date"),
+        }
+        mongo.db.planned_workouts.insert_one(planned_workout)
+
+    return render_template("profile.html", workout=workout, workouts=workouts, username=username, planned_workout=planned_workout, planned_workouts=planned_workouts)
+
 
 # how to run the app
 

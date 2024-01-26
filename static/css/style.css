@@ -5,7 +5,7 @@ body {
 }
 
 #header-div {
-    margin-bottom: 150px;
+    margin-bottom: 50px;
 }
 
 #header-title {
@@ -408,6 +408,18 @@ h3 {
     background-color: #fafafa;
 }
 
+#recorded-workouts {
+    margin-bottom: 30px;
+}
+
+#planned-workouts {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: teko, sans-serif;
+    margin-top: 30px;
+}
+
 /* full workout list page styles */
 
 h3 {
@@ -560,6 +572,19 @@ h3 {
     transform: scale(1.2);
 }
 
+/* plan workout page styles */
+
+#plan-workout {
+    background-color: #494B49;
+    border-radius: 3px;
+    color: #fafafa;
+    margin-top: 20px;
+}
+
+#plan-workout:hover {
+    background-color:#ED6B47;
+    transform: scale(1.2);
+}
 /* media queries */
 
 @media (min-width: 576px) {
