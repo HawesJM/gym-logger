@@ -140,36 +140,38 @@
             My planned workouts
         </h4>
         {% for plan in planned_workouts %}
-            {% if planned_workouts.planned_by|lower == session.user|lower %}
+        <h5>Test 2 planned by : {{plan.planned_by}} user: {{session.user|lower }}</h5>
+            {% if plan.planned_by == session.user|lower %}
+            <h5>Test 2 </h5>
             <div class="col-md-4 saved-collapse-container">
               <button id="saved-workout-collapse-button" class="col-md-12 logged-collapse-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{planned_workouts.workout_container_description}}"
                 aria-expanded="false" aria-controls="{{planned_workouts.workout_container_description}}">
                 <div id="profile-description-span">
-                    <span>{{planned_workouts.workout_description}}<br>{{planned_workouts.planned_date}}<br><i class="fa-regular fa-square-caret-down"></i></span>
+                    <span>{{plan.workout_description}}<br>{{planned_workouts.planned_date}}<br><i class="fa-regular fa-square-caret-down"></i></span>
                 </div>
                 </button>
                 <div class="collapse" id="{{planned_workouts.workout_container_description}}">
-                    {% if planned_workouts.category == "cardio" %}
+                    {% if plan.category == "cardio" %}
                     <img class="card-head col-md-12" src="/static/images/cardio-card-header.jpg">
-                    {% elif planned_workouts.category == "resistance" %}
+                    {% elif plan.category == "resistance" %}
                     <img class="card-head col-md-12" src="/static/images/resistance-card-header.jpg">
-                    {% elif planned_workouts.category == "weights" %}
+                    {% elif plan.category == "weights" %}
                     <img class="card-head col-md-12" src="/static/images/weights-card-header.jpg">
                     {% else %}
                     <img class="card-head col-md-12" src="/static/images/general-workout-card-header.jpg">
                     {% endif %}
                     <div class="card-body">
-                        <p>{{ planned_workouts.planned_date }}</p>
-                        <a href="{{ url_for('plan_workout_details', workout_id=workout._id) }}">{{
-                            planned_workouts.workout_description
+                        <p>{{ plan.planned_date }}</p>
+                        <a href="">{{
+                            plan.planned_date
                             }}</a>
                         <div id="profile-button-row" class="row">
                             <div class="col-sm-6 col-md-6">
-                                <a href={{ url_for('delete_workout', workout_id=workout._id) }}
+                                <a href=
                                     class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Delete</a>
                             </div>
                             <div class="col-sm-6 col-md-6">
-                                <a href={{ url_for('edit_workout', workout_id=workout._id) }}
+                                <a href=
                                     class="btn btn-primary"><i class="fa-regular fa-pen-to-square"></i>Edit</a>
                             </div>
                         </div>

@@ -4,7 +4,7 @@
 <!--Plan Workout Container-->
 
 <div id="save-record-container" class="col-12 col-md-6 shadow-lg p-3 mb-5 bg-white rounded row form-group">
-  <form id="save-workout-form" class="row" method="POST" action="{{url_for('plan_workout', workout_id = workout._id, plan_workout_id = planed_workouts._id)}}">
+  <form id="save-workout-form" class="row" method="POST" action="{{url_for('plan_workout', workout_id = workout._id)}}">
   <div>
     <div class="btn btn-success col-12 col-md-12">
       <h3 id="workout-detail-header" class="center-align">{{ workout.workout_description

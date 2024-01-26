@@ -154,8 +154,6 @@ def record_workout():
             "is_visible": is_visible,
             "additional_information": request.form.get("additional-information"),
             "saved_by": [],
-            "planned_by": [],
-            "planned_date": [],
 
         }
 
@@ -311,12 +309,12 @@ def plan_workout_page(workout_id):
     return render_template("plan_workout.html", workout=workout, workouts=workouts) 
 
 
-@app.route("/plan_workout/<workout_id>/<plan_workout_id>", methods=["GET", "POST"])
-def plan_workout(workout_id, plan_workout_id):
+@app.route("/plan_workout/<workout_id>", methods=["GET", "POST"])
+def plan_workout(workout_id):
     workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
     workouts = list(mongo.db.workouts.find())
     planned_workouts = list(mongo.db.planned_workouts.find())
-    planned_workout = mongo.db.planned_workouts.find_one({"_id": ObjectId(plan_workout_id)})
+    planned_workout = mongo.db.planned_workouts.find_one
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
@@ -350,7 +348,10 @@ def plan_workout(workout_id, plan_workout_id):
         }
         mongo.db.planned_workouts.insert_one(planned_workout)
 
-    return render_template("profile.html", workout=workout, workouts=workouts, username=username, planned_workout=planned_workout, planned_workouts=planned_workouts)
+    return render_template("profile.html", username=session["user"], planned_workouts=planned_workouts, workout=workout, workouts=workouts)
+    
+
+
 
 
 # how to run the app
