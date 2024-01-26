@@ -1,4 +1,4 @@
-![alt text](assets/images/gym-logger-logo.jpg)
+![alt text](static/images/gym-logger-logo.jpg)
 
 # Gym Logger
 
@@ -25,7 +25,7 @@ Gym Logger is a web application designed to aid the individual user in achieving
 
 Through Gym Logger the experienced user will be able to keep a record of their recent workouts, build future workout plans, and share this with other users. They will also be able to login to view these records. Users who are just beginning their fitness journeys will be able to search for and save plans that are relevant to them and helpful to get them started. Both sets of users will be able to keep track of their developments and measure them against relevant metrics and updated information.
 
-The live website can be found here <https://hawesjm.github.io/gym-logger/>
+The live website can be found here <https://gym-logger-4332586599d1.herokuapp.com/>
 
 ### Structure
 
@@ -33,7 +33,7 @@ The live website can be found here <https://hawesjm.github.io/gym-logger/>
 
 Gym Logger is built with HTML5, custom CSS, JavaScript and Python to create a responsive and interactive web application which also contains back-end functionality that allows users to create, store and manipulate relevant data records.
 
-![alt text](assets/images/gym-logger-mockup.png)
+![alt text](static/readme/images/gym-logger-mock-up.png)
 
 ##### User Experience Design
 
@@ -46,7 +46,9 @@ For returning users I want them to be able to create and then share their own pl
 
 ##### Navigation
 
-The application/website will consist of one main landing page. This page will be scrollable and comprised of 3 sections: 1. introductory information, 2. the member's login/register area (main CTA), and 3. a carousel of recommended/shared publicly available plans. The main page will contain a navbar and a search bar.
+The application/website will consist of one main landing page. This page will be scrollable and comprised of 3 sections: 1. introductory information, 2. the member's login/register area (main CTA), and 3. an of recommended/shared publicly available plans.
+
+There will be a page listing all the visible logged workouts with a filter and search function, as well as actions to be taken (save, edit, delete or mark a workout as a task to be completed).
 
 There will also be a profile section for registered members to view their information and records. There will also be a page for users to update information from their recent workouts.
 
@@ -54,9 +56,9 @@ The navigation menu will be collapsible on mobile devices to make best use of th
 
 ### Design
 
-##### Colour Scheme- amend
+##### Colour Scheme
 
-Over a paper white background Orange #ED6B47 will be the main accent colour.  This will contain the main CTA button using Navy Blue #112A46 with a Grey #999 box shadow for contrast. Turquoise #7df9ffb3 and Orange #ED6B47 are used as accent colours for buttons/progress bars and in hover instances to give feedback to the user. White #fafafa is used for text over buttons and form progress steps for clarity and contrast.
+Over a paper white background Orange #ED6B47 ![alt text](static/images/readme/thumbnails/organge-thumb.png) will be the main accent colour.  This will contain the main CTA button using Navy Blue #112A46 ![alt text](static/images/readme/thumbnails/navy-blue-thumb.png) with a Grey #999 ![alt text](static/images/readme/thumbnails/grey-thumb.png) box shadow for contrast. Turquoise #7df9ffb3 ![alt text](static/images/readme/thumbnails/turquoise-thumb.png) and Orange #ED6B47 ![alt text](static/images/readme/thumbnails/organge-thumb.png) are used as accent colours for buttons/progress bars and in hover instances to give feedback to the user. White #fafafa is used for text over buttons and form progress steps for clarity and contrast. Bootstrap button colour classes (green, red and blue) are also used where appropriate.
 
 ##### Typography
 
@@ -64,14 +66,26 @@ The main font used is Teko to enhance the modern industrial feel of the website 
 
 ##### Imagery
 
-The Gym Logger logo will be displayed in the header of the main landing page, and will be present on all devices and screensizes. The exact placement, positioning and sizing of the logo may change depending on the screen size. The website also displays images for general motivation or to help clarify specific sections of information. 
+The Gym Logger logo will be displayed in the header of the main landing page, and will be present on all devices and screensizes. The exact placement, positioning and sizing of the logo may change depending on the screen size. The website also displays images for general motivation or to help clarify specific sections of information. Each workout displayed on the profile page will have a relevant header image depending on the main exercise type contained in the workout.
 
 ##### Wireframes
 
 ###### Homepage/Landing Page
 
-![alt text](assets/images/gym-logger-homepage-wireframe.png)
+![alt text](static/readme/images/gym-logger-homepage-wireframe.png)
 
 ###### Profile Page
 
-![alt text](assets/images/gym-logger-profile-wireframe.png)
+![alt text](static/readme/images/gym-logger-profile-wireframe.png)
+
+###### Full Workout List Page
+
+![alt text](static/images/readme/gym-logger-workout-list-wireframe.png)
+
+###### Add Workout Page
+
+![alt text](static/images/readme/gym-logger-record-workout-wireframe.png)
+
+###### View & Act on Workout Details Page
+
+![alt text](static/images/readme/gym-logger-workout-specifics-wireframe.png)
