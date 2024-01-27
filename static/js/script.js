@@ -1,46 +1,37 @@
-// global variables and event listeners
+// global variables
 
 
 let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 
-//workout form event listeners //
 
-document.getElementById("exercise-add").addEventListener("click", duplicateExerciseOne);
-document.getElementById("category-add").addEventListener("click", duplicateCategoryOne);
-document.getElementById("modifier-add").addEventListener("click", duplicateModifierOne);
-document.getElementById("total-add").addEventListener("click", duplicateTotalOne);
-document.getElementById("exercise-add-two").addEventListener("click", duplicateExerciseTwo);
-document.getElementById("category-add-two").addEventListener("click", duplicateCategoryTwo);
-document.getElementById("modifier-add-two").addEventListener("click", duplicateModifierTwo);
-document.getElementById("total-add-two").addEventListener("click", duplicateTotalTwo);
-document.getElementById("exercise-add-three").addEventListener("click", duplicateExerciseThree);
-document.getElementById("category-add-three").addEventListener("click", duplicateCategoryThree);
-document.getElementById("modifier-add-three").addEventListener("click", duplicateModifierThree);
-document.getElementById("total-add-three").addEventListener("click", duplicateTotalThree)
-document.getElementById("exercise-add-four").addEventListener("click", duplicateExerciseFour);
-document.getElementById("category-add-four").addEventListener("click", duplicateCategoryFour);
-document.getElementById("modifier-add-four").addEventListener("click", duplicateModifierFour);
-document.getElementById("total-add-four").addEventListener("click", duplicateTotalFour);
+//workout form event listeners //
+if (document.getElementById("workout-record-container")) {
+    document.getElementById("exercise-add").addEventListener("click", duplicateExerciseOne);
+    document.getElementById("category-add").addEventListener("click", duplicateCategoryOne);
+    document.getElementById("modifier-add").addEventListener("click", duplicateModifierOne);
+    document.getElementById("total-add").addEventListener("click", duplicateTotalOne);
+    document.getElementById("exercise-add-two").addEventListener("click", duplicateExerciseTwo);
+    document.getElementById("category-add-two").addEventListener("click", duplicateCategoryTwo);
+    document.getElementById("modifier-add-two").addEventListener("click", duplicateModifierTwo);
+    document.getElementById("total-add-two").addEventListener("click", duplicateTotalTwo);
+    document.getElementById("exercise-add-three").addEventListener("click", duplicateExerciseThree);
+    document.getElementById("category-add-three").addEventListener("click", duplicateCategoryThree);
+    document.getElementById("modifier-add-three").addEventListener("click", duplicateModifierThree);
+    document.getElementById("total-add-three").addEventListener("click", duplicateTotalThree)
+    document.getElementById("exercise-add-four").addEventListener("click", duplicateExerciseFour);
+    document.getElementById("category-add-four").addEventListener("click", duplicateCategoryFour);
+    document.getElementById("modifier-add-four").addEventListener("click", duplicateModifierFour);
+    document.getElementById("total-add-four").addEventListener("click", duplicateTotalFour);
 
 
 //mobile form event listeners //
-document.getElementById("workout-date-mobile-input").addEventListener("change", hideDatePicker)
-document.getElementById("workout-description-mobile").addEventListener("change", hideMobileDescription)
-document.getElementById("mobile-exercise-add-1").addEventListener("click", hideWorkoutRow1)
-document.getElementById("mobile-exercise-add-2").addEventListener("click", hideWorkoutRow2)
-document.getElementById("mobile-exercise-add-3").addEventListener("click", hideWorkoutRow3)
-document.getElementById("mobile-exercise-add-4").addEventListener("click", hideWorkoutRow4)
-
-
-
-// check registered and new user input information //
-
-// generate dropdown IDs function //   
-
-$(document).ready(function () {
-    $("#details-form")
-});
+    document.getElementById("workout-date-mobile-input").addEventListener("change", hideDatePicker)
+    document.getElementById("workout-description-mobile").addEventListener("change", hideMobileDescription)
+    document.getElementById("mobile-exercise-add-1").addEventListener("click", hideWorkoutRow1)
+    document.getElementById("mobile-exercise-add-2").addEventListener("click", hideWorkoutRow2)
+    document.getElementById("mobile-exercise-add-3").addEventListener("click", hideWorkoutRow3)
+    document.getElementById("mobile-exercise-add-4").addEventListener("click", hideWorkoutRow4)
 
 
 // record workout section 2 functions //    
@@ -175,51 +166,12 @@ function hideWorkoutRow4() {
     $("#mobile-exercise-row-5").removeClass("hidden");
 }
 
-//save workout event listener //
+};
 
-// document.getElementById("save-workout-submit").addEventListener("click", saveWorkoutSubmit) 
- 
-//    if $("#mobile-exercise-row-1").hasClass("visible")
-//alert($("p").hasClass("intro")); //
+// flash messages //
 
-
-
-
-    //if (document.getElementByIegistered-email-input").value != "") {
-    //let reg;isteredUserEmailInput = docu.getElementById("registered-email-input").value;
-   // }
-    //if (registeredUserEmailInput.value.match(validRegex)) {
-        //let registeredUserEmailInput = validatedRegisteredUserEmail
-        //$("#registered-passwod").removeClass("hidden");
-    //} else {
-       // alert("please enter a valid email address to login")
-    //}
-
-
-//let registeredEmailInput = document.getElementById("registered-email-input");
-//registeredEmailInput.addEventListener("input", validateRegisteredUserInput);
-
-//function validateRegisteredUserEmail() {
-   // let registeredUserEmailInput = document.getElementById("registered-email-input").value;
-    //if (registeredUserEmailInput != "") && (registeredUserEmailInput.match(validRegex) {
-       // alert("please enter a valid email address to login");
-       // return false;
-   // }
-    //else if ("registered-email-input".value.match(validRegex)) {
-      //  alert("please enter a valid email address to proceed");
-  //  }
-    /////else { $("#registered-password").removeClass("hidden"); }
-//}
-    //}
-    //else { registeredUserEmailInput = registeredUserEmail; }
-//}
-
-
-//{ registeredUserEmailInput = registeredUserEmail; }
-
-//if if (registeredUserEmailInput.value.match(validRegex))
-//console.log("thanks")
-
-//if (registeredUserEmailInput != "")
-    //else {
-    //$("#registered-password").removeClass("hidden"); ////document.getElementById("registered-password").removeClass("hidden");
+    if (document.getElementsByClassName("flashes-timed")) {
+        setTimeout(function() {
+            $("#profile-flashes-container").addClass("hidden");
+        }, 10000);
+    }

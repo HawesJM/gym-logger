@@ -425,6 +425,17 @@ h3 {
     padding: 0;
 }
 
+#profile-flashes-container {
+    text-align: center;
+}
+
+.highlight{
+    padding: .25em 0;
+    border-radius: 5px;
+    background: #28b0b8b3;
+    color: #ffffff;
+}
+
 /* full workout list page styles */
 
 h3 {

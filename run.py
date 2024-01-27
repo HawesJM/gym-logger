@@ -17,6 +17,7 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
+
 mongo = PyMongo(app)
 
 # app routes
@@ -83,6 +84,7 @@ def sign_in():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
+                flash("Login Successful!")
                 return redirect(url_for
                     ("profile", username=session["user"]))
             else:
@@ -175,8 +177,9 @@ def record_workout():
         mongo.db.workouts.insert_one(logged_workout)
         mongo.db.exercises.insert_one(logged_exercise)
         mongo.db.categories.insert_one(logged_category)
-        return redirect(url_for("profile", username=session["user"]))
         flash("Workout successfully logged!")
+        return redirect(url_for("profile", username=session["user"]))
+        
 
     return render_template("record_workout.html")
 
@@ -241,8 +244,9 @@ def edit_workout(workout_id):
             "additional_information": request.form.get("additional-information"),
         }
         mongo.db.workouts.update_one({"_id": ObjectId(workout_id)}, {"$set": submit})
-        return redirect(url_for("profile", username=session["user"]))
         flash("workout successfully amended")
+        return redirect(url_for("profile", username=session["user"]))
+
     return render_template("edit_workout.html", workout=workout, workouts=workouts)
     
 # function for a user to delete an owned workout record from the database
@@ -378,7 +382,7 @@ def delete_planned_workout(plan_workout_id):
     ObjectId(plan_workout_id)})
     workouts = list(mongo.db.workouts.find())
     planned_workouts = list(mongo.db.planned_workouts.find())
-    flash("workout successfully deleted")
+    flash("workout successfully completed!")
     return render_template("profile.html", username=session["user"], workouts=workouts, planned_workouts=planned_workouts)
 
 # how to run the app

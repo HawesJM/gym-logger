@@ -1,30 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- flash messages -->
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div id="profile-flashes-container" class="flashes flashes-timed col-6 mx-auto highlight">
+    <h3 class="flashes-timed">{{ message }}</h3>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
 <div class="row">
     <div id="profile-header" class="col-sm-12 col-md-6">
         <h3 id="profile-name" class="light-blue-text text-darken-4">
             {{ username }}'s Profile
         </h3>
     </div>
-
-
-    <section>
-        <!-- flash messages -->
-        {% with messages = get_flashed_messages() %} {% if messages %}
-        {% if message == "Workout successfully logged!" %}
-        <div class="row flashes">
-            <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
-        </div>
-        {% endif %}
-        {% if message == "Workout successfully deleted!" %}
-        <div class="row flashes">
-            <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
-        </div>
-        {% endif %}
-        {% endif %} {% endwith %}
-    </section>
-
 </div>
 
 <!-- displays user recorded workouts -->
@@ -98,8 +92,8 @@
                 data-bs-toggle="collapse" data-bs-target="#{{workout.workout_container_description}}"
                 aria-expanded="false" aria-controls="{{workout.workout_container_description}}">
                 <div id="profile-description-span">
-                    <span>{{workout.workout_description}}<br>{{workout.date}}<br><em>Logged By : {{workout.created_by}}</em><br><i
-                            class="fa-regular fa-square-caret-down"></i></span>
+                    <span>{{workout.workout_description}}<br>{{workout.date}}<br><em>Logged By :
+                            {{workout.created_by}}</em><br><i class="fa-regular fa-square-caret-down"></i></span>
                 </div>
             </button>
             <div class="collapse" id="{{workout.workout_container_description}}">
@@ -116,10 +110,11 @@
                     <a href="{{ url_for('workout_details', workout_id=workout._id) }}">{{
                         workout.workout_description
                         }}</a>
-                        <br>
-                        <form method="POST" action="{{url_for('un_save_workout', workout_id=workout._id)}}">
-                            <button type="submit" class="btn btn-danger"><i class="fa-regular fa-square-minus"></i><br>Remove Workout</a></button>
-                        </form>
+                    <br>
+                    <form method="POST" action="{{url_for('un_save_workout', workout_id=workout._id)}}">
+                        <button type="submit" class="btn btn-danger"><i
+                                class="fa-regular fa-square-minus"></i><br>Remove Workout</a></button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -145,8 +140,7 @@
                 data-bs-toggle="collapse" data-bs-target="#plan-collapse" aria-expanded="false"
                 aria-controls="plan-collapse">
                 <div id="profile-description-span">
-                    <span>{{plan.workout_description}}<br><i
-                            class="fa-regular fa-square-caret-down"></i></span>
+                    <span>{{plan.workout_description}}<br><i class="fa-regular fa-square-caret-down"></i></span>
                 </div>
             </button>
             <div class="collapse" id="plan-collapse">
@@ -159,30 +153,32 @@
                 {% else %}
                 <img class="card-head col-md-12" src="/static/images/general-workout-card-header.jpg">
                 {% endif %}
-                
-                <div id="plan-card-body"class="card-body">
+
+                <div id="plan-card-body" class="card-body">
                     <h5>Workout Challenge Date <br>{{
                         plan.planned_date
                         }}</h5>
-                    <p>{{plan.exercise}} : {{plan.category}},  {{plan.modifier}} : {{plan.total}}</p>
+                    <p>{{plan.exercise}} : {{plan.category}}, {{plan.modifier}} : {{plan.total}}</p>
                     {% if plan.exercise2 %}
-                    <p>{{plan.exercise2}} : {{plan.category2}},  {{plan.modifier2}} : {{plan.total2}}</p>
+                    <p>{{plan.exercise2}} : {{plan.category2}}, {{plan.modifier2}} : {{plan.total2}}</p>
                     {% endif %}
                     {% if plan.exercise3 %}
-                    <p>{{plan.exercise3}} : {{plan.category3}},  {{plan.modifier3}} : {{plan.total3}}</p>
+                    <p>{{plan.exercise3}} : {{plan.category3}}, {{plan.modifier3}} : {{plan.total3}}</p>
                     {% endif %}
                     {% if plan.exercise4 %}
-                    <p>{{plan.exercise4}} : {{plan.category4}},  {{plan.modifier4}} : {{plan.total4}}</p>
+                    <p>{{plan.exercise4}} : {{plan.category4}}, {{plan.modifier4}} : {{plan.total4}}</p>
                     {% endif %}
                     {% if plan.exercise5 %}
-                    <p>{{plan.exercise5}} : {{plan.category5}},  {{plan.modifier5}} : {{plan.total5}}</p>
+                    <p>{{plan.exercise5}} : {{plan.category5}}, {{plan.modifier5}} : {{plan.total5}}</p>
                     {% endif %}
                     {% if plan.additional_information %}
                     <p>{{plan.additional_information}}</p>
                     {% endif %}
                     <div id="profile-button-row" class="row">
                         <div class="col-sm-6 col-md-12">
-                            <a href = "{{ url_for('delete_planned_workout', plan_workout_id=plan._id) }}" class="btn btn-success"><i class="fa-regular fa-square-check"></i><br>Mark As Completed</a>
+                            <a href="{{ url_for('delete_planned_workout', plan_workout_id=plan._id) }}"
+                                class="btn btn-success"><i class="fa-regular fa-square-check"></i><br>Mark As
+                                Completed</a>
                         </div>
                     </div>
                 </div>
