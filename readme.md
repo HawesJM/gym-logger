@@ -141,17 +141,41 @@ No APIs for extra external linkage or further functionality at this stage.  Curr
 
 ### Development Lifecycle
 
+![alt text](static/images/readme/gym-logger-development-lifecycle.png)
+
 #### Iteration 1
 
 - Inception: the user is looking for a flexible, intuitive and meaningful way of recording information about their workout sessions and exercises.
 - Task: to meet this need the developer/programmer needs to create a responsive site with a clear aim easily allowing users to store their information.
-- Increment: the developer creates a fully responsive HTML framework with full register, login and logout functionality to allow for records for multiple users to be created and recorded in the database. Once responsivity and database connectivity are confirmed the data model for user information is planned and developed. They then make the initial commit to GitHub as the basis for future deployment.
+- Increment: the developer creates a fully responsive HTML framework with full register, login and logout functionality to allow for records for multiple users to be created and recorded in the database. Once responsivity and database connectivity are confirmed the data model for user information is planned and developed. They then make the initial commit to GitHub and Heroku as the basis for future deployment.
+
+##### Initial Data Model
+
+![alt text](static/images/readme/gym-logger-initial-data-model.png)
+
+The data schema will comprise of the main collections of Users (username and hashed password), Workouts (the main collection that stores all the information from a user created workout record), and the specific Exercises themselves plus their Categories (e.g.exercise type) which will be logged for future development.
 
 #### Iteration 2
 - Inception: having registered the user now wants to begin recording their workouts. They want to be able to view and refer to these records, as well as potentially edit or update them. The user would also like to view the records of others and possibly share their own records which might be useful to other users.
 - Task: to meet these needs the developer/programmer creates input forms that record relevant user information and sends it for storage in the database. They create a profile page to serve as the main hub for the individual user's information. They create a way of displaying  all publicly available information in a rational and concise way, allowing for edits where appropriate.
-- Increment: the developer creates the profile page specific to each registered user, along with the functionality for registered users to create, edit and delete their own records, as well as search for the records of others to save them for reference or as a challenge to be completed at a later date.
+- Increment: the developer creates the profile page specific to each registered user, along with the functionality for registered users to create, edit and delete their own records, as well as search for the records of others to save them for reference or as a challenge to be completed at a later date. Changes are pushed to Github and Heroku for future deployment.
 
 #### Iteration 3
+- Inception: the user will now have become familiar with the full functionality of the application. As they continue to use the application, creating, updating and deleting records, they need to have each action confirmed immediately as well as being recorded in their profile.
+- Task: to ensure the user is supported the programmer creates and implements flash messages and input validation. The programmer is to test that all functions and supporting messages display on different browsers and screensizes
+- Increment: the developer creates flash messages for creating a workout, editing a workout, saving a workout, deleting a workout, and completing a workout challenge. Changes are pushed to Github and Heroku for future deployment.
 
 #### Iteration 4
+- Inception: the user will now have become a regular user of the site, and will need to continue to use the application.
+- Task: to ensure this the programmer will deploy the application on a live hosting platform.
+- Increment: the completed application is pushed to Github and deployed on Heroku with Debug Off.
+
+### Testing
+
+#### Strategy
+
+The project depends upon the ability to store and manipulate information provided by each user. Testing is therefore firstly designed to ensure that all input elements function correctly, are validated, and stored in a usable format. These inputs need to be contained in a framework meeting responsivity and accessibility guidelines, so procedures to ensure this will also be implemented. Users will need to see all of their information in one place so testing procedures to ensure all actions are confirmed and then displayed on the profile page will also be devised.
+
+All elements should remain on the screen at sizes above 300px. All internal nav links should direct to the correct pages. All external links should open in a new window. All form inputs should be validated on submission. Form results should vary depending on user submitted information.
+
+#### Initial Bugs (pre-deployment)

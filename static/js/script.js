@@ -123,9 +123,6 @@ function duplicateTotalFour() {
     $("#total-add-four").addClass("hidden");
 }
 
-function saveWorkoutSubmit() { 
-    document.getElementById("save-workout").submit(); 
-} 
 
 // mobile record workout section //
 
@@ -167,6 +164,14 @@ function hideWorkoutRow4() {
 }
 
 };
+
+
+// save workout function //
+
+function saveWorkoutSubmit() { 
+    document.getElementById("save-workout").submit(); 
+} 
+
 
 // flash messages //
 
