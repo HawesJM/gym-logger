@@ -1,32 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- View Workout Details Container-->
+<!-- Plan Workout Details Container-->
 
-<div id="view-record-container" class="col-12 col-md-6 shadow-lg p-3 mb-5 bg-white rounded row form-group">
+<div id="plan-record-container" class="col-12 col-md-6 shadow-lg p-3 mb-5 bg-white rounded row form-group">
     <div mx-auto>
       <div class="btn btn-secondary col-12 col-md-12">
         <h3 id="workout-detail-header" class="center-align">{{ workout.workout_description
           }}</h3>
-        <span><label for="view-workout-description"></label>Workout
+        <span><label for="plan-workout-description"></label>Workout
           Description</span>
-        <input type="text" class="form-control" id="workout-description" name="workout-description" minlength="5"
+        <input type="text" class="form-control" id="plan-workout-description" name="workout-description" minlength="5"
           maxlength="100" value="{{ workout.workout_description
               }}" disabled>
         </input>
       </div>
 
-      <!--View Workout Date-->
+      <!--Plan Workout Date-->
 
-      <div id="view-workout-date" class="btn btn-secondary col-12 col-md-12">
+      <div id="plan-workout-date" class="btn btn-secondary col-12 col-md-12">
         <h3>{{workout.date}}</h3>
-        <span><label for="view-workout-date">Workout
+        <span><label for="workout-plan-date">Workout
             Date</label></span>
-        <input type="text" class="form-control" id="workout-date" name="workout-date" minlength="5" maxlength="50"
+        <input type="text" class="form-control" id="workout-plan-date" name="workout-date" minlength="5" maxlength="50"
           value="{{ workout.date
             }}" disabled>
       </div>
-      <div id="view-workouts-container" class="btn btn-secondary col-md-12 gx-0">
+
+ <!--Plan Exercises-->
+    
+      <div id="plan-workouts-container" class="btn btn-secondary col-md-12 gx-0">
         <span>
           <h4>Exercises Completed</h4>
         </span>
@@ -45,7 +48,7 @@
           </div>
         </div>
 
-        <!--View Workout Exercises Line 2-->
+        <!--Plan Workout Exercises Line 2-->
 
         {% if workout.exercise2 %}
         <div class=" row">
@@ -64,7 +67,7 @@
         </div>
         {% endif %}
 
-      <!--View Workout Exercises Line 3-->
+      <!--Plan Workout Exercises Line 3-->
 
       {% if workout.exercise3 %}
       <div class="row">
@@ -84,7 +87,7 @@
         {% endif %}
       </div>  
 
-      <!--View Workout Exercises Line 4-->
+      <!--Plan Workout Exercises Line 4-->
 
       {% if workout.exercise4 %}
       <div class="row">
@@ -105,7 +108,7 @@
         </div>
         {% endif %}
 
-       <!--View Workout Exercises Line 5-->
+       <!--Plan Workout Exercises Line 5-->
 
        {% if workout.exercise5 %}
       <div class="row row-bsg-0">
@@ -128,7 +131,7 @@
         {% endif %}
       </div> 
       <div>
-        <div id ="view-additional-information" class="btn btn-secondary col-12 col-md-12">
+        <div id ="plan-additional-information" class="btn btn-secondary col-12 col-md-12">
                   <span><label for="edit-workout-description"></label>
                     Additional Information</span>
                   <input type="text" class="form-control" id="additional-information" name="additional-information"

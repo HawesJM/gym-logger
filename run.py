@@ -376,7 +376,7 @@ def plan_workout(workout_id):
             "planned_date": request.form.get("plan-workout-date"),
         }
         mongo.db.planned_workouts.insert_one(planned_workout)
-
+    flash("workout successfully planned")
     return render_template("profile.html", username=session["user"], planned_workout=planned_workout, planned_workouts=planned_workouts, workout=workout, workouts=workouts)
 
 # function to mark planned workout as complete   
