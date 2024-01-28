@@ -614,6 +614,15 @@ h3 {
     background-color:#ED6B47;
     transform: scale(1.2);
 }
+
+/* more information page styles */
+
+.info-header {
+    padding: 10px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
 /* media queries */
 
 @media (min-width: 576px) {
