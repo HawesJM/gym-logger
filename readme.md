@@ -182,6 +182,16 @@ All testing conducted on live deployed pages.
 
 #### Initial Bugs (pre-deployment)
 
+- In a previous deployment the workout record form would not submit due to the "required" attribute on a hidden element. Attribute removed and the form submits successfully.
+- In a previous deployment the workout collapsibles contained in workout.html would all activate if one was clicked. Fixed by creating new text field string with spaces removed as a record in the DB to pass as the unique ID for each workout element on the page.
+- In a previous deployment the workout save button was misaligned in the individual workout records on the workouts.html page. This was fixed by using "display:inline" in inline CSS.
+- In a previous deployment the input fields on the create record form for mobile were not aligned correctly. This was solved by overriding Bootstrap's gutters using CSS.
+- In several previous deployments incorrect or irrelevant flash messages were showing in inappropriate areas of the site. This was fixed with correcting the syntax of Jinja if statements in the relevant templates.
+- In a previous deployment number inputs on the workout forms would not accept or show decimal inputs. This was fixed by using the "step" HTML attribute on the number inputs.
+- In a later stage deployment exercise 4 on the workout form became misaligned. Fixed by overwriting Bootstrap gutters from 1.5rem to 0.
+- In a previous deployment information from the database was not passing correctly to the edit workout template and placeholder information was not being populated correctly with previously entered user data. Fixed by adding quotation marks to the Jinja 2 variable.
+- In the same deployment information from the database was not passing correctly to the edit workout template and it would not show the user's workout record information beyond the first exercise recorded. Fixed by usinga Jinja if statement looking for truthy values.
+
 #### Testing Methodology
 
 #### Manual Testing Report
