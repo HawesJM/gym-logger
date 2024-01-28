@@ -162,13 +162,13 @@ The data schema will comprise of the main collections of Users (username and has
 
 #### Iteration 3
 - Inception: the user will now have become familiar with the full functionality of the application. As they continue to use the application, creating, updating and deleting records, they need to have each action confirmed immediately as well as being recorded in their profile.
-- Task: to ensure the user is supported the programmer creates and implements flash messages and input validation. The programmer is to test that all functions and supporting messages display on different browsers and screensizes. The programmer devises and implements a paradigm and page to offer returning users supporting information for their continued use of the application.
-- Increment: the developer creates flash messages for creating a workout, editing a workout, saving a workout, deleting a workout, and completing a workout challenge. The developerOnce confirmed all changes are pushed to Github and Heroku for deployment.
+- Task: to ensure the user is supported the programmer creates and implements flash messages and input validation. The programmer is to test that all functions and supporting messages display on different browsers and screensizes. 
+- Increment: the developer creates flash messages for creating a workout, editing a workout, saving a workout, deleting a workout, and completing a workout challenge. Once confirmed all changes are pushed to Github and Heroku for future deployment.
 
 #### Iteration 4
 - Inception: the user will now have become a regular user of the site, and will need to continue to use the application.
-- Task: to ensure this the programmer will deploy the application on a live hosting platform.
-- Increment: the completed application is pushed to Github and deployed on Heroku with Debug Off.
+- Task: The programmer devises and implements a paradigm and page to offer returning users supporting information for their continued use of the application. To ensure the above the programmer will deploy the application on a live hosting platform. 
+- Increment: After thorough manual and automated testing procedures the completed application is pushed to Github and deployed on Heroku with Debug Off.
 
 ### Testing
 
@@ -177,6 +177,8 @@ The data schema will comprise of the main collections of Users (username and has
 The project depends upon the ability to store and manipulate information provided by each user. Testing is therefore firstly designed to ensure that all input elements function correctly, are validated, and stored in a usable format. These inputs need to be contained in a framework meeting responsivity and accessibility guidelines, so procedures to ensure this will also be implemented. Users will need to see all of their information in one place so testing procedures to ensure all actions are confirmed and then displayed on the profile page will also be devised.
 
 All elements should remain on the screen at sizes above 300px. All internal nav links should direct to the correct pages. All external links should open in a new window. All form inputs should be validated on submission. Form results should vary depending on user submitted information.
+
+All testing conducted on live deployed pages.
 
 #### Initial Bugs (pre-deployment)
 

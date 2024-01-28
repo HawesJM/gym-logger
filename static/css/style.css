@@ -83,7 +83,6 @@ h2 {
 #about-card {
     display: flex;
     flex-direction: column;
-    align-items: middle;
     padding-top: 20px;
     padding-bottom: 7%;
 }
@@ -198,7 +197,7 @@ h2 {
 }
 
 .form-group input {
-    margin-top: 15x;
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 
@@ -254,7 +253,7 @@ h3 {
     font-family: teko,
         sans-serif;
     font-size: 22px;
-    font-weight: 300px;
+    font-weight: 300;
 }
 
 .carousel-control {
@@ -546,7 +545,7 @@ h3 {
 
 .btn-info {
     background-color: #28b0b8b3;
-    color: fafafa;
+    color: #fafafa;
     margin-top:10px;
     margin-bottom: 10px;
 }

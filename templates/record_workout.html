@@ -176,7 +176,7 @@
   <form class="row" method="POST" action="{{url_for('record_workout')}}">
     <div id="date-picker-mobile-container">
       <div id="date-picker-mobile" class="col-6">
-        <label for="workout-date">Workout Date</label>
+        <label for="workout-date-mobile-input">Workout Date</label>
         <input id="workout-date-mobile-input" name="workout-date" class="form-control" type="date"/>
       </div>
     </div>
@@ -193,19 +193,19 @@
     <div id="mobile-exercise-row-1" class="row mobile-exercise-row">
       <h3>Exercise One Details</h3>
       <div class="form-group col-3">
-        <label for="exercise">Exercise</label>
+        <label for="mobile-exercise">Exercise</label>
         <input type="text" class="form-control" id="mobile-exercise" name="exercise" placeholder="exercise" required>
       </div>
       <div class="form-group col-3">
-        <label for="category">Category</label>
+        <label for="mobile-category">Category</label>
         <input type="text" class="form-control" id="mobile-category" name="category" placeholder="'cardio'">
       </div>
       <div class="form-group col-3">
-        <label for="modifier">Modifiers</label>
+        <label for="mobile-modifier">Modifiers</label>
         <input type="text" class="form-control" id="mobile-modifier" name="modifier" placeholder="e.g. KMs">
       </div>
       <div class="form-group col-3">
-        <label for="total">Totals</label>
+        <label for="mobile-total">Totals</label>
         <input type="number" step="any" class="form-control" id="mobile-total" name="total" placeholder="e.g. reps">
       </div>
       <div>
@@ -299,7 +299,7 @@
     <!-- mobile additional information -->
 
     <div class="col-6 mx-auto">
-      <label for="additional-information">Additional Information</label>
+      <label for="mobile-additional-information">Additional Information</label>
       <input type="text" class="form-control" id="mobile-additional-information" name="additional-information" minlength="5"
         maxlength="100" placeholder="e.g. number of sets/reps">
 
