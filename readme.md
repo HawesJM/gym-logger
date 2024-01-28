@@ -230,6 +230,10 @@ https://github.com/HawesJM/gym-logger/tree/main/static/images/readme/testing
 
 ![alt text](static/images/readme/testing/gym-logger-0-errors-jshint.png)
 
+##### PEP8 Compliance Checking
+
+![alt text](static/images/readme/testing/run-py-0-lint-errors.png)
+
 ### Deployment
 
 No further bugs found between development and final deployment as per videos. Developed as Flask app and deployed to Heroku via GitHub integration and the main branch.

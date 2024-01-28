@@ -24,11 +24,13 @@ mongo = PyMongo(app)
 
 # homepage route with example workouts from database
 
+
 @app.route("/")
 @app.route("/index")
 def index():
     workouts = mongo.db.workouts.find().sort("date", -1).limit(3)
     return render_template("index.html", workouts=workouts)
+
 
 # more information page route
 @app.route("/more_information")
@@ -37,6 +39,7 @@ def more_information():
 
 # full workout list from database
 
+
 @app.route("/workouts")
 def workouts():
     workouts = list(mongo.db.workouts.find())
@@ -44,12 +47,14 @@ def workouts():
 
 # to show a list of exercise categories
 
+
 @app.route("/categories")
 def categories():
     categories = list(mongo.db.categories.find().sort("category_name"))
     return render_template("categories.html", categories=categories)
 
 # user registration function
+
 
 @app.route("/register",  methods=["GET", "POST"])
 def register():
@@ -75,6 +80,7 @@ def register():
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
+
 # user sign-in function
 
 @app.route("/sign_in", methods=["GET", "POST"])
@@ -90,8 +96,8 @@ def sign_in():
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Login Successful!")
-                return redirect(url_for
-                    ("profile", username=session["user"]))
+                return redirect
+                (url_for("profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -106,6 +112,7 @@ def sign_in():
 
 # function to display the current user's profile with saved information
 
+
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab session user's username from db
@@ -114,11 +121,14 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     if session["user"]:
-        return render_template("profile.html", username=username, workouts=workouts, planned_workouts=planned_workouts)
+        return render_template
+        ("profile.html", username=username, workouts=workouts,
+            planned_workouts=planned_workouts)
 
     return redirect(url_for("sign_in"))
 
 # sign in function
+
 
 @app.route("/sign_out")
 def sign_out():
@@ -129,14 +139,17 @@ def sign_out():
 
 # create workout record function
 
+
 @app.route("/record_workout", methods=["GET", "POST"])
 def record_workout():
     if request.method == "POST":
         is_visible = "on" if request.form.get("is-visible") else "off"
         logged_workout = {
-            "date": request.form.get("workout-date"),
+            "date": request.form.get
+            ("workout-date"),
             "workout_description": request.form.get("workout-description"),
-            "workout_container_description": request.form.get("workout-description").replace(" ", ""),
+            "workout_container_description": request.form.get
+            ("workout-description").replace(" ", ""),
             "created_by": session["user"],
             "exercise": request.form.get("exercise"),
             "exercise2": request.form.get("exercise-two"),
@@ -159,7 +172,8 @@ def record_workout():
             "total4": request.form.get(str("total-four")),
             "total5": request.form.get(str("total-five")),
             "is_visible": is_visible,
-            "additional_information": request.form.get("additional-information"),
+            "additional_information": request.form.get
+            ("additional-information"),
             "saved_by": [],
             "unsaved_by": [],
 
@@ -169,7 +183,7 @@ def record_workout():
         for key in logged_workout.keys():
             if logged_workout[key]:
                 logged_workout[key] = logged_workout[key].lower()
-        
+
         logged_exercise = {
             "exercise": request.form.get("exercise"),
             "created_by": session["user"],
@@ -184,11 +198,11 @@ def record_workout():
         mongo.db.categories.insert_one(logged_category)
         flash("Workout successfully logged!")
         return redirect(url_for("profile", username=session["user"]))
-        
 
     return render_template("record_workout.html")
 
 # for adding workout categories to the database
+
 
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
@@ -198,8 +212,8 @@ def add_category():
         }
         mongo.db.categories.insert_one(category)
 
-
     return render_template("add_workout.html")
+
 
 @app.route("/add_exercise", methods=["GET", "POST"])
 def add_exercise():
@@ -209,10 +223,10 @@ def add_exercise():
         }
         mongo.db.categories.insert_one(exercise)
 
-
     return render_template("add_workout.html")
 
 # for editing an existing workout in the database
+
 
 @app.route("/edit_workout/<workout_id>", methods=["GET", "POST"])
 def edit_workout(workout_id):
@@ -223,7 +237,8 @@ def edit_workout(workout_id):
         submit = {
             "date": request.form.get("workout-date"),
             "workout_description": request.form.get("workout-description"),
-            "workout_container_description": request.form.get("workout-description").replace(" ", ""),
+            "workout_container_description": request.form.get
+            ("workout-description").replace(" ", ""),
             "created_by": session["user"],
             "exercise": request.form.get("exercise"),
             "exercise2": request.form.get("exercise-two"),
@@ -244,35 +259,44 @@ def edit_workout(workout_id):
             "total2": request.form.get(str("total-two")),
             "total3": request.form.get(str("total-three")),
             "total4": request.form.get(str("total-four")),
-            "total5": request.form.get(str("total-five")),
+            "total5": request.form.get
+            (str("total-five")),
             "is_visible": is_visible,
-            "additional_information": request.form.get("additional-information"),
+            "additional_information": request.form.get
+            ("additional-information"),
         }
-        mongo.db.workouts.update_one({"_id": ObjectId(workout_id)}, {"$set": submit})
+        mongo.db.workouts.update_one
+        ({"_id": ObjectId(workout_id)}, {"$set": submit})
         flash("workout successfully amended")
         return redirect(url_for("profile", username=session["user"]))
 
-    return render_template("edit_workout.html", workout=workout, workouts=workouts)
-    
+    return render_template
+    ("edit_workout.html", workout=workout, workouts=workouts)
+
 # function for a user to delete an owned workout record from the database
+
 
 @app.route("/delete_workout/<workout_id>")
 def delete_workout(workout_id):
-    mongo.db.workouts.delete_one({"_id": 
-    ObjectId(workout_id)})
+    mongo.db.workouts.delete_one
+    ({"_id": ObjectId(workout_id)})
     workouts = list(mongo.db.workouts.find())
     flash("workout successfully deleted")
-    return render_template("profile.html", username=session["user"], workouts=workouts)
+    return render_template
+    ("profile.html", username=session["user"], workouts=workouts)
 
 # shows the full details of a single workout record in its own page
+
 
 @app.route("/workout_details/<workout_id>")
 def workout_details(workout_id):
     workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
 
-    return render_template("workout_details.html", workout=workout, workouts=workouts)
+    return render_template
+    ("workout_details.html", workout=workout, workouts=workouts)
 
 # allows the user to search all workout records
+
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
@@ -282,6 +306,7 @@ def search():
 
 # function for the user to save another's public workout to their own profile
 
+
 @app.route("/save_workout_page/<workout_id>", methods=["GET", "POST"])
 def save_workout_page(workout_id):
     workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
@@ -289,7 +314,8 @@ def save_workout_page(workout_id):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
-    return render_template("save_workout.html", workout=workout, workouts=workouts) 
+    return render_template
+    ("save_workout.html", workout=workout, workouts=workouts)
 
 
 @app.route("/save_workout/<workout_id>", methods=["GET", "POST"])
@@ -303,11 +329,16 @@ def save_workout(workout_id):
         saved_workout = {
             "saved_by": username,
         }
-        mongo.db.workouts.update_one({"_id": ObjectId(workout_id)}, {"$push": saved_workout})
+        mongo.db.workouts.update_one
+        ({"_id": ObjectId(workout_id)}, {"$push": saved_workout})
 
-    return render_template("profile.html", workout=workout, workouts=workouts, username=username, saved_workout=saved_workout)
+    return render_template
+    ("profile.html",
+     workout=workout, workouts=workouts, username=username,
+        saved_workout=saved_workout)
 
 # function for the user to remove a saved workout from their profile
+
 
 @app.route("/un_save_workout/<workout_id>", methods=["GET", "POST"])
 def un_save_workout(workout_id):
@@ -320,11 +351,14 @@ def un_save_workout(workout_id):
         un_saved_workout = {
             "un_saved_by": username,
         }
-        mongo.db.workouts.update_one({"_id": ObjectId(workout_id)}, {"$push": un_saved_workout})
+        mongo.db.workouts.update_one
+        ({"_id": ObjectId(workout_id)}, {"$push": un_saved_workout})
 
-    return render_template("profile.html", workout=workout, workouts=workouts, username=username)
+    return render_template
+    ("profile.html", workout=workout, workouts=workouts, username=username)
 
 # function to display full details of a workout to be added as a plan
+
 
 @app.route("/plan_workout_page/<workout_id>", methods=["GET", "POST"])
 def plan_workout_page(workout_id):
@@ -334,7 +368,9 @@ def plan_workout_page(workout_id):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
-    return render_template("plan_workout.html", workout=workout, workouts=workouts, planned_workouts=planned_workouts) 
+    return render_template
+    ("plan_workout.html", workout=workout, workouts=workouts,
+        planned_workouts=planned_workouts)
 
 
 @app.route("/plan_workout/<workout_id>", methods=["GET", "POST"])
@@ -349,8 +385,10 @@ def plan_workout(workout_id):
     if request.method == "POST":
         planned_workouts = list(mongo.db.planned_workouts.find())
         planned_workout = {
-            "workout_description": request.form.get("plan-workout-description"),
-            "workout_container_description": request.form.get("plan-workout-description"),
+            "workout_description": request.form.get
+            ("plan-workout-description"),
+            "workout_container_description": request.form.get
+            ("plan-workout-description"),
             "exercise": request.form.get("plan-exercise"),
             "exercise2": request.form.get("plan-exercise-two"),
             "exercise3": request.form.get("plan-exercise-three"),
@@ -371,26 +409,32 @@ def plan_workout(workout_id):
             "total3": request.form.get(str("plan-total-three")),
             "total4": request.form.get(str("plan-total-four")),
             "total5": request.form.get(str("plan-total-five")),
-            "additional_information": request.form.get("plan-additional-information"),
+            "additional_information": request.form.get
+            ("plan-additional-information"),
             "planned_by": session["user"],
             "planned_date": request.form.get("plan-workout-date"),
         }
         mongo.db.planned_workouts.insert_one(planned_workout)
     flash("workout successfully planned")
-    return render_template("profile.html", username=session["user"], planned_workout=planned_workout, planned_workouts=planned_workouts, workout=workout, workouts=workouts)
+    return render_template
+    ("profile.html", username=session["user"], planned_workout=planned_workout,
+        planned_workouts=planned_workouts, workout=workout, workouts=workouts)
 
-# function to mark planned workout as complete   
+# function to mark planned workout as complete
+
 
 @app.route("/delete_planned_workout/<plan_workout_id>")
 def delete_planned_workout(plan_workout_id):
-    mongo.db.planned_workouts.delete_one({"_id": 
-    ObjectId(plan_workout_id)})
+    mongo.db.planned_workouts.delete_one({"_id": ObjectId(plan_workout_id)})
     workouts = list(mongo.db.workouts.find())
     planned_workouts = list(mongo.db.planned_workouts.find())
     flash("workout successfully completed!")
-    return render_template("profile.html", username=session["user"], workouts=workouts, planned_workouts=planned_workouts)
+    return render_template
+    ("profile.html", username=session["user"],
+        workouts=workouts, planned_workouts=planned_workouts)
 
 # how to run the app
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
