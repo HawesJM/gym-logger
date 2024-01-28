@@ -1,106 +1,109 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% block content %}
 <!-- Introduction and about section -->
 
 
-    <div class="col-12 col-md-8 mx-auto shadow-lg p-3 mb-5 bg-white rounded">
+<div class="col-12 col-md-8 mx-auto shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card">
+        <div class="card-body col-md-10 mx-auto">
+            <img id="about-image" src="static/images/gym-logger-banner.jpg" alt="gym-logger-hero-image" />
+        </div>
+    </div>
+    <div>
         <div class="card">
-            <div class="card-body col-md-10 mx-auto">
-                <img id="about-image" src="static/images/gym-logger-banner.jpg" />
+            <div id="about-card" class="card-body col-md-10 mx-auto">
+                <h2>About Gym Logger</h2>
+                <p id="intro" class="about-text text-center">
+                    <strong>Record your workouts | Build your plan | Share and support
+                        other users</strong><br />
+                    <em>Gym Logger is a responsive and adaptable library where you
+                        can browse, develop and record individual workout plans to
+                        be tried & tested against modern metrics, current
+                        information and community demographics.</em>
+                </p>
+                <a href="{{ url_for('register') }}" id="about-signup" class="btn btn-primary">Sign-up for free
+                    access</a>
             </div>
         </div>
-        <div class=>
-            <div class="card">
-                <div id="about-card" class="card-body col-md-10 mx-auto">
-                    <h2>About Gym Logger</h2>
-                    <p id="intro" class="about-text text-center">
-                        <strong>Record your workouts | Build your plan | Share and support
-                            other users</strong><br />
-                        <em>Gym Logger is a responsive and adaptable library where you
-                            can browse, develop and record individual workout plans to
-                            be tried & tested against modern metrics, current
-                            information and community demographics.</em>
-                    </p>
-                    <a href="{{ url_for('register') }}" id="about-signup" class="btn btn-primary">Sign-up for free access</a>
+
+        <!-- Login and member section -->
+        <div class="container login-container col-12 col-md-10 mx-auto">
+            <div class="row">
+                <div id="login-block" class="col-6 col-md-6 login-form-1">
+                    <h3>Login</h3>
+                    <form method="POST" action="{{url_for('sign_in')}}">
+                        <div class="col-12 form-group">
+                            <input id="registered-username-input" type="text" name="username" class="form-control"
+                                placeholder="Type Your Username *" />
+                        </div>
+                        <div class="form-group col-12">
+                            <input id="registered-password" type="password" name="password" class="form-control"
+                                placeholder="Your Password *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input id="registered-submit" type="submit" class="btn-submit" />
+                        </div>
+                        <div class="form-group col-6">
+                            <a href="#" class="ForgetPwd hidden">Forget Password?</a>
+                        </div>
+                    </form>
+                </div>
+                <div id="register-block" class="col-6 col-md-6 login-form-2 mx-auto">
+                    <h3>Register</h3>
+                    <form method="POST" action="{{url_for('register')}}">
+                        <div class="form-group col-12 mx-auto">
+                            <input type="text" class="form-control" placeholder="Enter A Username *" name="username" />
+                        </div>
+                        <div class="form-group col-12  mx-auto">
+                            <input type="password" class="form-control" placeholder="Enter A Password *"
+                                name="password" />
+                        </div>
+                        <div class="form-group col-6 mx-auto">
+                            <input id="register-button" type="submit" class="btn-submit" value="Register" />
+                        </div>
+                    </form>
                 </div>
             </div>
-
-    <!-- Login and member section -->
-            <div class="container login-container col-12 col-md-10 mx-auto">
-                <div class="row">
-                    <div id="login-block" class="col-6 col-md-6 login-form-1">
-                        <h3>Login</h3>
-                        <form method = "POST" action = "{{url_for('sign_in')}}">
-                            <div class="col-12 form-group">
-                                <input id="registered-username-input" type="text" name="username" class="form-control"
-                                    placeholder="Type Your Username *" />
-                            </div>
-                            <div class="form-group col-12">
-                                <input id="registered-password" type="password" name="password" class="form-control"
-                                    placeholder="Your Password *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input id="registered-submit" type="submit" class="btn-submit" />
-                            </div>
-                            <div class="form-group col-6">
-                                <a href="#" class="ForgetPwd hidden">Forget Password?</a>
-                            </div>
-                        </form>
-                    </div>
-                    <div id="register-block" class="col-6 col-md-6 login-form-2 mx-auto">
-                        <h3>Register</h3>
-                        <form method = "POST" action = "{{url_for('register')}}">
-                            <div class="form-group col-12 mx-auto">
-                                <input type="text" class="form-control" placeholder="Enter A Username *" name="username" />
-                            </div>
-                            <div class="form-group col-12  mx-auto">
-                                <input type="password" class="form-control" placeholder="Enter A Password *" name="password"/>
-                            </div>
-                            <div class="form-group col-6 mx-auto">
-                                <input id="register-button" type="submit" class="btn-submit" value="Register" />
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            </div>
-
-            <!--Example Workout Plans-->
-            <div class="col-md-10 mx-auto">
-                <div id="workout-plans-banner" class="row">
-                    <h3>Example Workouts</h3>
-                    {% for workout in workouts %}
-                    {% if workout.created_by != "admin" %}
-                        {% if workout.is_visible == "on" %}
-                            {% if workout.workout_description != "" %}
-                            <div class="card col-md-4">
-                                {% if workout.category == "cardio" %}
-                                <img class="card-head col-md-10 mx-auto" src="/static/images/cardio-card-header.jpg">
-                                {% elif workout.category == "resistance" %}
-                                <img class="card-head col-md-10 mx-auto" src="/static/images/resistance-card-header.jpg">
-                                {% elif workout.category == "weights" %}
-                                <img class="card-head col-md-10 mx-auto" src="/static/images/weights-card-header.jpg">
-                                {% else %}
-                                <img class="card-head col-md-10 mx-auto" src="/static/images/general-workout-card-header.jpg">
-                                {% endif %}
-                                <div class="card-body">
-                                    <h3 class="card-title">{{workout.workout_description}}</h3>
-                                    <h4>Logged By: <em>{{workout.created_by}}</em><br>{{workout.date}}</h4>
-                                    <p id="workout-example-description">  
-                                    <span>{{workout.exercise}} {{workout.category}} {{workout.total}} {{workout.modifier}}</span>
-                                       <br>
-                                       <span>{{workout.exercise2}} {{workout.category2}} {{workout.total2}} {{workout.modifier2}}</span>
-                                    </p> 
-                                </div>
-                            </div>
-                            {% endif %}
-                            {% endif %}
-                            {% endif %}
-                        {% endfor %}
-                        
-                    </div>
+        </div>
     </div>
 
+    <!--Example Workout Plans-->
+    <div class="col-md-10 mx-auto">
+        <div id="workout-plans-banner" class="row">
+            <h3>Example Workouts</h3>
+            {% for workout in workouts %}
+            {% if workout.created_by != "admin" %}
+            {% if workout.is_visible == "on" %}
+            {% if workout.workout_description != "" %}
+            <div class="card col-md-4">
+                {% if workout.category == "cardio" %}
+                <img class="card-head col-md-10 mx-auto" src="/static/images/cardio-card-header.jpg" alt="cardio-workout-image">
+                {% elif workout.category == "resistance" %}
+                <img class="card-head col-md-10 mx-auto" src="/static/images/resistance-card-header.jpg" alt="resistance-workout-image">
+                {% elif workout.category == "weights" %}
+                <img class="card-head col-md-10 mx-auto" src="/static/images/weights-card-header.jpg" alt="weights-workout-image">
+                {% else %}
+                <img class="card-head col-md-10 mx-auto" src="/static/images/general-workout-card-header.jpg" alt="general-workout-image">
+                {% endif %}
+                <div class="card-body">
+                    <h3 class="card-title">{{workout.workout_description}}</h3>
+                    <h4>Logged By: <em>{{workout.created_by}}</em><br>{{workout.date}}</h4>
+                    <p>
+                        <span>{{workout.exercise}} {{workout.category}} {{workout.total}} {{workout.modifier}}</span>
+                        <br>
+                        <span>{{workout.exercise2}} {{workout.category2}} {{workout.total2}}
+                            {{workout.modifier2}}</span>
+                    </p>
+                </div>
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
 
 
-{% endblock %}
+    {% endblock %}

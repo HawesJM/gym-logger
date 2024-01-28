@@ -179,3 +179,7 @@ The project depends upon the ability to store and manipulate information provide
 All elements should remain on the screen at sizes above 300px. All internal nav links should direct to the correct pages. All external links should open in a new window. All form inputs should be validated on submission. Form results should vary depending on user submitted information.
 
 #### Initial Bugs (pre-deployment)
+
+#### Testing Methodology
+
+#### Manual Testing Report

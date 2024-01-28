@@ -19,7 +19,6 @@
       <label for="workout-description">Workout Description</label>
       <input type="text" class="form-control" id="workout-description" name="workout-description" minlength="5"
         maxlength="100" required>
-      </input>
     </div>
     <div class="form-group col-sm-6 col-md-3">
       <label for="exercise">Exercise</label>
@@ -43,8 +42,8 @@
     </div>
     <div class="form-group col-sm-6 col-md-3">
       <label for="total">Totals</label>
-      <input type="number" step="any" class="form-control" id="total" name="total" placeholder="e.g. distance run or reps done"
-        required>
+      <input type="number" step="any" class="form-control" id="total" name="total"
+        placeholder="e.g. distance run or reps done" required>
       <i id="total-add" class="fa fa-plus-circle">
       </i>
     </div>
@@ -131,22 +130,18 @@
 
     <div id="exercise-five-container" class="form-group col-md-3 hidden">
       <input type="text" class="form-control" id="exercise-five" name="exercise-five" placeholder="exercise 5">
-      </i>
     </div>
     <div id="category-five-container" class="form-group col-md-3 hidden">
       <input type="text" class="form-control" id="category-five" name="category-five"
         placeholder="e.g. cardio, or weights">
-      </i>
     </div>
     <div id="modifier-five-container" class="form-group col-md-3 hidden">
       <input type="text" class="form-control" id="modifier-five" name="modifier-five"
         placeholder="metrics e.g. distance in KMs:">
-      </i>
     </div>
     <div id="total-five-container" class="form-group col-md-3 hidden">
       <input type="number" step="any" class="form-control" id="total-five" name="total-five"
         placeholder="e.g. distance run or reps done">
-      </i>
     </div>
 
     <!--additional information -->
@@ -156,15 +151,13 @@
       <input type="text" class="form-control" id="additional-information" name="additional-information" minlength="5"
         maxlength="100"
         placeholder="additional information: e.g. number of sets/reps per workout, number of reps per set">
-      </input>
     </div>
 
     <!--workout visibility function -->
 
-    <div id="visible-switch" class="form-check form-switch row">
-      <label class="form-check-label" for="is-visble">Publicly Visible</label>
+    <div id="visible-switch" class="form-check form-switch row mx-auto">
       <br>
-      <input class="form-check-input" type="checkbox" role="switch" id="is-visible" name="is-visible" checked>
+      <label class="form-check-label"><input class="form-check-input" type="checkbox" role="switch" id="is-visible" name="is-visible" checked><br> Publicly Visible</label>
     </div>
 
     <!-- submit row -->
@@ -172,9 +165,7 @@
     <div>
       <button type="submit" class="col-sm-12 col-md-3">Record Workout</button>
     </div>
-</div>
-</form>
-</div>
+  </form>
 </div>
 
 <!-- mobile workout record form -->
@@ -186,8 +177,7 @@
     <div id="date-picker-mobile-container">
       <div id="date-picker-mobile" class="col-6">
         <label for="workout-date">Workout Date</label>
-        <input id="workout-date-mobile-input" name="workout-date" class="form-control" type="date"
-          name="workout-date" />
+        <input id="workout-date-mobile-input" name="workout-date" class="form-control" type="date"/>
       </div>
     </div>
     <div>
@@ -195,149 +185,138 @@
         <label for="workout-description-mobile">Workout Description</label>
         <input type="text" class="form-control" id="workout-description-mobile" name="workout-description" minlength="5"
           maxlength="100" required>
-        </input>
       </div>
     </div>
 
-      <!-- mobile workout record exercise row 1 -->
+    <!-- mobile workout record exercise row 1 -->
 
     <div id="mobile-exercise-row-1" class="row mobile-exercise-row">
-        <h3>Exercise One Details</h3>
+      <h3>Exercise One Details</h3>
       <div class="form-group col-3">
         <label for="exercise">Exercise</label>
-        <input type="text" class="form-control" id="exercise" name="exercise" placeholder="exercise" required>
-        </i>
+        <input type="text" class="form-control" id="mobile-exercise" name="exercise" placeholder="exercise" required>
       </div>
       <div class="form-group col-3">
         <label for="category">Category</label>
-        <input type="text" class="form-control" id="category" name="category" placeholder="'cardio'">
-        </i>
+        <input type="text" class="form-control" id="mobile-category" name="category" placeholder="'cardio'">
       </div>
       <div class="form-group col-3">
         <label for="modifier">Modifiers</label>
-        <input type="text" class="form-control" id="modifier" name="modifier" placeholder="e.g. KMs">
+        <input type="text" class="form-control" id="mobile-modifier" name="modifier" placeholder="e.g. KMs">
       </div>
       <div class="form-group col-3">
         <label for="total">Totals</label>
-        <input type="number" step="any" class="form-control" id="total" name="total" placeholder="e.g. reps">
+        <input type="number" step="any" class="form-control" id="mobile-total" name="total" placeholder="e.g. reps">
       </div>
       <div>
         <i id="mobile-exercise-add-1" class="fa fa-plus-circle"></i>
-      </div>    
+      </div>
     </div>
 
     <!-- mobile workout record exercise row 2 -->
-  
+
     <div id="mobile-exercise-row-2" class="row mobile-exercise-row hidden">
       <h3>Exercise Two Details</h3>
       <div class="form-group col-3">
-        <input type="text" class="form-control" id="exercise-two" name="exercise-two" placeholder="exercise">
-        </i>
+        <input type="text" class="form-control" id="mobile-exercise-two" name="exercise-two" placeholder="exercise">
       </div>
       <div class="form-group col-3">
-        <input type="text" class="form-control" id="category-two" name="category-two" placeholder="'cardio'" >
-        </i>
+        <input type="text" class="form-control" id="mobile-category-two" name="category-two" placeholder="'cardio'">
       </div>
       <div class="form-group col-3">
-        <input type="text" class="form-control" id="modifier-two" name="modifier-two" placeholder="e.g. KMs">
+        <input type="text" class="form-control" id="mobile-modifier-two" name="modifier-two" placeholder="e.g. KMs">
       </div>
       <div class="form-group col-3">
-        <input type="number" step="any" class="form-control" id="total-two" name="total-two" placeholder="e.g. reps">
+        <input type="number" step="any" class="form-control" id="mobile-total-two" name="total-two" placeholder="e.g. reps">
       </div>
       <div>
         <i id="mobile-exercise-add-2" class="fa fa-plus-circle"></i>
-      </div> 
+      </div>
     </div>
 
-    
+
     <!-- mobile workout record exercise row 3 -->
-  
+
     <div id="mobile-exercise-row-3" class="row mobile-exercise-row hidden">
       <h3>Exercise Three Details</h3>
       <div class="form-group col-3">
-        <input type="text" class="form-control" id="exercise-three" name="exercise-three" placeholder="exercise" >
-        </i>
+        <input type="text" class="form-control" id="mobile-exercise-three" name="exercise-three" placeholder="exercise">
       </div>
       <div class="form-group col-3">
-        <input type="text" class="form-control" id="category-three" name="category-three" placeholder="'cardio'" >
-        </i>
+        <input type="text" class="form-control" id="mobile-category-three" name="category-three" placeholder="'cardio'">
       </div>
       <div class="form-group col-3">
-        <input type="text" class="form-control" id="modifier-three" name="modifier-three" placeholder="e.g. KMs" >
+        <input type="text" class="form-control" id="mobile-modifier-three" name="modifier-three" placeholder="e.g. KMs">
       </div>
       <div class="form-group col-3">
-        <input type="number" step="any" class="form-control" id="total-three" name="total-three" placeholder="e.g. reps">
+        <input type="number" step="any" class="form-control" id="mobile-total-three" name="total-three"
+          placeholder="e.g. reps">
       </div>
       <div>
         <i id="mobile-exercise-add-3" class="fa fa-plus-circle"></i>
-      </div> 
+      </div>
     </div>
-  
-  <!-- mobile workout record exercise row 4 -->  
 
-  <div id="mobile-exercise-row-4" class="row mobile-exercise-row hidden">
-    <h3>Exercise Four Details</h3>
-    <div class="form-group col-3">
-      <input type="text" class="form-control" id="exercise-four" name="exercise-four" placeholder="exercise">
-      </i>
+    <!-- mobile workout record exercise row 4 -->
+
+    <div id="mobile-exercise-row-4" class="row mobile-exercise-row hidden">
+      <h3>Exercise Four Details</h3>
+      <div class="form-group col-3">
+        <input type="text" class="form-control" id="mobile-exercise-four" name="exercise-four" placeholder="exercise">
+      </div>
+      <div class="form-group col-3">
+        <input type="text" class="form-control" id="mobile-category-four" name="category-four" placeholder="cardio">
+      </div>
+      <div class="form-group col-3">
+        <input type="text" class="form-control" id="mobile-modifier-four" name="modifier-four" placeholder="e.g. KMs">
+      </div>
+      <div class="form-group col-3">
+        <input type="number" step="any" class="form-control" id="mobile-total-four" name="total-four" placeholder="e.g. reps">
+      </div>
+      <div>
+        <i id="mobile-exercise-add-4" class="fa fa-plus-circle"></i>
+      </div>
     </div>
-    <div class="form-group col-3">
-      <input type="text" class="form-control" id="category-four" name="category-four" placeholder="'cardio'">
-      </i>
+
+    <!-- mobile workout record exercise row 5 -->
+
+    <div id="mobile-exercise-row-5" class="row mobile-exercise-row hidden">
+      <h3>Exercise Five Details</h3>
+      <div class="form-group col-3">
+        <input type="text" class="form-control" id="mobile-exercise-five" name="exercise-five" placeholder="exercise">
+      </div>
+      <div class="form-group col-3">
+        <input type="text" class="form-control" id="mobile-category-five" name="category-five" placeholder="'cardio'">
+      </div>
+      <div class="form-group col-3">
+        <input type="text" class="form-control" id="mobile-modifier-five" name="modifier-five" placeholder="e.g. KMs">
+      </div>
+      <div class="form-group col-3">
+        <input type="number" step="any" class="form-control" id="mobile-total-five" name="total-five" placeholder="e.g. reps">
+      </div>
     </div>
-    <div class="form-group col-3">
-      <input type="text" class="form-control" id="modifier-four" name="modifier-four" placeholder="e.g. KMs">
+
+    <!-- mobile additional information -->
+
+    <div class="col-6 mx-auto">
+      <label for="additional-information">Additional Information</label>
+      <input type="text" class="form-control" id="mobile-additional-information" name="additional-information" minlength="5"
+        maxlength="100" placeholder="e.g. number of sets/reps">
+
+
+
+      <!-- mobile visibility selector -->
+
+      <div id="mobile-visible-switch" class="form-check form-switch row mx-auto">
+        <br>
+        <label class="form-check-label"><input class="form-check-input" type="checkbox" role="switch" id="mobile-is-visible" name="is-visible" checked><br> Publicly Visible</label>
+      </div>
     </div>
-    <div class="form-group col-3">
-      <input type="number" step="any" class="form-control" id="total-four" name="total-four" placeholder="e.g. reps">
-    </div>
+
+    <!-- mobile submit -->
     <div>
-      <i id="mobile-exercise-add-4" class="fa fa-plus-circle"></i>
-    </div> 
-  </div>
-
-  <!-- mobile workout record exercise row 5 -->
-  
-  <div id="mobile-exercise-row-5" class="row mobile-exercise-row hidden">
-    <h3>Exercise Five Details</h3>
-    <div class="form-group col-3">
-      <input type="text" class="form-control" id="exercise-five" name="exercise-five" placeholder="exercise" >
-      </i>
-    </div>
-    <div class="form-group col-3">
-      <input type="text" class="form-control" id="category-five" name="category-five" placeholder="'cardio'">
-      </i>
-    </div>
-    <div class="form-group col-3">
-      <input type="text" class="form-control" id="modifier-five" name="modifier-five" placeholder="e.g. KMs" >
-    </div>
-    <div class="form-group col-3">
-      <input type="number" step="any" class="form-control" id="total-five" name="total-five" placeholder="e.g. reps">
-    </div>
-  </div>
-
- <!-- mobile additional information -->
-
- <div class="col-6 mx-auto">
-  <label for="additional-information">Additional Information</label>
-  <input type="text" class="form-control" id="additional-information" name="additional-information" minlength="5"
-    maxlength="100"
-    placeholder="e.g. number of sets/reps">
-  </input>
-
-
-  <!-- mobile visibility selector -->
-
-<div id="visible-switch" class="form-check form-switch">
-  <label class="form-check-label" for="is-visble">Publicly Visible</label>
-  <br>
-  <input class="form-check-input" type="checkbox" role="switch" id="is-visible" name="is-visible" checked>
-</div>
-</div>
-
-  <!-- mobile submit -->
-    <div>
-      <button id="mobile-submit-button" type="submit" class="col-6">Finished Adding Exercises?<br>Log Your Workout</button>
+      <button id="mobile-submit-button" type="submit" class="col-6">Finished Adding Exercises?<br>Log Your
+        Workout</button>
     </div>
   </form>
 </div>

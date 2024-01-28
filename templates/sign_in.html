@@ -34,10 +34,9 @@
     </form>
 </div>
 
-<section>
+<div>
     <!-- flash messages -->
 
-        <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
@@ -47,9 +46,9 @@
         {% endfor %}
         {% endif %}
         {% endwith %}
-</section>
+    </div>
 
-<div class="row login-help"">
+<div class="row login-help">
     <div class="col s12">
         <p class="center-align">
             New Here?
