@@ -18,7 +18,7 @@ if (document.getElementById("workout-record-container")) {
     document.getElementById("exercise-add-three").addEventListener("click", duplicateExerciseThree);
     document.getElementById("category-add-three").addEventListener("click", duplicateCategoryThree);
     document.getElementById("modifier-add-three").addEventListener("click", duplicateModifierThree);
-    document.getElementById("total-add-three").addEventListener("click", duplicateTotalThree)
+    document.getElementById("total-add-three").addEventListener("click", duplicateTotalThree);
     document.getElementById("exercise-add-four").addEventListener("click", duplicateExerciseFour);
     document.getElementById("category-add-four").addEventListener("click", duplicateCategoryFour);
     document.getElementById("modifier-add-four").addEventListener("click", duplicateModifierFour);
@@ -26,12 +26,12 @@ if (document.getElementById("workout-record-container")) {
 
 
 //mobile form event listeners //
-    document.getElementById("workout-date-mobile-input").addEventListener("change", hideDatePicker)
-    document.getElementById("workout-description-mobile").addEventListener("change", hideMobileDescription)
-    document.getElementById("mobile-exercise-add-1").addEventListener("click", hideWorkoutRow1)
-    document.getElementById("mobile-exercise-add-2").addEventListener("click", hideWorkoutRow2)
-    document.getElementById("mobile-exercise-add-3").addEventListener("click", hideWorkoutRow3)
-    document.getElementById("mobile-exercise-add-4").addEventListener("click", hideWorkoutRow4)
+    document.getElementById("workout-date-mobile-input").addEventListener("change", hideDatePicker);
+    document.getElementById("workout-description-mobile").addEventListener("change", hideMobileDescription);
+    document.getElementById("mobile-exercise-add-1").addEventListener("click", hideWorkoutRow1);
+    document.getElementById("mobile-exercise-add-2").addEventListener("click", hideWorkoutRow2);
+    document.getElementById("mobile-exercise-add-3").addEventListener("click", hideWorkoutRow3);
+    document.getElementById("mobile-exercise-add-4").addEventListener("click", hideWorkoutRow4);
 
 
 // record workout section 2 functions //    
@@ -128,21 +128,21 @@ function duplicateTotalFour() {
 
 function hideDatePicker() {
     $("#date-picker-mobile-container").addClass("hidden");
-    let mobile_date = document.getElementById("workout-date-mobile-input").value 
-    alert(`selected workout date is ${mobile_date}`)
+    let mobile_date = document.getElementById("workout-date-mobile-input").value;
+    alert(`selected workout date is ${mobile_date}`);
 
 }
 
 function hideMobileDescription() {
     $("#mobile-description").addClass("hidden");
-    let mobile_description = document.getElementById("workout-description-mobile").value 
-    alert(`workout description is ${mobile_description}`)
+    let mobile_description = document.getElementById("workout-description-mobile").value; 
+    alert(`workout description is ${mobile_description}`);
 
 }
 
 function hideWorkoutRow1() {
     $("#mobile-exercise-row-1").addClass("hidden");
-    $("#mobile-exercise-row-2").removeClass("hidden");;
+    $("#mobile-exercise-row-2").removeClass("hidden");
 }
 
 function hideWorkoutRow2() {
@@ -163,7 +163,7 @@ function hideWorkoutRow4() {
     $("#mobile-exercise-row-5").removeClass("hidden");
 }
 
-};
+}
 
 
 // save workout function //

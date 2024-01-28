@@ -195,3 +195,5 @@ All testing conducted on live deployed pages.
 #### Testing Methodology
 
 #### Manual Testing Report
+
+![alt text] (static/images/readme/testing/gym-logger-testing-report.png)
