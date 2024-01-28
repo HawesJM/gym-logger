@@ -116,6 +116,26 @@ h2 {
     text-align: center;
 }
 
+#homepage-username {
+    color: #F3CFCE;
+    font-family: teko, sans-serif
+}
+
+#homepage-password {
+    color: #F3CFCE;
+    font-family: teko, sans-serif
+}
+
+#register-username {
+    color: #F3CFCE;
+    font-family: teko, sans-serif
+}
+
+#register-password {
+    color: #F3CFCE;
+    font-family: teko, sans-serif
+}
+
 /* Index homepage specific styles */
 
 .btn-submit:hover {

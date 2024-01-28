@@ -162,8 +162,8 @@ The data schema will comprise of the main collections of Users (username and has
 
 #### Iteration 3
 - Inception: the user will now have become familiar with the full functionality of the application. As they continue to use the application, creating, updating and deleting records, they need to have each action confirmed immediately as well as being recorded in their profile.
-- Task: to ensure the user is supported the programmer creates and implements flash messages and input validation. The programmer is to test that all functions and supporting messages display on different browsers and screensizes
-- Increment: the developer creates flash messages for creating a workout, editing a workout, saving a workout, deleting a workout, and completing a workout challenge. Changes are pushed to Github and Heroku for future deployment.
+- Task: to ensure the user is supported the programmer creates and implements flash messages and input validation. The programmer is to test that all functions and supporting messages display on different browsers and screensizes. The programmer devises and implements a paradigm and page to offer returning users supporting information for their continued use of the application.
+- Increment: the developer creates flash messages for creating a workout, editing a workout, saving a workout, deleting a workout, and completing a workout challenge. The developerOnce confirmed all changes are pushed to Github and Heroku for deployment.
 
 #### Iteration 4
 - Inception: the user will now have become a regular user of the site, and will need to continue to use the application.

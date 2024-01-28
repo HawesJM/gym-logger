@@ -33,15 +33,17 @@
                     <h3>Login</h3>
                     <form method="POST" action="{{url_for('sign_in')}}">
                         <div class="col-12 form-group">
+                            <label id="homepage-username" for="registered-username-input">Username</label>
                             <input id="registered-username-input" type="text" name="username" class="form-control"
-                                placeholder="Type Your Username *" />
+                                placeholder="Type Your Username *"/>
                         </div>
                         <div class="form-group col-12">
+                            <label id="homepage-password" for="registered-password">Password</label>
                             <input id="registered-password" type="password" name="password" class="form-control"
                                 placeholder="Your Password *" value="" />
                         </div>
                         <div class="form-group">
-                            <input id="registered-submit" type="submit" class="btn-submit" />
+                            <input id="registered-submit" type="submit" class="btn-submit" value="submit" />
                         </div>
                         <div class="form-group col-6">
                             <a href="#" class="ForgetPwd hidden">Forget Password?</a>
@@ -52,10 +54,12 @@
                     <h3>Register</h3>
                     <form method="POST" action="{{url_for('register')}}">
                         <div class="form-group col-12 mx-auto">
-                            <input type="text" class="form-control" placeholder="Enter A Username *" name="username" />
+                            <label id="register-username" for="new-username">Username</label>
+                            <input id="new-username" type="text" class="form-control" placeholder="Enter A Username *" name="username" />
                         </div>
+                        <label id="register-password" for="new-password">Username</label>
                         <div class="form-group col-12  mx-auto">
-                            <input type="password" class="form-control" placeholder="Enter A Password *"
+                            <input id="new-password" type="password" class="form-control" placeholder="Enter A Password *"
                                 name="password" />
                         </div>
                         <div class="form-group col-6 mx-auto">
