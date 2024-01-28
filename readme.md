@@ -196,4 +196,54 @@ All testing conducted on live deployed pages.
 
 #### Manual Testing Report
 
-![alt text] (static/images/readme/testing/gym-logger-testing-report.png)
+![alt text](static/images/readme/testing/gym-logger-testing-report.png)
+
+##### Testing Videos
+
+https://github.com/HawesJM/gym-logger/tree/main/static/videos
+
+##### Nu Html Checker
+
+https://github.com/HawesJM/gym-logger/tree/main/static/images/readme/testing
+
+All public pages passed through HTML verification with no errors
+
+![alt text](static/images/readme/testing/gym-logger-index-html-checked.png)
+
+##### W3C CSS Validation
+
+![alt text](static/images/readme/testing/gym-logger-css-checked.png)
+
+##### Lighthouse Checking
+
+![alt text](static/images/readme/testing/gym-logger-lighthouse-checked.png)
+
+##### WAVE Accessibility Checking
+
+All public pages passed through WAVE accessibility checking with no errors
+
+https://github.com/HawesJM/gym-logger/tree/main/static/images/readme/testing
+
+![alt text](static/images/readme/testing/gym-logger-record-wave-checked.png)
+
+##### JSHint Checking
+
+![alt text](static/images/readme/testing/gym-logger-0-errors-jshint.png)
+
+### Deployment
+
+No further bugs found between development and final deployment as per videos. Developed as Flask app and deployed to Heroku via GitHub integration and the main branch.
+
+### Usage
+
+The live deployed app is publicly available at https://gym-logger-4332586599d1.herokuapp.com/ for users to access freely and navigate accordingly. Free registration is necessary to browse the full site and access full functionality.
+
+### Acknowledgments
+
+I'd like to thank my Code Institute assigned mentor Daisy McGirr for her support and input.
+
+### Further Development
+
+- Carousels.
+- More user metrics including personal bests, weekly workout frequency, live totals.
+- Forgot password feature.
