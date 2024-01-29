@@ -121,8 +121,8 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     if session["user"]:
-        return render_template
-        ("profile.html", username=username, workouts=workouts,
+        return render_template(
+            "profile.html", username=username, workouts=workouts,
             planned_workouts=planned_workouts)
 
     return redirect(url_for("sign_in"))
@@ -270,8 +270,8 @@ def edit_workout(workout_id):
         flash("workout successfully amended")
         return redirect(url_for("profile", username=session["user"]))
 
-    return render_template
-    ("edit_workout.html", workout=workout, workouts=workouts)
+    return render_template(
+        "edit_workout.html", workout=workout, workouts=workouts)
 
 # function for a user to delete an owned workout record from the database
 
@@ -282,8 +282,8 @@ def delete_workout(workout_id):
     ({"_id": ObjectId(workout_id)})
     workouts = list(mongo.db.workouts.find())
     flash("workout successfully deleted")
-    return render_template
-    ("profile.html", username=session["user"], workouts=workouts)
+    return render_template(
+        "profile.html", username=session["user"], workouts=workouts)
 
 # shows the full details of a single workout record in its own page
 
@@ -292,8 +292,8 @@ def delete_workout(workout_id):
 def workout_details(workout_id):
     workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
 
-    return render_template
-    ("workout_details.html", workout=workout, workouts=workouts)
+    return render_template(
+        "workout_details.html", workout=workout, workouts=workouts)
 
 # allows the user to search all workout records
 
@@ -314,8 +314,8 @@ def save_workout_page(workout_id):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
-    return render_template
-    ("save_workout.html", workout=workout, workouts=workouts)
+    return render_template(
+        "save_workout.html", workout=workout, workouts=workouts)
 
 
 @app.route("/save_workout/<workout_id>", methods=["GET", "POST"])
@@ -332,10 +332,10 @@ def save_workout(workout_id):
         mongo.db.workouts.update_one
         ({"_id": ObjectId(workout_id)}, {"$push": saved_workout})
 
-    return render_template
-    ("profile.html",
-     workout=workout, workouts=workouts, username=username,
-        saved_workout=saved_workout)
+    return render_template(
+        "profile.html",
+        workout=workout, workouts=workouts,
+        username=username, saved_workout=saved_workout)
 
 # function for the user to remove a saved workout from their profile
 
@@ -354,8 +354,8 @@ def un_save_workout(workout_id):
         mongo.db.workouts.update_one
         ({"_id": ObjectId(workout_id)}, {"$push": un_saved_workout})
 
-    return render_template
-    ("profile.html", workout=workout, workouts=workouts, username=username)
+    return render_template(
+        "profile.html", workout=workout, workouts=workouts, username=username)
 
 # function to display full details of a workout to be added as a plan
 
@@ -368,9 +368,9 @@ def plan_workout_page(workout_id):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
-    return render_template
-    ("plan_workout.html", workout=workout, workouts=workouts,
-        planned_workouts=planned_workouts)
+    return render_template(
+        "plan_workout.html", workout=workout,
+        workouts=workouts, planned_workouts=planned_workouts)
 
 
 @app.route("/plan_workout/<workout_id>", methods=["GET", "POST"])
@@ -416,8 +416,9 @@ def plan_workout(workout_id):
         }
         mongo.db.planned_workouts.insert_one(planned_workout)
     flash("workout successfully planned")
-    return render_template
-    ("profile.html", username=session["user"], planned_workout=planned_workout,
+    return render_template(
+        "profile.html", username=session["user"],
+        planned_workout=planned_workout,
         planned_workouts=planned_workouts, workout=workout, workouts=workouts)
 
 # function to mark planned workout as complete
@@ -429,8 +430,8 @@ def delete_planned_workout(plan_workout_id):
     workouts = list(mongo.db.workouts.find())
     planned_workouts = list(mongo.db.planned_workouts.find())
     flash("workout successfully completed!")
-    return render_template
-    ("profile.html", username=session["user"],
+    return render_template(
+        "profile.html", username=session["user"],
         workouts=workouts, planned_workouts=planned_workouts)
 
 # how to run the app
