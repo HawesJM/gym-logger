@@ -9,6 +9,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
+# configuration
 
 app = Flask(__name__)
 
@@ -415,6 +416,10 @@ def delete_planned_workout(plan_workout_id):
         "profile.html", username=session["user"],
         workouts=workouts, planned_workouts=planned_workouts)
 
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html")
 
 # how to run the app
 if __name__ == "__main__":

@@ -238,6 +238,10 @@ https://github.com/HawesJM/gym-logger/tree/main/static/images/readme/testing
 
 No further bugs found between development and final deployment as per videos. Developed as Flask app and deployed to Heroku via GitHub integration and the main branch.
 
+Deployed as a live site to Heroku so new and existing users can discover the app and use its full functionality to keep track of their workouts and set themselves new fitness goals based on community metrics and statistics.
+
+Heroku is required to run the Python and backend functionality such use depends on.
+
 ### Usage
 
 The live deployed app is publicly available at https://gym-logger-4332586599d1.herokuapp.com/ for users to access freely and navigate accordingly. Free registration is necessary to browse the full site and access full functionality.
