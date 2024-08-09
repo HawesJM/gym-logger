@@ -4,147 +4,570 @@
 <!--workout form header-->
 
 <div id="workout-record-container" class="col-12 col-md-6 shadow-lg p-3 mb-5 bg-white rounded">
-  <h2><em>add up to 5 specific exercises, these details can be edited later</em></h2>
+  <h1 id="record-workout-header">Log A Workout Below</h1><em><h2 id="record-workout-explainer">add up to 8 specific exercises per workout then hit "record workout" these details can be edited later</h2></em>
   <form class="row" method="POST" action="{{url_for('record_workout')}}">
     <div>
       <div id="date-picker" class="col-6 col-md-3">
-        <label for="workout-date">Workout Date</label>
-        <input id="workout-date" name="workout-date" class="form-control" type="date" />
+        <label for="workout-date"><h2>Workout Date</h2></label>
+        <input id="workout-date" name="workout-date" class="form-control" type="date" required/>
       </div>
     </div>
-
+    
     <!--form row one-->
-
-    <div class="col-12 col-md-12">
-      <label for="workout-description">Workout Description</label>
+    <div id="workout-description-block" class="col-12 col-md-12 form-group">
+      <label for="workout-description"><h2>Workout Description</h2></label>
       <input type="text" class="form-control" id="workout-description" name="workout-description" minlength="5"
         maxlength="100" required>
     </div>
-    <div class="form-group col-sm-6 col-md-3">
-      <label for="exercise">Exercise</label>
-      <input type="text" class="form-control" id="exercise" name="exercise" placeholder="exercise 1" required>
-      <i id="exercise-add" class="fa fa-plus-circle">
-      </i>
+    <div id="exercise-one-header" class="row"><h3>Exercise One</h3></div>
+    <div class="form-group col-sm-6 col-md-2 exercise-one">
+      <label for="exercise">Exercise:</label>
+      <br>
+      <select name="exercise" id="exercise" required>
+        <option disabled selected value> -- Select -- </option>
+        {% for exercise in exercises %}
+        <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+        {% endfor %}
+      </select>
     </div>
-    <div class="form-group col-sm-6 col-md-3">
-      <label for="category">Category</label>
-      <input type="text" class="form-control" id="category" name="category" placeholder="e.g. cardio, or weights"
-        required>
-      <i id="category-add" class="fa fa-plus-circle">
-      </i>
+    <div class="form-group col-sm-6 col-md-2 exercise-one">
+      <label for="category">Category:</label>
+      <br>
+      <select name="category" id="category" required>
+        <option disabled selected value> -- Select -- </option>
+        {% for category in categories %}
+        <option value="{{ category.category }}"> {{ category.category}} </option>
+        {% endfor %}
+      </select>
     </div>
-    <div class="form-group col-sm-6 col-md-3">
-      <label for="modifier">Modifiers</label>
-      <input type="text" class="form-control" id="modifier" name="modifier" placeholder="metrics e.g. distance in KMs:"
-        required>
-      <i id="modifier-add" class="fa fa-plus-circle">
-      </i>
+    <div class="form-group col-sm-6 col-md-2 exercise-one">
+      <label for="modifier_one">Modifier 1:</label>
+      <br>
+      <select name="modifier" id="modifier">
+        <option disabled selected value> -- Select -- </option>
+        {% for modifier in modifiers %}
+        <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+        {% endfor %}
+      </select>
     </div>
-    <div class="form-group col-sm-6 col-md-3">
-      <label for="total">Totals</label>
-      <input type="number" step="any" class="form-control" id="total" name="total"
-        placeholder="e.g. distance run or reps done" required>
-      <i id="total-add" class="fa fa-plus-circle">
-      </i>
+    <div class="form-group col-sm-6 col-md-2 exercise-one">
+      <label for="modifiers_two">Modifier 2:</label>
+      <br>
+      <select name="modifier_two" id="modifier_two">
+        <option disabled selected value> -- Select -- </option>
+        {% for modifier in modifiers %}
+        <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+        {% endfor %}
+      </select>
     </div>
+    <div class="form-group col-sm-6 col-md-2 exercise-one">
+      <label for="modifiers_three">Modifier 3:</label>
+      <br>
+      <select name="modifier_three" id="modifier_three">
+        <option disabled selected value> -- Select -- </option>
+        {% for modifier in modifiers %}
+        <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-sm-6 col-md-2 exercise-one">
+      <label for="totals">Modifier Totals:</label>
+      <div id="modifiers-row" class="row">
+        <input type="number" step="any" class="form-control modifier-inputs" id="total_one" name="total_one"
+          placeholder="M1" required>
+        <input type="number" step="any" class="form-control modifier-inputs" id="total_two" name="total_two"
+          placeholder="M2" required>
+        <input type="number" step="any" class="form-control modifier-inputs" id="total_three" name="total_three"
+          placeholder="M3" required>
+      </div>
+    </div>
+
+    <div class="row"><i id="exercise-row-two-add" class="fa fa-plus-circle fa-xl"></i></div>
 
     <!--form row 2 -->
+    <div id="exercise-two-container" class="row hidden">
+      <div id="exercise-two-header" class="row"><h3>Exercise Two</h3></div>
+    <div class="form-group col-sm-6 col-md-2 ">
+      <label for="exercise-two">Exercise:</label>
+      <br>
+      <select name="exercise-two" id="exercise-two">
+        <option disabled selected value> -- Select -- </option>
+        {% for exercise in exercises %}
+        <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="category-two">Category:</label>
+      <br>
+      <select name="category-two" id="category-two">
+        <option disabled selected value> -- Select -- </option>
+        {% for category in categories %}
+        <option value="{{ category.category }}"> {{ category.category}} </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="exercise_two_modifier_one">Modifier 1:</label>
+      <br>
+      <select name="exercise_two_modifier_one" id="exercise_two_modifier_one">
+        <option disabled selected value> -- Select -- </option>
+        {% for modifier in modifiers %}
+        <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="exercise_two_modifier_two">Modifier 2:</label>
+      <br>
+      <select name="exercise_two_modifier_two" id="exercise_two_modifier_two">
+        <option disabled selected value> -- Select -- </option>
+        {% for modifier in modifiers %}
+        <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="exercise_two_modifier_modifier_three">Modifier 3:</label>
+      <br>
+      <select name="exercise_two_modifier_three" id="exercise_two_modifier_three">
+        <option disabled selected value> -- Select -- </option>
+        {% for modifier in modifiers %}
+        <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="totals">Modifier Totals:</label>
+      <div id="modifiers-row" class="row">
+        <input type="number" step="any" class="form-control modifier-inputs" id="exercise_two_total_one" name="exercise_two_total_one"
+          placeholder="M1">
+        <input type="number" step="any" class="form-control modifier-inputs" id="exercise_two_total_two" name="exercise_two_total_two"
+          placeholder="M2">
+        <input type="number" step="any" class="form-control modifier-inputs" id="exercise_two_total_three" name="exercise_two_total_three"
+          placeholder="M3">
+      </div>
+      </i>
+    </div>
+    </div>
 
-    <div id="exercise-two-container" class="form-group col-md-3 hidden">
-      <input type="text" class="form-control" id="exercise-two" name="exercise-two" placeholder="exercise 2">
-      <i id="exercise-add-two" class="fa fa-plus-circle">
-      </i>
-    </div>
-    <div id="category-two-container" class="form-group col-md-3 hidden">
-      <input type="text" class="form-control" id="category-two" name="category-two"
-        placeholder="e.g. stretching, or yoga">
-      <i id="category-add-two" class="fa fa-plus-circle">
-      </i>
-    </div>
-    <div id="modifier-two-container" class="form-group col-md-3 hidden">
-      <input type="text" class="form-control" id="modifier-two" name="modifier-two"
-        placeholder="metrics e.g. weights in KGs:">
-      <i id="modifier-add-two" class="fa fa-plus-circle">
-      </i>
-    </div>
-    <div id="total-two-container" class="form-group col-md-3 hidden">
-      <input type="number" step="any" class="form-control" id="total-two" name="total-two"
-        placeholder="e.g. distance run or reps done">
-      <i id="total-add-two" class="fa fa-plus-circle">
-      </i>
-    </div>
+    <div class="row"><i id="exercise-row-three-add" class="fa fa-plus-circle fa-xl hidden"></i></div>
 
     <!--form row 3 -->
 
-    <div id="exercise-three-container" class="form-group col-md-3 hidden">
-      <input type="text" class="form-control" id="exercise-three" name="exercise-three" placeholder="exercise 3">
-      <i id="exercise-add-three" class="fa fa-plus-circle">
-      </i>
+    <div id="exercise-three-container" class="row hidden">
+      <div id="exercise-three-header" class="row"><h3>Exercise Three</h3></div>
+    <div class="form-group col-sm-6 col-md-2 ">
+      <label for="exercise-three">Exercise:</label>
+      <br>
+      <select name="exercise-three" id="exercise-three">
+        <option disabled selected value> -- Select -- </option>
+        {% for exercise in exercises %}
+        <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+        {% endfor %}
+      </select>
     </div>
-    <div id="category-three-container" class="form-group col-md-3 hidden">
-      <input type="text" class="form-control" id="category-three" name="category-three"
-        placeholder="e.g. cardio, or weights">
-      <i id="category-add-three" class="fa fa-plus-circle">
-      </i>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="category-three">Category:</label>
+      <br>
+      <select name="category-three" id="category-three">
+        <option disabled selected value> -- Select -- </option>
+        {% for category in categories %}
+        <option value="{{ category.category }}"> {{ category.category}} </option>
+        {% endfor %}
+      </select>
     </div>
-    <div id="modifier-three-container" class="form-group col-md-3 hidden">
-      <input type="text" class="form-control" id="modifier-three" name="modifier-three"
-        placeholder="metrics e.g. distance in KMs:">
-      <i id="modifier-add-three" class="fa fa-plus-circle">
-      </i>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="exercise_three_modifier_one">Modifier 1:</label>
+      <br>
+      <select name="exercise_three_modifier_one" id="exercise_three_modifier_one">
+        <option disabled selected value> -- Select -- </option>
+        {% for modifier in modifiers %}
+        <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+        {% endfor %}
+      </select>
     </div>
-    <div id="total-three-container" class="form-group col-md-3 hidden">
-      <input type="number" step="any" class="form-control" id="total-three" name="total-three"
-        placeholder="e.g. distance run or reps done">
-      <i id="total-add-three" class="fa fa-plus-circle">
-      </i>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="exercise_three_modifier_two">Modifier 2:</label>
+      <br>
+      <select name="exercise_three_modifier_two" id="exercise_three_modifier_two">
+        <option disabled selected value> -- Select -- </option>
+        {% for modifier in modifiers %}
+        <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+        {% endfor %}
+      </select>
     </div>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="exercise_three_modifier_three">Modifier 3:</label>
+      <br>
+      <select name="exercise_three_modifier_three" id="exercise_three_modifier_three">
+        <option disabled selected value> -- Select -- </option>
+        {% for modifier in modifiers %}
+        <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="totals">Modifier Totals:</label>
+      <div id="modifiers-row" class="row">
+        <input type="number" step="any" class="form-control modifier-inputs" id="exercise_three_total_one" name="exercise_three_total_one"
+          placeholder="M1">
+        <input type="number" step="any" class="form-control modifier-inputs" id="exercise_three_total_two" name="exercise_three_total_two"
+          placeholder="M2">
+        <input type="number" step="any" class="form-control modifier-inputs" id="exercise_three_total_three" name="exercise_three_total_three"
+          placeholder="M3">
+      </div>
+    </div>
+    </div>
+
+    <div class="row"><i id="exercise-row-four-add" class="fa fa-plus-circle fa-xl hidden"></i></div>
 
     <!--form row 4 -->
 
-    <div id="exercise-four-container" class="form-group col-md-3 hidden">
-      <input type="text" class="form-control" id="exercise-four" name="exercise-four" placeholder="exercise 4">
-      <i id="exercise-add-four" class="fa fa-plus-circle">
-      </i>
+    <div id="exercise-four-container" class="row hidden">
+      <div id="exercise-four-header" class="row"><h3>Exercise Four</h3></div>
+    <div class="form-group col-sm-6 col-md-2 ">
+      <label for="exercise-four">Exercise:</label>
+      <br>
+      <select name="exercise-four" id="exercise-four">
+        <option disabled selected value> -- Select -- </option>
+        {% for exercise in exercises %}
+        <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+        {% endfor %}
+      </select>
     </div>
-    <div id="category-four-container" class="form-group col-md-3 hidden">
-      <input type="text" class="form-control" id="category-four" name="category-four"
-        placeholder="e.g. stretching, or yoga">
-      <i id="category-add-four" class="fa fa-plus-circle">
-      </i>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="category-four">Category:</label>
+      <br>
+      <select name="category-four" id="category-four">
+        <option disabled selected value> -- Select -- </option>
+        {% for category in categories %}
+        <option value="{{ category.category }}"> {{ category.category}} </option>
+        {% endfor %}
+      </select>
     </div>
-    <div id="modifier-four-container" class="form-group col-md-3 hidden">
-      <input type="text" class="form-control" id="modifier-four" name="modifier-four"
-        placeholder="metrics e.g. weights in KGs:">
-      <i id="modifier-add-four" class="fa fa-plus-circle">
-      </i>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="exercise_four_modifier_one">Modifier 1:</label>
+      <br>
+      <select name="exercise_four_modifier_one" id="exercise_four_modifier_one">
+        <option disabled selected value> -- Select -- </option>
+        {% for modifier in modifiers %}
+        <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+        {% endfor %}
+      </select>
     </div>
-    <div id="total-four-container" class="form-group col-md-3 hidden">
-      <input type="number" step="any" class="form-control" id="total-four" name="total-four"
-        placeholder="e.g. distance run or reps done">
-      <i id="total-add-four" class="fa fa-plus-circle">
-      </i>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="exercise_four_modifier_two">Modifier 2:</label>
+      <br>
+      <select name="exercise_four_modifier_two" id="exercise_four_modifier_two">
+        <option disabled selected value> -- Select -- </option>
+        {% for modifier in modifiers %}
+        <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+        {% endfor %}
+      </select>
     </div>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="exercise_four_modifier_three">Modifier 3:</label>
+      <br>
+      <select name="exercise_four_modifier_three" id="exercise_four_modifier_three">
+        <option disabled selected value> -- Select -- </option>
+        {% for modifier in modifiers %}
+        <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="totals">Modifier Totals:</label>
+      <div id="modifiers-row" class="row">
+        <input type="number" step="any" class="form-control modifier-inputs" id="exercise_four_total_one" name="exercise_four_total_one"
+          placeholder="M1">
+        <input type="number" step="any" class="form-control modifier-inputs" id="exercise_four_total_two" name="exercise_four_total_two"
+          placeholder="M2">
+        <input type="number" step="any" class="form-control modifier-inputs" id="exercise_four_total_three" name="exercise_four_total_three"
+          placeholder="M3">
+      </div>
+    </div>
+    </div>
+
+    <div class="row"><i id="exercise-row-five-add" class="fa fa-plus-circle fa-xl hidden"></i></div>
 
     <!--form row 5 -->
 
-    <div id="exercise-five-container" class="form-group col-md-3 hidden">
-      <input type="text" class="form-control" id="exercise-five" name="exercise-five" placeholder="exercise 5">
+    <div id="exercise-five-container" class="row hidden">
+      <div id="exercise-five-header" class="row"><h3>Exercise Five</h3></div>
+    <div class="form-group col-sm-6 col-md-2 ">
+      <label for="exercise-five">Exercise:</label>
+      <br>
+      <select name="exercise-five" id="exercise-five">
+        <option disabled selected value> -- Select -- </option>
+        {% for exercise in exercises %}
+        <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+        {% endfor %}
+      </select>
     </div>
-    <div id="category-five-container" class="form-group col-md-3 hidden">
-      <input type="text" class="form-control" id="category-five" name="category-five"
-        placeholder="e.g. cardio, or weights">
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="category-five">Category:</label>
+      <br>
+      <select name="category-five" id="category-five">
+        <option disabled selected value> -- Select -- </option>
+        {% for category in categories %}
+        <option value="{{ category.category }}"> {{ category.category}} </option>
+        {% endfor %}
+      </select>
     </div>
-    <div id="modifier-five-container" class="form-group col-md-3 hidden">
-      <input type="text" class="form-control" id="modifier-five" name="modifier-five"
-        placeholder="metrics e.g. distance in KMs:">
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="exercise_five_modifier_one">Modifier 1:</label>
+      <br>
+      <select name="exercise_five_modifier_one" id="exercise_five_modifier_one">
+        <option disabled selected value> -- Select -- </option>
+        {% for modifier in modifiers %}
+        <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+        {% endfor %}
+      </select>
     </div>
-    <div id="total-five-container" class="form-group col-md-3 hidden">
-      <input type="number" step="any" class="form-control" id="total-five" name="total-five"
-        placeholder="e.g. distance run or reps done">
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="exercise_five_modifier_two">Modifier 2:</label>
+      <br>
+      <select name="exercise_five_modifier_two" id="exercise_five_modifier_two">
+        <option disabled selected value> -- Select -- </option>
+        {% for modifier in modifiers %}
+        <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="exercise_five_modifier_three">Modifier 3:</label>
+      <br>
+      <select name="exercise_five_modifier_three" id="exercise_five_modifier_three">
+        <option disabled selected value> -- Select -- </option>
+        {% for modifier in modifiers %}
+        <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="totals">Modifier Totals:</label>
+      <div id="modifiers-row" class="row">
+        <input type="number" step="any" class="form-control modifier-inputs" id="exercise_five_total_one" name="exercise_five_total_one"
+          placeholder="M1">
+        <input type="number" step="any" class="form-control modifier-inputs" id="exercise_five_total_two" name="exercise_five_total_two"
+          placeholder="M2">
+        <input type="number" step="any" class="form-control modifier-inputs" id="exercise_five_total_three" name="exercise_five_total_three"
+          placeholder="M3">
+      </div>
+    </div>
     </div>
 
+    <div class="row"><i id="exercise-row-six-add" class="fa fa-plus-circle fa-xl hidden"></i></div>
+  
+  <!--form row 6 -->
+
+  <div id="exercise-six-container" class="row hidden">
+    <div id="exercise-six-header" class="row"><h3>Exercise Six</h3></div>
+  <div class="form-group col-sm-6 col-md-2 ">
+    <label for="exercise-six">Exercise:</label>
+    <br>
+    <select name="exercise-six" id="exercise-six">
+      <option disabled selected value> -- Select -- </option>
+      {% for exercise in exercises %}
+      <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-group col-sm-6 col-md-2">
+    <label for="category-six">Category:</label>
+    <br>
+    <select name="category-six" id="category-six">
+      <option disabled selected value> -- Select -- </option>
+      {% for category in categories %}
+      <option value="{{ category.category }}"> {{ category.category}} </option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-group col-sm-6 col-md-2">
+    <label for="exercise_six_modifier_one">Modifier 1:</label>
+    <br>
+    <select name="exercise_six_modifier_one" id="exercise_six_modifier_one">
+      <option disabled selected value> -- Select -- </option>
+      {% for modifier in modifiers %}
+      <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-group col-sm-6 col-md-2">
+    <label for="exercise_six_modifier_two">Modifier 2:</label>
+    <br>
+    <select name="exercise_six_modifier_two" id="exercise_six_modifier_two">
+      <option disabled selected value> -- Select -- </option>
+      {% for modifier in modifiers %}
+      <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-group col-sm-6 col-md-2">
+    <label for="exercise_six_modifier_three">Modifier 3:</label>
+    <br>
+    <select name="exercise_six_modifier_three" id="exercise_six_modifier_three">
+      <option disabled selected value> -- Select -- </option>
+      {% for modifier in modifiers %}
+      <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-group col-sm-6 col-md-2">
+    <label for="totals">Modifier Totals:</label>
+    <div id="modifiers-row" class="row">
+      <input type="number" step="any" class="form-control modifier-inputs" id="exercise_six_total_one" name="exercise_six_total_one"
+        placeholder="M1">
+      <input type="number" step="any" class="form-control modifier-inputs" id="exercise_six_total_two" name="exercise_six_total_two"
+        placeholder="M2">
+      <input type="number" step="any" class="form-control modifier-inputs" id="exercise_six_total_three" name="exercise_six_total_three"
+        placeholder="M3">
+    </div>
+  </div>
+  </div>
+
+  <div class="row"><i id="exercise-row-seven-add" class="fa fa-plus-circle fa-xl hidden"></i></div>
+
+  <!--form row 7 -->
+
+  <div id="exercise-seven-container" class="row hidden">
+    <div id="exercise-seven-header" class="row"><h3>Exercise Seven</h3></div>
+  <div class="form-group col-sm-6 col-md-2 ">
+    <label for="exercise-seven">Exercise:</label>
+    <br>
+    <select name="exercise-seven" id="exercise-seven">
+      <option disabled selected value> -- Select -- </option>
+      {% for exercise in exercises %}
+      <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-group col-sm-6 col-md-2">
+    <label for="category-seven">Category:</label>
+    <br>
+    <select name="category-seven" id="category-seven">
+      <option disabled selected value> -- Select -- </option>
+      {% for category in categories %}
+      <option value="{{ category.category }}"> {{ category.category}} </option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-group col-sm-6 col-md-2">
+    <label for="exercise_seven_modifier_one">Modifier 1:</label>
+    <br>
+    <select name="exercise_seven_modifier_one" id="exercise_seven_modifier_one">
+      <option disabled selected value> -- Select -- </option>
+      {% for modifier in modifiers %}
+      <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-group col-sm-6 col-md-2">
+    <label for="exercise_seven_modifier_two">Modifier 2:</label>
+    <br>
+    <select name="exercise_seven_modifier_two" id="exercise_seven_modifier_two">
+      <option disabled selected value> -- Select -- </option>
+      {% for modifier in modifiers %}
+      <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-group col-sm-6 col-md-2">
+    <label for="exercise_seven_modifier_three">Modifier 3:</label>
+    <br>
+    <select name="exercise_seven_modifier_three" id="exercise_seven_modifier_three">
+      <option disabled selected value> -- Select -- </option>
+      {% for modifier in modifiers %}
+      <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-group col-sm-6 col-md-2">
+    <label for="totals">Modifier Totals:</label>
+    <div id="modifiers-row" class="row">
+      <input type="number" step="any" class="form-control modifier-inputs" id="exercise_seven_total_one" name="exercise_seven_total_one"
+        placeholder="M1">
+      <input type="number" step="any" class="form-control modifier-inputs" id="exercise_seven_total_two" name="exercise_seven_total_two"
+        placeholder="M2">
+      <input type="number" step="any" class="form-control modifier-inputs" id="exercise_seven_total_three" name="exercise_seven_total_three"
+        placeholder="M3">
+    </div>
+  </div>
+  </div>
+
+  <div class="row"><i id="exercise-row-eight-add" class="fa fa-plus-circle fa-xl hidden"></i></div>
+
+<!--form row 8 -->
+
+<div id="exercise-eight-container" class="row hidden">
+  <div id="exercise-eight-header" class="row"><h3>Exercise Eight</h3></div>
+<div class="form-group col-sm-6 col-md-2 ">
+  <label for="exercise-eight">Exercise:</label>
+  <br>
+  <select name="exercise-eight" id="exercise-eight">
+    <option disabled selected value> -- Select -- </option>
+    {% for exercise in exercises %}
+    <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+    {% endfor %}
+  </select>
+</div>
+<div class="form-group col-sm-6 col-md-2">
+  <label for="category-eight">Category:</label>
+  <br>
+  <select name="category-eight" id="category-eight">
+    <option disabled selected value> -- Select -- </option>
+    {% for category in categories %}
+    <option value="{{ category.category }}"> {{ category.category}} </option>
+    {% endfor %}
+  </select>
+</div>
+<div class="form-group col-sm-6 col-md-2">
+  <label for="exercise_eight_modifier_one">Modifier 1:</label>
+  <br>
+  <select name="exercise_eight_modifier_one" id="exercise_eight_modifier_one">
+    <option disabled selected value> -- Select -- </option>
+    {% for modifier in modifiers %}
+    <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+    {% endfor %}
+  </select>
+</div>
+<div class="form-group col-sm-6 col-md-2">
+  <label for="exercise_eight_modifier_two">Modifier 2:</label>
+  <br>
+  <select name="exercise_eight_modifier_two" id="exercise_eight_modifier_two">
+    <option disabled selected value> -- Select -- </option>
+    {% for modifier in modifiers %}
+    <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+    {% endfor %}
+  </select>
+</div>
+<div class="form-group col-sm-6 col-md-2">
+  <label for="exercise_eight_modifier_three">Modifier 3:</label>
+  <br>
+  <select name="exercise_eight_modifier_three" id="exercise_eight_modifier_three">
+    <option disabled selected value> -- Select -- </option>
+    {% for modifier in modifiers %}
+    <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+    {% endfor %}
+  </select>
+</div>
+<div class="form-group col-sm-6 col-md-2">
+  <label for="totals">Modifier Totals:</label>
+  <div id="modifiers-row" class="row">
+    <input type="number" step="any" class="form-control modifier-inputs" id="exercise_eight_total_one" name="exercise_eight_total_one"
+      placeholder="M1">
+    <input type="number" step="any" class="form-control modifier-inputs" id="exercise_eight_total_two" name="exercise_eight_total_two"
+      placeholder="M2">
+    <input type="number" step="any" class="form-control modifier-inputs" id="exercise_eight_total_three" name="exercise_eight_total_three"
+      placeholder="M3">
+  </div>
+</div>
+</div>
+
     <!--additional information -->
+<br>
+<hr>
 
     <div class="col-md-12">
       <label for="additional-information">Additional Information</label>
@@ -157,7 +580,8 @@
 
     <div id="visible-switch" class="form-check form-switch row mx-auto">
       <br>
-      <label class="form-check-label"><input class="form-check-input" type="checkbox" role="switch" id="is-visible" name="is-visible" checked><br> Publicly Visible</label>
+      <label class="form-check-label"><input class="form-check-input" type="checkbox" role="switch" id="is-visible"
+          name="is-visible" checked><br> Publicly Visible</label>
     </div>
 
     <!-- submit row -->
@@ -171,17 +595,17 @@
 <!-- mobile workout record form -->
 
 <div id="mobile-workout-form" class="col-12 shadow-lg p-3 mb-5 bg-white rounded">
-  <h2><em>add up to 5 specific exercises, these details can be edited later</em></h2>
+  <h2><em>add up to 8 specific exercises, these details can be edited later</em></h2>
   <hr>
   <form class="row" method="POST" action="{{url_for('record_workout')}}">
     <div id="date-picker-mobile-container">
       <div id="date-picker-mobile" class="col-6">
         <label for="workout-date-mobile-input">Workout Date</label>
-        <input id="workout-date-mobile-input" name="workout-date" class="form-control" type="date"/>
+        <input id="workout-date-mobile-input" name="workout-date" class="form-control" type="date" />
       </div>
     </div>
     <div>
-      <div class="col-6" id="mobile-description">
+      <div class="col-10" id="mobile-description">
         <label for="workout-description-mobile">Workout Description</label>
         <input type="text" class="form-control" id="workout-description-mobile" name="workout-description" minlength="5"
           maxlength="100" required>
@@ -192,21 +616,60 @@
 
     <div id="mobile-exercise-row-1" class="row mobile-exercise-row">
       <h3>Exercise One Details</h3>
-      <div class="form-group col-3">
+      <div class="form-group col-6">
         <label for="mobile-exercise">Exercise</label>
-        <input type="text" class="form-control" id="mobile-exercise" name="exercise" placeholder="exercise" required>
+        <select name="exercise"id="mobile-exercise" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for exercise in exercises %}
+          <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endfor %}
+        </select>
       </div>
-      <div class="form-group col-3">
+      <div class="form-group col-6">
         <label for="mobile-category">Category</label>
-        <input type="text" class="form-control" id="mobile-category" name="category" placeholder="'cardio'">
+        <select name="category"id="mobile-category" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for category in categories %}
+          <option value="{{ category.category }}"> {{ category.category}} </option>
+          {% endfor %}
+        </select>
       </div>
-      <div class="form-group col-3">
-        <label for="mobile-modifier">Modifiers</label>
-        <input type="text" class="form-control" id="mobile-modifier" name="modifier" placeholder="e.g. KMs">
+      <div class="form-group col-4">
+        <label for="mobile-modifier">Modifier 1</label>
+        <select name="modifier"id="mobile-modifier" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
       </div>
-      <div class="form-group col-3">
-        <label for="mobile-total">Totals</label>
-        <input type="number" step="any" class="form-control" id="mobile-total" name="total" placeholder="e.g. reps">
+      <div class="form-group col-4">
+        <label for="mobile-modifier-two">Modifier 2</label>
+        <select name="modifier_two"id="mobile-modifier-two" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <label for="mobile-modifier-three">Modifier 3</label>
+        <select name="modifier_three"id="mobile-modifier-three" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="row mx-auto"><label for="mobile-total">Totals By Modifier</label></div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifier-one-total-one" name="total_one" placeholder="">
+      </div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifier-one-total-two" name="total_two" placeholder="">
+      </div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifier-one-total-three" name="total_three" placeholder="">
       </div>
       <div>
         <i id="mobile-exercise-add-1" class="fa fa-plus-circle"></i>
@@ -215,42 +678,127 @@
 
     <!-- mobile workout record exercise row 2 -->
 
+
     <div id="mobile-exercise-row-2" class="row mobile-exercise-row hidden">
       <h3>Exercise Two Details</h3>
-      <div class="form-group col-3">
-        <input type="text" class="form-control" id="mobile-exercise-two" name="exercise-two" placeholder="exercise">
+      <div class="form-group col-6">
+        <label for="mobile-exercise-two">Exercise</label>
+        <select name="exercise-two"id="mobile-exercise-two" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for exercise in exercises %}
+          <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endfor %}
+        </select>
       </div>
-      <div class="form-group col-3">
-        <input type="text" class="form-control" id="mobile-category-two" name="category-two" placeholder="'cardio'">
+      <div class="form-group col-6">
+        <label for="mobile-category-two">Category</label>
+        <select name="category-two"id="mobile-category-two" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for category in categories %}
+          <option value="{{ category.category }}"> {{ category.category}} </option>
+          {% endfor %}
+        </select>
       </div>
-      <div class="form-group col-3">
-        <input type="text" class="form-control" id="mobile-modifier-two" name="modifier-two" placeholder="e.g. KMs">
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-two-one">Modifier 1</label>
+        <select name="exercise_two_modifier_one"id="mobile-modifiers-two-one" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
       </div>
-      <div class="form-group col-3">
-        <input type="number" step="any" class="form-control" id="mobile-total-two" name="total-two" placeholder="e.g. reps">
+      <div class="form-group col-4">
+        <label for="mobile-modifier-two-two">Modifier 2</label>
+        <select name="exercise_two_modifier_two"id="mobile-modifier-two-two" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <label for="mobile-modifier-three">Modifier 3</label>
+        <select name="exercise_two_modifier_three"id="mobile-modifier-two-three" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="row mx-auto"><label for="mobile-total">Totals By Modifier</label></div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifier-two-total-one" name="exercise_two_total_one" placeholder="">
+      </div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifier-two-total-two" name="exercise_two_total_two" placeholder="">
+      </div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifier-two-total-three" name="exercise_two_total_three" placeholder="">
       </div>
       <div>
         <i id="mobile-exercise-add-2" class="fa fa-plus-circle"></i>
       </div>
     </div>
 
-
     <!-- mobile workout record exercise row 3 -->
 
     <div id="mobile-exercise-row-3" class="row mobile-exercise-row hidden">
       <h3>Exercise Three Details</h3>
-      <div class="form-group col-3">
-        <input type="text" class="form-control" id="mobile-exercise-three" name="exercise-three" placeholder="exercise">
+      <div class="form-group col-6">
+        <label for="mobile-exercise-three">Exercise</label>
+        <select name="exercise-three"id="mobile-exercise-three" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for exercise in exercises %}
+          <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endfor %}
+        </select>
       </div>
-      <div class="form-group col-3">
-        <input type="text" class="form-control" id="mobile-category-three" name="category-three" placeholder="'cardio'">
+      <div class="form-group col-6">
+        <label for="mobile-category-three">Category</label>
+        <select name="category-three"id="mobile-category-three" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for category in categories %}
+          <option value="{{ category.category }}"> {{ category.category}} </option>
+          {% endfor %}
+        </select>
       </div>
-      <div class="form-group col-3">
-        <input type="text" class="form-control" id="mobile-modifier-three" name="modifier-three" placeholder="e.g. KMs">
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-three-one">Modifier 1</label>
+        <select name="exercise_three_modifier_one"id="mobile-modifiers-three-one" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
       </div>
-      <div class="form-group col-3">
-        <input type="number" step="any" class="form-control" id="mobile-total-three" name="total-three"
-          placeholder="e.g. reps">
+      <div class="form-group col-4">
+        <label for="mobile-modifier-three-two">Modifier 2</label>
+        <select name="exercise_three_modifier_two"id="mobile-modifier-three-two" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <label for="mobile-modifier-three-three">Modifier 3</label>
+        <select name="exercise_three_modifier_three"id="mobile-modifier-three-three" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="row mx-auto"><label for="mobile-total">Totals By Modifier</label></div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifier-three-total-one" name="exercise_three_total_one" placeholder="">
+      </div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifier-three-total-two" name="exercise_three_total_two" placeholder="">
+      </div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifier-three-total-three" name="exercise_three_total_three" placeholder="">
       </div>
       <div>
         <i id="mobile-exercise-add-3" class="fa fa-plus-circle"></i>
@@ -261,17 +809,60 @@
 
     <div id="mobile-exercise-row-4" class="row mobile-exercise-row hidden">
       <h3>Exercise Four Details</h3>
-      <div class="form-group col-3">
-        <input type="text" class="form-control" id="mobile-exercise-four" name="exercise-four" placeholder="exercise">
+      <div class="form-group col-6">
+        <label for="mobile-exercise-four">Exercise</label>
+        <select name="exercise-four"id="mobile-exercise-four" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for exercise in exercises %}
+          <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endfor %}
+        </select>
       </div>
-      <div class="form-group col-3">
-        <input type="text" class="form-control" id="mobile-category-four" name="category-four" placeholder="cardio">
+      <div class="form-group col-6">
+        <label for="mobile-category-four">Category</label>
+        <select name="category-four"id="mobile-category-four" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for category in categories %}
+          <option value="{{ category.category }}"> {{ category.category}} </option>
+          {% endfor %}
+        </select>
       </div>
-      <div class="form-group col-3">
-        <input type="text" class="form-control" id="mobile-modifier-four" name="modifier-four" placeholder="e.g. KMs">
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-four-one">Modifier 1</label>
+        <select name="exercise_four_modifier_one"id="mobile-modifiers-four-one" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
       </div>
-      <div class="form-group col-3">
-        <input type="number" step="any" class="form-control" id="mobile-total-four" name="total-four" placeholder="e.g. reps">
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-four-two">Modifier 2</label>
+        <select name="exercise_four_modifier_two"id="mobile-modifiers-four-two" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-four-three">Modifier 3</label>
+        <select name="exercise_four_modifier_three"id="mobile-modifiers-four-three" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="row mx-auto"><label for="mobile-total">Totals By Modifier</label></div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifiers-four-total-one" name="exercise_four_total_one" placeholder="">
+      </div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifiers-four-total-two" name="exercise_four_total_two" placeholder="">
+      </div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifiers-four-total-three" name="exercise_four_total_three" placeholder="">
       </div>
       <div>
         <i id="mobile-exercise-add-4" class="fa fa-plus-circle"></i>
@@ -282,26 +873,263 @@
 
     <div id="mobile-exercise-row-5" class="row mobile-exercise-row hidden">
       <h3>Exercise Five Details</h3>
-      <div class="form-group col-3">
-        <input type="text" class="form-control" id="mobile-exercise-five" name="exercise-five" placeholder="exercise">
+      <div class="form-group col-6">
+        <label for="mobile-exercise-five">Exercise</label>
+        <select name="exercise-five"id="mobile-exercise-five" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for exercise in exercises %}
+          <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endfor %}
+        </select>
       </div>
-      <div class="form-group col-3">
-        <input type="text" class="form-control" id="mobile-category-five" name="category-five" placeholder="'cardio'">
+      <div class="form-group col-6">
+        <label for="mobile-category-five">Category</label>
+        <select name="category-five"id="mobile-category-five" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for category in categories %}
+          <option value="{{ category.category }}"> {{ category.category}} </option>
+          {% endfor %}
+        </select>
       </div>
-      <div class="form-group col-3">
-        <input type="text" class="form-control" id="mobile-modifier-five" name="modifier-five" placeholder="e.g. KMs">
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-five-one">Modifier 1</label>
+        <select name="exercise_five_modifier_one"id="mobile-modifiers-five-one" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
       </div>
-      <div class="form-group col-3">
-        <input type="number" step="any" class="form-control" id="mobile-total-five" name="total-five" placeholder="e.g. reps">
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-five-two">Modifier 2</label>
+        <select name="exercise_five_modifier_two"id="mobile-modifiers-five-two" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-five-three">Modifier 3</label>
+        <select name="exercise_five_modifier_three"id="mobile-modifiers-five-three" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="row mx-auto"><label for="mobile-total">Totals By Modifier</label></div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifiers-five-total-one" name="exercise_five_total_one" placeholder="">
+      </div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifiers-five-total-two" name="exercise_five_total_two" placeholder="">
+      </div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifiers-five-total-three" name="exercise_five_total_three" placeholder="">
+      </div>
+      <div>
+        <i id="mobile-exercise-add-5" class="fa fa-plus-circle"></i>
       </div>
     </div>
 
+    <!-- mobile workout record exercise row 6 -->
+
+    <div id="mobile-exercise-row-6" class="row mobile-exercise-row hidden">
+      <h3>Exercise Six Details</h3>
+      <div class="form-group col-6">
+        <label for="mobile-exercise-six">Exercise</label>
+        <select name="exercise-six"id="mobile-exercise-six" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for exercise in exercises %}
+          <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-6">
+        <label for="mobile-category-six">Category</label>
+        <select name="category-six"id="mobile-category-six" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for category in categories %}
+          <option value="{{ category.category }}"> {{ category.category}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-six-one">Modifier 1</label>
+        <select name="exercise_six_modifier_one"id="mobile-modifiers-six-one" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-six-two">Modifier 2</label>
+        <select name="exercise_six_modifier_two"id="mobile-modifiers-six-two" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-six-three">Modifier 3</label>
+        <select name="exercise_six_modifier_three"id="mobile-modifiers-six-three" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="row mx-auto"><label for="mobile-total">Totals By Modifier</label></div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifiers-six-total-one" name="exercise_six_total_one" placeholder="">
+      </div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifiers-six-total-two" name="exercise_six_total_two" placeholder="">
+      </div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifiers-six-total-three" name="exercise_six_total_three" placeholder="">
+      </div>
+      <div>
+        <i id="mobile-exercise-add-6" class="fa fa-plus-circle"></i>
+      </div>
+    </div>
+
+    <!-- mobile workout record exercise row 7 -->
+
+    <div id="mobile-exercise-row-7" class="row mobile-exercise-row hidden">
+      <h3>Exercise Seven Details</h3>
+      <div class="form-group col-6">
+        <label for="mobile-exercise-seven">Exercise</label>
+        <select name="exercise-seven"id="mobile-exercise-seven" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for exercise in exercises %}
+          <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-6">
+        <label for="mobile-category-seven">Category</label>
+        <select name="category-seven"id="mobile-category-seven" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for category in categories %}
+          <option value="{{ category.category }}"> {{ category.category}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-seven-one">Modifier 1</label>
+        <select name="exercise_seven_modifier_one"id="mobile-modifiers-seven-one" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-seven-two">Modifier 2</label>
+        <select name="exercise_seven_modifier_two"id="mobile-modifiers-seven-two" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-seven-three">Modifier 3</label>
+        <select name="exercise_seven_modifier_three"id="mobile-modifiers-seven-three" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="row mx-auto"><label for="mobile-total">Totals By Modifier</label></div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifiers-seven-total-one" name="exercise_seven_total_one" placeholder="">
+      </div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifiers-seven-total-two" name="exercise_seven_total_two" placeholder="">
+      </div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifiers-seven-total-three" name="exercise_seven_total_three" placeholder="">
+      </div>
+      <div>
+        <i id="mobile-exercise-add-7" class="fa fa-plus-circle"></i>
+      </div>
+    </div>
+
+
+    <!-- mobile workout record exercise row 8 -->
+
+    <div id="mobile-exercise-row-8" class="row mobile-exercise-row hidden">
+      <h3>Exercise Eight Details</h3>
+      <div class="form-group col-6">
+        <label for="mobile-exercise-eight">Exercise</label>
+        <select name="exercise-eight"id="mobile-exercise-eight" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for exercise in exercises %}
+          <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-6">
+        <label for="mobile-category-eight">Category</label>
+        <select name="category-eight"id="mobile-category-eight" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for category in categories %}
+          <option value="{{ category.category }}"> {{ category.category}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-eight-one">Modifier 1</label>
+        <select name="exercise_eight_modifier_one"id="mobile-modifiers-eight-one" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-eight-two">Modifier 2</label>
+        <select name="exercise_eight_modifier_two"id="mobile-modifiers-eight-two" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <label for="mobile-modifiers-eight-three">Modifier 3</label>
+        <select name="exercise_eight_modifier_three"id="mobile-modifiers-eight-three" class="form-select-sm col-12" >
+          <option disabled selected value> -- Select -- </option>
+          {% for modifier in modifiers %}
+          <option value="{{ modifier.modifier }}"> {{ modifier.modifier}} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="row mx-auto"><label for="mobile-total">Totals By Modifier</label></div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifiers-eight-total-one" name="exercise_eight_total_one" placeholder="">
+      </div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifiers-eight-total-two" name="exercise_eight_total_two" placeholder="">
+      </div>
+      <div class="form-group col-4">
+        <input type="number" step="any" class="form-control" id="mobile-modifiers-eight-total-three" name="exercise_eight_total_three" placeholder="">
+      </div>
+    </div>
+
+    <hr>
     <!-- mobile additional information -->
 
-    <div class="col-6 mx-auto">
+    <div class="col-10 mx-auto">
       <label for="mobile-additional-information">Additional Information</label>
-      <input type="text" class="form-control" id="mobile-additional-information" name="additional-information" minlength="5"
-        maxlength="100" placeholder="e.g. number of sets/reps">
+      <input type="text" class="form-control" id="mobile-additional-information" name="additional-information"
+        minlength="5" maxlength="100" placeholder="any extra information to add at the end about your workout">
 
 
 
@@ -309,13 +1137,14 @@
 
       <div id="mobile-visible-switch" class="form-check form-switch row mx-auto">
         <br>
-        <label class="form-check-label"><input class="form-check-input" type="checkbox" role="switch" id="mobile-is-visible" name="is-visible" checked><br> Publicly Visible</label>
+        <label class="form-check-label"><input class="form-check-input" type="checkbox" role="switch"
+            id="mobile-is-visible" name="is-visible" checked><br> Publicly Visible</label>
       </div>
     </div>
 
     <!-- mobile submit -->
-    <div>
-      <button id="mobile-submit-button" type="submit" class="col-6">Finished Adding Exercises?<br>Log Your
+    <div class="row">
+      <button id="mobile-submit-button" type="submit" class="col-6 mx-auto">Finished Adding Exercises?<br>Log Your
         Workout</button>
     </div>
   </form>

@@ -33,109 +33,209 @@
       <span>
         <h4>Exercises To Be Completed</h4>
       </span>
-      <div class="row">
-        <div class="btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="plan-exercise" name="plan-exercise" value="{{workout.exercise}}"
-            >
+
+      <!--Plan Workout Exercises Line 1-->
+      <div id="edit-workouts-container" class="btn btn-success col-md-12 gx-0">
+      <div class="col-12">
+        <div class="btn col-md-2 gx-0">
+          <h5>Category</h5>
+          <input type="text" class="form-control" id="plan-category" name="plan-category" value="{{workout.category}}">
         </div>
-        <div class="btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="plan-category" name="plan-category" value="{{workout.category}}"
-            >
+        <div class="btn col-md-2 gx-0">
+          <h5>Specfic Exercise</h5>
+          <input type="text" class="form-control" id="plan-exercise" name="plan-exercise" value="{{workout.exercise}}">
         </div>
-        <div class="btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="plan-modifier" name="plan-modifier" value="{{workout.modifier}}"
-            >
+        <div class="btn col-md-2 gx-0">
+          <h5>Total One</h5>
+          <input type="text" class="form-control" id="plan-exercise-one-modifier-one" name="plan-exercise-one-modifier-one"
+            value="{{workout.modifier}} : {{workout.total_one}}">
         </div>
-        <div class=" btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="plan-total" name="plan-total" value="{{workout.total}}" >
+        <div class="btn col-md-2 gx-0">
+          <h5>Total Two</h5>
+          <input type="text" class="form-control" id="plan-exercise-one-modifier-two" name="plan-exercise-one-modifier-two"
+            value="{{workout.modifier_two}} : {{workout.total_two}}">
+        </div>
+        <div class=" btn col-md-2 gx-0">
+          <h5>Total Three</h5>
+          <input type="text" class="form-control" id="plan-exercise-one-modifier-three" name="plan-exercise-one-modifier-three"
+            value="{{workout.modifier_three}} : {{workout.total_three}}">
         </div>
       </div>
 
       <!--Plan Workout Exercises Line 2-->
 
       {% if workout.exercise2 %}
-      <div class=" row">
-        <div class="btn col-md-3">
-          <input type="text" class="form-control" id="plan-exercise-two" name="plan-exercise-two" value="{{workout.exercise2}}"
-            >
+      <div class="col-12">
+        <div class="btn col-md-2">
+          <input type="text" class="form-control" id="plan-category-two" name="plan-category-two" value="{{workout.category2}}">
         </div>
-        <div class="btn col-md-3">
-          <input type="text" class="form-control" id="plan-category-two" name="plan-category-two" value="{{workout.category2}}"
-            >
+        <div class="btn col-md-2">
+          <input type="text" class="form-control" id="plan-exercise-two" name="plan-exercise-two" value="{{workout.exercise2}}">
         </div>
-        <div class="btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="plan-modifier-two" name="plan-modifier-two" value="{{workout.modifier2}}"
-            >
+        <div class="btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="plan-exercise-two-modifier-one" name="plan-exercise-two-modifier-one"
+            value="{{workout.exercise_two_modifier}} : {{workout.exercise_two_total_one}}">
         </div>
-        <div class=" btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="plan-total-two" name="plan-total-two" value="{{workout.total2}}" >
+        <div class="btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="plan-exercise-two-modifier-two" name="plan-exercise-two-modifier-two"
+            value="{{workout.exercise_two_modifier_two}} : {{workout.exercise_two_total_two}}">
+        </div>
+        <div class=" btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="plan-exercise-two-modifier-three" name="plan-exercise-two-modifier-three"
+            value="{{workout.exercise_two_modifier_three}}: {{workout.exercise_two_total_three}}">
         </div>
       </div>
       {% endif %}
 
-      <!--Plan Workout Exercises Line 3-->
+      <!--Edit Workout Exercises Line 3-->
 
       {% if workout.exercise3 %}
-      <div class=" row">
-        <div class="btn col-md-3">
-          <input type="text" class="form-control" id="plan-exercise-three" name="plan-exercise-three" value="{{workout.exercise3}}"
-            >
+      <div class="col-12">
+        <div class="btn col-md-2">
+          <input type="text" class="form-control" id="plan-category-three" name="plan-category-three" value="{{workout.category3}}">
         </div>
-        <div class="btn col-md-3">
-          <input type="text" class="form-control" id="plan-category-three" name="plan-category-three" value="{{workout.category3}}"
-            >
+        <div class="btn col-md-2">
+          <input type="text" class="form-control" id="plan-exercise-three" name="plan-exercise-three" value="{{workout.exercise3}}">
         </div>
-        <div class="btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="plan-modifier-three" name="plan-modifier-three" value="{{workout.modifier3}}"
-            >
+        <div class="btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="plan-exercise-three-modifier-one" name="plan-exercise-three-modifier-one"
+            value="{{workout.exercise_three_modifier}} : {{workout.exercise_three_total_one}}">
         </div>
-        <div class=" btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="plan-total-three" name="plan-total-three" value="{{workout.total3}}" >
+        <div class="btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="plan-exercise-three-modifier-two" name="plan-exercise-three-modifier-two"
+            value="{{workout.exercise_three_modifier_two}} : {{workout.exercise_three_total_two}}">
+        </div>
+        <div class=" btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="plan-exercise-three-modifier-three" name="plan-exercise-three-modifier-three"
+            value="{{workout.exercise_three_modifier_three}}: {{workout.exercise_three_total_three}}">
         </div>
         {% endif %}
       </div>
 
-      <!--Plan Workout Exercises Line 4-->
+      <!--Edit Workout Exercises Line 4-->
 
       {% if workout.exercise4 %}
-      <div class=" row">
-        <div class="btn col-md-3">
+      <div class="col-12">
+        <div class="btn col-md-2">
+          <input type="text" class="form-control" id="plan-category-four" name="plan-category-four" value="{{workout.category4}}">
+        </div>
+        <div class="btn col-md-2">
           <input type="text" class="form-control" id="plan-exercise-four" name="plan-exercise-four" value="{{workout.exercise4}}">
         </div>
-        <div class="btn col-md-3">
-          <input type="text" class="form-control" id="plan-category-four" name="plan-category-four" value={{workout.category4}}>
+        <div class="btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="plan-exercise-four-modifier-one" name="plan-exercise-four-modifier-one"
+            value="{{workout.exercise_four_modifier}} : {{workout.exercise_four_total_one}}">
         </div>
-        <div class="btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="plan-modifier-four" name="plan-modifier-four" value="{{workout.modifier4}}"
-            >
+        <div class="btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="plan-exercise-four-modifier-two" name="plan-exercise-four-modifier-two"
+            value="{{workout.exercise_four_modifier_two}} : {{workout.exercise_four_total_two}}">
         </div>
-        <div class=" btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="plan-total-four" name="plan-total-four" value="{{workout.total4}}" >
+        <div class=" btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="plan-exercise-four-modifier-three" name="plan-exercise-four-modifier-three"
+            value="{{workout.exercise_four_modifier_three}}: {{workout.exercise_four_total_three}}">
         </div>
         {% endif %}
 
-        <!--Plan Workout Exercises Line 5-->
+        <!--Edit Workout Exercises Line 5-->
 
-        {% if workouts.exercise5 %}
-        <div class=" row">
-          <div class="btn col-md-3">
-            <input type="text" class="form-control" id="plan-exercise-five" name="plan-exercise-five" value="{{workout.exercise5}}"
-              >
+        {% if workout.exercise5 %}
+        <div class="col-12">
+          <div class="btn col-md-2">
+            <input type="text" class="form-control" id="plan-category-five" name="plan-category-five" value="{{workout.category5}}">
           </div>
-          <div class="btn col-md-3">
-            <input type="text" class="form-control" id="plan-category-five" name="plan-category-five" value="{{workout.category5}}"
-              >
+          <div class="btn col-md-2">
+            <input type="text" class="form-control" id="plan-exercise-five" name="plan-exercise-five" value="{{workout.exercise5}}">
           </div>
-          <div class="btn col-md-3 gx-0">
-            <input type="text" class="form-control" id="plan-modifier-five" name="plan-modifier-five" value="{{workout.modifier5}}"
-              >
+          <div class="btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="plan-exercise-five-modifier-one" name="plan-exercise-five-modifier-one"
+              value="{{workout.exercise_five_modifier}} : {{workout.exercise_five_total_one}}">
           </div>
-          <div class="btn col-md-3 gx-0">
-            <input type="text" class="form-control" id="plan-total-five" name="plan-total-five" value="{{workout.total5}}" >
+          <div class="btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="plan-exercise-five-modifier-two" name="plan-exercise-five-modifier-two"
+              value="{{workout.exercise_five_modifier_two}} : {{workout.exercise_five_total_two}}">
+          </div>
+          <div class=" btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="plan-exercise-five-modifier-three" name="plan-exercise-five-modifier-three"
+              value="{{workout.exercise_five_modifier_three}}: {{workout.exercise_five_total_three}}">
           </div>
           {% endif %}
-        </div>
-        <div>
+
+
+          <!--Edit Workout Exercises Line 6-->
+
+          {% if workout.exercise6 %}
+          <div class="col-12">
+            <div class="btn col-md-2">
+              <input type="text" class="form-control" id="plan-category-six" name="plan-category-six" value="{{workout.category6}}">
+            </div>
+            <div class="btn col-md-2">
+              <input type="text" class="form-control" id="plan-exercise-six" name="plan-exercise-six" value="{{workout.exercise6}}">
+            </div>
+            <div class="btn col-md-2 gx-0">
+              <input type="text" class="form-control" id="plan-exercise-six-modifier-one" name="plan-exercise-six-modifier-one"
+                value="{{workout.exercise_six_modifier}} : {{workout.exercise_six_total_one}}">
+            </div>
+            <div class="btn col-md-2 gx-0">
+              <input type="text" class="form-control" id="plan-exercise-six-modifier-two" name="plan-exercise-six-modifier-two"
+                value="{{workout.exercise_six_modifier_two}} : {{workout.exercise_six_total_two}}">
+            </div>
+            <div class=" btn col-md-2 gx-0">
+              <input type="text" class="form-control" id="plan-exercise-six-modifier-three" name="plan-exercise-six-modifier-three"
+                value="{{workout.exercise_six_modifier_three}}: {{workout.exercise_six_total_three}}">
+            </div>
+            {% endif %}
+
+            <!--Edit Workout Exercises Line 7-->
+
+            {% if workout.exercise7 %}
+            <div class="col-12">
+              <div class="btn col-md-2">
+                <input type="text" class="form-control" id="plan-category-seven" name="plan-category-seven" value="{{workout.category7}}">
+              </div>
+              <div class="btn col-md-2">
+                <input type="text" class="form-control" id="plan-exercise-seven" name="plan-exercise-seven" value="{{workout.exercise7}}">
+              </div>
+              <div class="btn col-md-2 gx-0">
+                <input type="text" class="form-control" id="plan-exercise-seven-modifier-one" name="plan-exercise-seven-modifier-one"
+                  value="{{workout.exercise_seven_modifier}} : {{workout.exercise_seven_total_one}}">
+              </div>
+              <div class="btn col-md-2 gx-0">
+                <input type="text" class="form-control" id="plan-exercise-seven-modifier-two" name="plan-exercise-seven-modifier-two"
+                  value="{{workout.exercise_seven_modifier_two}} : {{workout.exercise_seven_total_two}}">
+              </div>
+              <div class=" btn col-md-2 gx-0">
+                <input type="text" class="form-control" id="plan-exercise-seven-modifier-three" name="plan-exercise-seven-modifier-three"
+                  value="{{workout.exercise_seven_modifier_three}}: {{workout.exercise_seven_total_three}}">
+              </div>
+              {% endif %}
+
+              <!--Edit Workout Exercises Line 8-->
+
+              {% if workout.exercise8 %}
+              <div class="col-12">
+                <div class="btn col-md-2">
+                  <input type="text" class="form-control" id="plan-category-eight" name="plan-category-eight"
+                    value="{{workout.category8}}">
+                </div>
+                <div class="btn col-md-2">
+                  <input type="text" class="form-control" id="plan-exercise-eight" name="plan-exercise-eight"
+                    value="{{workout.exercise8}}">
+                </div>
+                <div class="btn col-md-2 gx-0">
+                  <input type="text" class="form-control" id="plan-exercise-eight-modifier-one" name="plan-exercise-eight-modifier-one"
+                    value="{{workout.exercise_eight_modifier}} : {{workout.exercise_eight_total_one}}">
+                </div>
+                <div class="btn col-md-2 gx-0">
+                  <input type="text" class="form-control" id="plan-exercise-eight-modifier-two" name="plan-exercise-eight-modifier-two"
+                    value="{{workout.exercise_eight_modifier_two}} : {{workout.exercise_eight_total_two}}">
+                </div>
+                <div class=" btn col-md-2 gx-0">
+                  <input type="text" class="form-control" id="plan-exercise-eight-modifier-three" name="plan-exercise-eight-modifier-three"
+                    value="{{workout.exercise_eight_modifier_three}}: {{workout.exercise_eight_total_three}}"
+                    disabled>
+                </div>
+                {% endif %}
+
 
           <!--Plan Workout Additional Details-->
 

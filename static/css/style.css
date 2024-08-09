@@ -48,6 +48,7 @@ h4 {
 h5 {
     font-family: teko, sans-serif;
     font-size: 18px;
+    color: #fafafa;
 }
 
 #about-container {
@@ -197,7 +198,6 @@ h2 {
 }
 
 .form-group input {
-    margin-top: 15px;
     margin-bottom: 15px;
 }
 
@@ -205,7 +205,9 @@ h2 {
     display: none;
 }
 
-
+.form-control {
+    padding: 0;
+}
 
 /* Register page styles */
 
@@ -328,6 +330,17 @@ h3 {
     padding-left: 0;
 }
 
+#modifiers-row {
+    margin-top: 0;
+}
+
+.modifier-inputs {
+    width: 33%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+}
+
 /* mobile workout record page styles */
 
 #mobile-workout-form {
@@ -373,6 +386,8 @@ h3 {
 .form-switch {
     padding-left: 0;
 }
+
+
 /* profile page styles */
 
 #profile-header {
@@ -546,7 +561,6 @@ h3 {
 .btn-info {
     background-color: #28b0b8b3;
     color: #fafafa;
-    margin-top:10px;
     margin-bottom: 10px;
 }
 
@@ -590,8 +604,14 @@ h3 {
     margin-top: 10px;
 }
 
+.row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+}
+
 .row-bsg-0 {
     --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
 }
 
 /* save workout page styles */

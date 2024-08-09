@@ -7,23 +7,14 @@ let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9
 
 //workout form event listeners //
 if (document.getElementById("workout-record-container")) {
-    document.getElementById("exercise-add").addEventListener("click", duplicateExerciseOne);
-    document.getElementById("category-add").addEventListener("click", duplicateCategoryOne);
-    document.getElementById("modifier-add").addEventListener("click", duplicateModifierOne);
-    document.getElementById("total-add").addEventListener("click", duplicateTotalOne);
-    document.getElementById("exercise-add-two").addEventListener("click", duplicateExerciseTwo);
-    document.getElementById("category-add-two").addEventListener("click", duplicateCategoryTwo);
-    document.getElementById("modifier-add-two").addEventListener("click", duplicateModifierTwo);
-    document.getElementById("total-add-two").addEventListener("click", duplicateTotalTwo);
-    document.getElementById("exercise-add-three").addEventListener("click", duplicateExerciseThree);
-    document.getElementById("category-add-three").addEventListener("click", duplicateCategoryThree);
-    document.getElementById("modifier-add-three").addEventListener("click", duplicateModifierThree);
-    document.getElementById("total-add-three").addEventListener("click", duplicateTotalThree);
-    document.getElementById("exercise-add-four").addEventListener("click", duplicateExerciseFour);
-    document.getElementById("category-add-four").addEventListener("click", duplicateCategoryFour);
-    document.getElementById("modifier-add-four").addEventListener("click", duplicateModifierFour);
-    document.getElementById("total-add-four").addEventListener("click", duplicateTotalFour);
-
+    document.getElementById("exercise-row-two-add").addEventListener("click", duplicateExerciseOne);
+    document.getElementById("exercise-row-three-add").addEventListener("click", duplicateExerciseTwo);
+    document.getElementById("exercise-row-four-add").addEventListener("click", duplicateExerciseThree);
+    document.getElementById("exercise-row-five-add").addEventListener("click", duplicateExerciseFour);
+    document.getElementById("exercise-row-six-add").addEventListener("click", duplicateExerciseFive);
+    document.getElementById("exercise-row-seven-add").addEventListener("click", duplicateExerciseSix);
+    document.getElementById("exercise-row-eight-add").addEventListener("click", duplicateExerciseSeven);
+    
 
 //mobile form event listeners //
     document.getElementById("workout-date-mobile-input").addEventListener("change", hideDatePicker);
@@ -32,97 +23,79 @@ if (document.getElementById("workout-record-container")) {
     document.getElementById("mobile-exercise-add-2").addEventListener("click", hideWorkoutRow2);
     document.getElementById("mobile-exercise-add-3").addEventListener("click", hideWorkoutRow3);
     document.getElementById("mobile-exercise-add-4").addEventListener("click", hideWorkoutRow4);
+    document.getElementById("mobile-exercise-add-5").addEventListener("click", hideWorkoutRow5);
+    document.getElementById("mobile-exercise-add-6").addEventListener("click", hideWorkoutRow6);
+    document.getElementById("mobile-exercise-add-7").addEventListener("click", hideWorkoutRow7);
+
 
 
 // record workout section 2 functions //    
 
 function duplicateExerciseOne() {
     $("#exercise-two-container").removeClass("hidden");
-    $("#exercise-add").addClass("hidden");
+    $("#exercise-row-three-add").removeClass("hidden");
+    $("#exercise-row-two-add").addClass("hidden");
+    $("#workout-description-block").addClass("hidden");
+    $("#date-picker").addClass("hidden");
+    $("#exercise-one-header").addClass("hidden");
+    $("#record-workout-header").addClass("hidden");
+    $("#record-workout-explainer").addClass("hidden");
+    $("#workout").addClass("hidden");
+    $(".exercise-one").addClass("hidden");
 }  
 
-function duplicateCategoryOne() {
-    $("#category-two-container").removeClass("hidden");
-    $("#category-add").addClass("hidden");
-}
 
-function duplicateModifierOne() {
-    $("#modifier-two-container").removeClass("hidden");
-    $("#modifier-add").addClass("hidden");
-}
-
-function duplicateTotalOne() {
-    $("#total-two-container").removeClass("hidden");
-    $("#total-add").addClass("hidden");
-}
-
-// record workout section 3 functions //   
+// record workout section 3 functions //
 
 function duplicateExerciseTwo() {
     $("#exercise-three-container").removeClass("hidden");
-    $("#exercise-add-two").addClass("hidden");
+    $("#exercise-row-three-add").removeClass("hidden");
+    $("#exercise-two-header").addClass("hidden");
+    $("#exercise-two-container").addClass("hidden");
+    $("#exercise-row-three-add").addClass("hidden");
+    $("#exercise-row-four-add").removeClass("hidden");
 }  
 
-function duplicateCategoryTwo() {
-    $("#category-three-container").removeClass("hidden");
-    $("#category-add-two").addClass("hidden");
-}
-
-function duplicateModifierTwo() {
-    $("#modifier-three-container").removeClass("hidden");
-    $("#modifier-add-two").addClass("hidden");
-}
-
-
-function duplicateTotalTwo() {
-    $("#total-three-container").removeClass("hidden");
-    $("#total-add-two").addClass("hidden");
-}
 
 // record workout section 4 functions //   
-
 function duplicateExerciseThree() {
     $("#exercise-four-container").removeClass("hidden");
-    $("#exercise-add-three").addClass("hidden");
-}  
-
-function duplicateCategoryThree() {
-    $("#category-four-container").removeClass("hidden");
-    $("#category-add-three").addClass("hidden");
+    $("#exercise-row-four-add").addClass("hidden");
+    $("#exercise-row-five-add").removeClass("hidden");
+    $("#exercise-three-container").addClass("hidden");
 }
 
-function duplicateModifierThree() {
-    $("#modifier-four-container").removeClass("hidden");
-    $("#modifier-add-three").addClass("hidden");
-}
-
-function duplicateTotalThree() {
-    $("#total-four-container").removeClass("hidden");
-    $("#total-add-three").addClass("hidden");
-}
 
 // record workout section 5 functions //   
-
 function duplicateExerciseFour() {
     $("#exercise-five-container").removeClass("hidden");
-    $("#exercise-add-four").addClass("hidden");
-}  
-
-function duplicateCategoryFour() {
-    $("#category-five-container").removeClass("hidden");
-    $("#category-add-four").addClass("hidden");
+    $("#exercise-row-five-add").addClass("hidden");
+    $("#exercise-row-six-add").removeClass("hidden");
+    $("#exercise-four-container").addClass("hidden");
 }
 
-function duplicateModifierFour() {
-    $("#modifier-five-container").removeClass("hidden");
-    $("#modifier-add-four").addClass("hidden");
+// record workout section 6 functions //   
+function duplicateExerciseFive() {
+    $("#exercise-six-container").removeClass("hidden");
+    $("#exercise-row-six-add").addClass("hidden");
+    $("#exercise-row-seven-add").removeClass("hidden");
+    $("#exercise-five-container").addClass("hidden");
 }
 
-function duplicateTotalFour() {
-    $("#total-five-container").removeClass("hidden");
-    $("#total-add-four").addClass("hidden");
+// record workout section 7 functions //   
+function duplicateExerciseSix() {
+    $("#exercise-seven-container").removeClass("hidden");
+    $("#exercise-row-seven-add").addClass("hidden");
+    $("#exercise-row-eight-add").removeClass("hidden");
+    $("#exercise-six-container").addClass("hidden");
 }
 
+// record workout section 8 functions //   
+function duplicateExerciseSeven() {
+    $("#exercise-eight-container").removeClass("hidden");
+    $("#exercise-row-eight-add").addClass("hidden");
+    $("#exercise-seven-container").addClass("hidden");
+}
 
 // mobile record workout section //
 
@@ -161,6 +134,24 @@ function hideWorkoutRow4() {
     $("#mobile-exercise-row-4").addClass("hidden");
     $("#mobile-exercise-add-4").addClass("hidden");
     $("#mobile-exercise-row-5").removeClass("hidden");
+}
+
+function hideWorkoutRow5() {
+    $("#mobile-exercise-row-5").addClass("hidden");
+    $("#mobile-exercise-add-5").addClass("hidden");
+    $("#mobile-exercise-row-6").removeClass("hidden");
+}
+
+function hideWorkoutRow6() {
+    $("#mobile-exercise-row-6").addClass("hidden");
+    $("#mobile-exercise-add-6").addClass("hidden");
+    $("#mobile-exercise-row-7").removeClass("hidden");
+}
+
+function hideWorkoutRow7() {
+    $("#mobile-exercise-row-7").addClass("hidden");
+    $("#mobile-exercise-add-7").addClass("hidden");
+    $("#mobile-exercise-row-8").removeClass("hidden");
 }
 
 }

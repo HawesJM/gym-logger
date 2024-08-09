@@ -155,27 +155,12 @@
                 {% endif %}
 
                 <div id="plan-card-body" class="card-body">
-                    <h5>Workout Challenge Date <br>{{
-                        plan.planned_date
-                        }}</h5>
-                    <p>{{plan.exercise}} : {{plan.category}}, {{plan.modifier}} : {{plan.total}}</p>
-                    {% if plan.exercise2 %}
-                    <p>{{plan.exercise2}} : {{plan.category2}}, {{plan.modifier2}} : {{plan.total2}}</p>
-                    {% endif %}
-                    {% if plan.exercise3 %}
-                    <p>{{plan.exercise3}} : {{plan.category3}}, {{plan.modifier3}} : {{plan.total3}}</p>
-                    {% endif %}
-                    {% if plan.exercise4 %}
-                    <p>{{plan.exercise4}} : {{plan.category4}}, {{plan.modifier4}} : {{plan.total4}}</p>
-                    {% endif %}
-                    {% if plan.exercise5 %}
-                    <p>{{plan.exercise5}} : {{plan.category5}}, {{plan.modifier5}} : {{plan.total5}}</p>
-                    {% endif %}
-                    {% if plan.additional_information %}
-                    <p>{{plan.additional_information}}</p>
-                    {% endif %}
                     <div id="profile-button-row" class="row">
-                        <div class="col-sm-6 col-md-12">
+                        <div class="col-6">
+                            <a href="{{ url_for('plan_workout_details', plan_workout_id=plan._id) }}"
+                                class="btn btn-info"><i class="fa-solid fa-circle-info"></i><br>View Plan Details</a>
+                        </div>
+                        <div class="col-6">
                             <a href="{{ url_for('delete_planned_workout', plan_workout_id=plan._id) }}"
                                 class="btn btn-success"><i class="fa-regular fa-square-check"></i><br>Mark As
                                 Completed</a>

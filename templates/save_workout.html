@@ -28,48 +28,53 @@
             }}" disabled>
     </div>
 
-    <!--Save Workout Details-->
+    <!--Save Workout Details Exercise -->
 
     <div id="save-workouts-container" class="btn btn-dark col-md-12 gx-0">
       <span>
         <h4>Exercises Completed</h4>
       </span>
-      <div class="row">
-        <div class="btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="exercise" name="exercise" placeholder="{{workout.exercise}}"
-            disabled>
-        </div>
-        <div class="btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="category" name="category" placeholder="{{workout.category}}"
-            disabled>
-        </div>
-        <div class="btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="modifier" name="modifier" placeholder="{{workout.modifier}}"
-            disabled>
-        </div>
-        <div class=" btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="total" name="total" placeholder="{{workout.total}}" disabled>
-        </div>
-      </div>
 
+          <!--Save Workout Exercises Line 1-->
+
+          {% if workout.exercise %}
+          <div class="row">
+            <div class="btn col-md-2 gx-0">
+              <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.exercise}}" disabled>
+            </div>
+            <div class="btn col-md-2 gx-0">
+              <input type="text" class="form-control" id="category" name="category" value="{{workout.category}}" disabled>
+            </div>
+            <div class="btn col-md-2 gx-0">
+              <input type="text" class="form-control" id="modifier" name="modifier" value="{{workout.modifier}} : {{workout.total_one}}" disabled>
+            </div>
+            <div class=" btn col-md-2 gx-0">
+              <input type="text" class="form-control" id="total" name="total" value="{{workout.modifier_two}} : {{workout.total_two}}" disabled>
+            </div>
+            <div class=" btn col-md-2 gx-0">
+              <input type="text" class="form-control" id="total" name="total" value="{{workout.modifier_three}} : {{workout.total_three}}" disabled>
+            </div>
+          </div>
+          {% endif %}
+          
       <!--Save Workout Exercises Line 2-->
 
       {% if workout.exercise2 %}
-      <div class=" row">
-        <div class="btn col-md-3">
-          <input type="text" class="form-control" id="exercise2" name="exercise2" placeholder="{{workout.exercise2}}"
-            disabled>
+      <div class="row">
+        <div class="btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.exercise2}}" disabled>
         </div>
-        <div class="btn col-md-3">
-          <input type="text" class="form-control" id="category2" name="category2" placeholder="{{workout.category2}}"
-            disabled>
+        <div class="btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="category" name="category" value="{{workout.category2}}" disabled>
         </div>
-        <div class="btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="modifier2" name="modifier2" placeholder="{{workout.modifier2}}"
-            disabled>
+        <div class="btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="modifier" name="modifier" value="{{workout.exercise_two_modifier}} : {{workout.exercise_two_total_one}}" disabled>
         </div>
-        <div class=" btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="total2" name="total2" placeholder="{{workout.total2}}" disabled>
+        <div class=" btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="total" name="total" value="{{workout.exercise_two_modifier_two}}  : {{workout.exercise_two_total_two}}" disabled>
+        </div>
+        <div class=" btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="total" name="total" value="{{workout.exercise_two_modifier_three}} : {{workout.exercise_two_total_three}}" disabled>
         </div>
       </div>
       {% endif %}
@@ -77,66 +82,132 @@
       <!--Save Workout Exercises Line 3-->
 
       {% if workout.exercise3 %}
-      <div class=" row">
-        <div class="btn col-md-3">
-          <input type="text" class="form-control" id="exercise3" name="exercise3" placeholder="{{workout.exercise3}}"
-            disabled>
+      <div class="row">
+        <div class="btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.exercise3}}" disabled>
         </div>
-        <div class="btn col-md-3">
-          <input type="text" class="form-control" id="category3" name="category3" placeholder="{{workout.category3}}"
-            disabled>
+        <div class="btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="category" name="category" value="{{workout.category3}}" disabled>
         </div>
-        <div class="btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="modifier3" name="modifier3" placeholder="{{workout.modifier3}}"
-            disabled>
+        <div class="btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="modifier" name="modifier" value="{{workout.exercise_three_modifier}} : {{workout.exercise_three_total_one}}" disabled>
         </div>
-        <div class=" btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="total3" name="total3" placeholder="{{workout.total3}}" disabled>
+        <div class=" btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="total" name="total" value="{{workout.exercise_three_modifier_two}}  : {{workout.exercise_three_total_two}}" disabled>
         </div>
-        {% endif %}
+        <div class=" btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="total" name="total" value="{{workout.exercise_three_modifier_three}} : {{workout.exercise_three_total_three}}" disabled>
+        </div>
       </div>
+        {% endif %}
 
       <!--Save Workout Exercises Line 4-->
 
       {% if workout.exercise4 %}
-      <div class=" row">
-        <div class="btn col-md-3">
-          <input type="text" class="form-control" id="exercise4" name="exercise4" placeholder="{{workout.exercise4}}">
+      <div class="row">
+        <div class="btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.exercise4}}" disabled>
         </div>
-        <div class="btn col-md-3">
-          <input type="text" class="form-control" id="category4" name="category4" placeholder={{workout.category4}}>
+        <div class="btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="category" name="category" value="{{workout.category4}}" disabled>
         </div>
-        <div class="btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="modifier4" name="modifier4" placeholder="{{workout.modifier4}}"
-            disabled>
+        <div class="btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="modifier" name="modifier" value="{{workout.exercise_four_modifier}} : {{workout.exercise_four_total_one}}" disabled>
         </div>
-        <div class=" btn col-md-3 gx-0">
-          <input type="text" class="form-control" id="total4" name="total4" placeholder="{{workout.total4}}" disabled>
+        <div class=" btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="total" name="total" value="{{workout.exercise_four_modifier_two}}  : {{workout.exercise_four_total_two}}" disabled>
         </div>
+        <div class=" btn col-md-2 gx-0">
+          <input type="text" class="form-control" id="total" name="total" value="{{workout.exercise_four_modifier_three}} : {{workout.exercise_four_total_three}}" disabled>
+        </div>
+      </div>
         {% endif %}
 
         <!--Save Workout Exercises Line 5-->
 
-        {% if workouts.exercise5 %}
-        <div class=" row">
-          <div class="btn col-md-3">
-            <input type="text" class="form-control" id="exercise5" name="exercise5" placeholder="{{workout.exercise5}}"
-              disabled>
+        {% if workout.exercise5 %}
+        <div class="row">
+          <div class="btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.exercise5}}" disabled>
           </div>
-          <div class="btn col-md-3">
-            <input type="text" class="form-control" id="category5" name="category5" placeholder="{{workout.category5}}"
-              disabled>
+          <div class="btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="category" name="category" value="{{workout.category5}}" disabled>
           </div>
-          <div class="btn col-md-3 gx-0">
-            <input type="text" class="form-control" id="modifier5" name="modifier5" placeholder="{{workout.modifier5}}"
-              disabled>
+          <div class="btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="modifier" name="modifier" value="{{workout.exercise_five_modifier}} : {{workout.exercise_five_total_one}}" disabled>
           </div>
-          <div class="btn col-md-3 gx-0">
-            <input type="text" class="form-control" id="total5" name="total5" placeholder="{{workout.total5}}" disabled>
+          <div class=" btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="total" name="total" value="{{workout.exercise_five_modifier_two}}  : {{workout.exercise_five_total_two}}" disabled>
           </div>
-          {% endif %}
+          <div class=" btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="total" name="total" value="{{workout.exercise_five_modifier_three}} : {{workout.exercise_five_total_three}}" disabled>
+          </div>
         </div>
-        <div>
+          {% endif %}
+
+        <!--Save Workout Exercises Line 6-->
+
+        {% if workout.exercise6 %}
+        <div class="row">
+          <div class="btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.exercise6}}" disabled>
+          </div>
+          <div class="btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="category" name="category" value="{{workout.category6}}" disabled>
+          </div>
+          <div class="btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="modifier" name="modifier" value="{{workout.exercise_six_modifier}} : {{workout.exercise_six_total_one}}" disabled>
+          </div>
+          <div class=" btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="total" name="total" value="{{workout.exercise_six_modifier_two}}  : {{workout.exercise_six_total_two}}" disabled>
+          </div>
+          <div class=" btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="total" name="total" value="{{workout.exercise_six_modifier_three}} : {{workout.exercise_six_total_three}}" disabled>
+          </div>
+        </div>
+          {% endif %}
+        
+          
+        {% if workout.exercise7 %}
+        <div class="row">
+          <div class="btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.exercise7}}" disabled>
+          </div>
+          <div class="btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="category" name="category" value="{{workout.category7}}" disabled>
+          </div>
+          <div class="btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="modifier" name="modifier" value="{{workout.exercise_seven_modifier}} : {{workout.exercise_seven_total_one}}" disabled>
+          </div>
+          <div class=" btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="total" name="total" value="{{workout.exercise_seven_modifier_two}}  : {{workout.exercise_seven_total_two}}" disabled>
+          </div>
+          <div class=" btn col-md-2 gx-0">
+            <input type="text" class="form-control" id="total" name="total" value="{{workout.exercise_seven_modifier_three}} : {{workout.exercise_seven_total_three}}" disabled>
+          </div>
+        </div>
+          {% endif %}
+
+        
+          {% if workout.exercise8 %}
+          <div class="row">
+            <div class="btn col-md-2 gx-0">
+              <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.exercise8}}" disabled>
+            </div>
+            <div class="btn col-md-2 gx-0">
+              <input type="text" class="form-control" id="category" name="category" value="{{workout.category8}}" disabled>
+            </div>
+            <div class="btn col-md-2 gx-0">
+              <input type="text" class="form-control" id="modifier" name="modifier" value="{{workout.exercise_eight_modifier}} : {{workout.exercise_eight_total_one}}" disabled>
+            </div>
+            <div class=" btn col-md-2 gx-0">
+              <input type="text" class="form-control" id="total" name="total" value="{{workout.exercise_eight_modifier_two}}  : {{workout.exercise_eight_total_two}}" disabled>
+            </div>
+            <div class=" btn col-md-2 gx-0">
+              <input type="text" class="form-control" id="total" name="total" value="{{workout.exercise_eight_modifier_three}} : {{workout.exercise_eight_total_three}}" disabled>
+            </div>
+          </div>
+            {% endif %}
 
           <!--Save Workout Additional Details-->
 

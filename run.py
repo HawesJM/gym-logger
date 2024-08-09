@@ -21,8 +21,10 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
 # app routes
 
+    
 
 # homepage route with example workouts from database
 @app.route("/")
@@ -134,7 +136,13 @@ def sign_out():
 
 # create workout record function
 @app.route("/record_workout", methods=["GET", "POST"])
+
 def record_workout():
+    
+    categories = list(mongo.db.categories.find())
+    exercises = list(mongo.db.exercises.find())
+    modifiers = list(mongo.db.modifiers.find())
+
     if request.method == "POST":
         is_visible = "on" if request.form.get("is-visible") else "off"
         logged_workout = {
@@ -148,21 +156,65 @@ def record_workout():
             "exercise3": request.form.get("exercise-three"),
             "exercise4": request.form.get("exercise-four"),
             "exercise5": request.form.get("exercise-five"),
+            "exercise6": request.form.get("exercise-six"),
+            "exercise7": request.form.get("exercise-seven"),
+            "exercise8": request.form.get("exercise-eight"),
             "category": request.form.get("category"),
             "category2": request.form.get("category-two"),
             "category3": request.form.get("category-three"),
             "category4": request.form.get("category-four"),
             "category5": request.form.get("category-five"),
+            "category6": request.form.get("category-six"),
+            "category7": request.form.get("category-seven"),
+            "category8": request.form.get("category-eight"),
             "modifier": request.form.get("modifier"),
-            "modifier2": request.form.get("modifier-two"),
-            "modifier3": request.form.get("modifier-three"),
-            "modifier4": request.form.get("modifier-four"),
-            "modifier5": request.form.get("modifier-five"),
-            "total": request.form.get(str("total")),
-            "total2": request.form.get(str("total-two")),
-            "total3": request.form.get(str("total-three")),
-            "total4": request.form.get(str("total-four")),
-            "total5": request.form.get(str("total-five")),
+            "modifier_two": request.form.get("modifier_two"),
+            "modifier_three": request.form.get("modifier_three"),
+            "exercise_two_modifier": request.form.get("exercise_two_modifier_one"),
+            "exercise_two_modifier_two": request.form.get("exercise_two_modifier_two"),
+            "exercise_two_modifier_three": request.form.get("exercise_two_modifier_three"),
+            "exercise_three_modifier": request.form.get("exercise_three_modifier_one"),
+            "exercise_three_modifier_two": request.form.get("exercise_three_modifier_two"),
+            "exercise_three_modifier_three": request.form.get("exercise_three_modifier_three"),
+            "exercise_four_modifier": request.form.get("exercise_four_modifier_one"),
+            "exercise_four_modifier_two": request.form.get("exercise_four_modifier_two"),
+            "exercise_four_modifier_three": request.form.get("exercise_four_modifier_three"),
+            "exercise_five_modifier": request.form.get("exercise_five_modifier_one"),
+            "exercise_five_modifier_two": request.form.get("exercise_five_modifier_two"),
+            "exercise_five_modifier_three": request.form.get("exercise_five_modifier_three"),
+            "exercise_six_modifier": request.form.get("exercise_six_modifier_one"),
+            "exercise_six_modifier_two": request.form.get("exercise_six_modifier_two"),
+            "exercise_six_modifier_three": request.form.get("exercise_six_modifier_three"),
+            "exercise_seven_modifier": request.form.get("exercise_seven_modifier_one"),
+            "exercise_seven_modifier_two": request.form.get("exercise_seven_modifier_two"),
+            "exercise_seven_modifier_three": request.form.get("exercise_seven_modifier_three"),
+            "exercise_eight_modifier": request.form.get("exercise_eight_modifier_one"),
+            "exercise_eight_modifier_two": request.form.get("exercise_eight_modifier_two"),
+            "exercise_eight_modifier_three": request.form.get("exercise_eight_modifier_three"),
+            "total_one": request.form.get(str("total_one")),
+            "total_two": request.form.get(str("total_two")),
+            "total_three": request.form.get(str("total_three")),
+            "exercise_two_total_one": request.form.get(str("exercise_two_total_one")),
+            "exercise_two_total_two": request.form.get(str("exercise_two_total_two")),
+            "exercise_two_total_three": request.form.get(str("exercise_two_total_three")),
+            "exercise_three_total_one": request.form.get(str("exercise_three_total_one")),
+            "exercise_three_total_two": request.form.get(str("exercise_three_total_two")),
+            "exercise_three_total_three": request.form.get(str("exercise_three_total_three")),
+            "exercise_four_total_one": request.form.get(str("exercise_four_total_one")),
+            "exercise_four_total_two": request.form.get(str("exercise_four_total_two")),
+            "exercise_four_total_three": request.form.get(str("exercise_four_total_three")),
+            "exercise_five_total_one": request.form.get(str("exercise_five_total_one")),
+            "exercise_five_total_two": request.form.get(str("exercise_five_total_two")),
+            "exercise_five_total_three": request.form.get(str("exercise_five_total_three")),
+            "exercise_six_total_one": request.form.get(str("exercise_six_total_one")),
+            "exercise_six_total_two": request.form.get(str("exercise_six_total_two")),
+            "exercise_six_total_three": request.form.get(str("exercise_six_total_three")),
+            "exercise_seven_total_one": request.form.get(str("exercise_seven_total_one")),
+            "exercise_seven_total_two": request.form.get(str("exercise_seven_total_two")),
+            "exercise_seven_total_three": request.form.get(str("exercise_seven_total_three")),
+            "exercise_eight_total_one": request.form.get(str("exercise_eight_total_one")),
+            "exercise_eight_total_two": request.form.get(str("exercise_eight_total_two")),
+            "exercise_eight_total_three": request.form.get(str("exercise_eight_total_three")),
             "is_visible": is_visible,
             "additional_information": request.form.get(
                 "additional-information"),
@@ -185,23 +237,43 @@ def record_workout():
             "category": request.form.get("category"),
             "created_by": session["user"],
         }
+
+        logged_modifier = {
+            "modifier": request.form.get("modifier"),
+            "created_by": session["user"],
+        }
+
+        logged_modifier_two = {
+            "modifier_two": request.form.get("modifier_two"),
+            "created_by": session["user"],
+        }
+
+        
+        logged_modifier_three = {
+            "modifier_three": request.form.get("modifier_three"),
+            "created_by": session["user"],
+        }
+
         mongo.db.workouts.insert_one(logged_workout)
-        mongo.db.exercises.insert_one(logged_exercise)
-        mongo.db.categories.insert_one(logged_category)
         flash("Workout successfully logged!")
         return redirect(url_for("profile", username=session["user"]))
 
-    return render_template("record_workout.html")
+    return render_template("record_workout.html", categories=categories, exercises=exercises, modifiers=modifiers)
 
 
 # for adding workout categories to the database
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
+
+    existing_category = mongo.db.categories.find_one(
+            {"category": request.form.get("category").lower()})
+        
     if request.method == "POST":
-        category = {
-            "category": request.form.get("category")
-        }
-        mongo.db.categories.insert_one(category)
+        if not existing_category:
+            category = {
+                "category": request.form.get("category")
+            }
+            mongo.db.categories.insert_one(category)
 
     return render_template("add_workout.html")
 
@@ -217,6 +289,16 @@ def add_exercise():
 
     return render_template("add_workout.html")
 
+# for adding modifiers to the database
+@app.route("/add_modifier", methods=["GET", "POST"])
+def add_modifier():
+    if request.method == "POST":
+        exercise = {
+            "modifier": request.form.get("modifier")
+        }
+        mongo.db.categories.insert_one(modifier)
+
+    return render_template("add_workout.html")
 
 # for editing an existing workout in the database
 @app.route("/edit_workout/<workout_id>", methods=["GET", "POST"])
@@ -354,7 +436,6 @@ def plan_workout_page(workout_id):
         "plan_workout.html", workout=workout,
         workouts=workouts, planned_workouts=planned_workouts)
 
-
 @app.route("/plan_workout/<workout_id>", methods=["GET", "POST"])
 def plan_workout(workout_id):
     workout = mongo.db.workouts.find_one({"_id": ObjectId(workout_id)})
@@ -367,30 +448,73 @@ def plan_workout(workout_id):
     if request.method == "POST":
         planned_workouts = list(mongo.db.planned_workouts.find())
         planned_workout = {
-            "workout_description": request.form.get(
-                "plan-workout-description"),
-            "workout_container_description": request.form.get(
-                "plan-workout-description"),
+            "date": request.form.get("plan-workout-date"),
+            "workout_description": request.form.get("plan-workout-description"),
+            "created_by": session["user"],
             "exercise": request.form.get("plan-exercise"),
             "exercise2": request.form.get("plan-exercise-two"),
             "exercise3": request.form.get("plan-exercise-three"),
             "exercise4": request.form.get("plan-exercise-four"),
             "exercise5": request.form.get("plan-exercise-five"),
+            "exercise6": request.form.get("plan-exercise-six"),
+            "exercise7": request.form.get("plan-exercise-seven"),
+            "exercise8": request.form.get("plan-exercise-eight"),
             "category": request.form.get("plan-category"),
             "category2": request.form.get("plan-category-two"),
             "category3": request.form.get("plan-category-three"),
             "category4": request.form.get("plan-category-four"),
             "category5": request.form.get("plan-category-five"),
-            "modifier": request.form.get("plan-modifier"),
-            "modifier2": request.form.get("plan-modifier-two"),
-            "modifier3": request.form.get("plan-modifier-three"),
-            "modifier4": request.form.get("plan-modifier-four"),
-            "modifier5": request.form.get("plan-modifier-five"),
-            "total": request.form.get(str("plan-total")),
-            "total2": request.form.get(str("plan-total-two")),
-            "total3": request.form.get(str("plan-total-three")),
-            "total4": request.form.get(str("plan-total-four")),
-            "total5": request.form.get(str("plan-total-five")),
+            "category6": request.form.get("plan-category-six"),
+            "category7": request.form.get("plan-category-seven"),
+            "category8": request.form.get("plan-category-eight"),
+            "modifier": request.form.get("plan-exercise-one-modifier-one"),
+            "modifier_two": request.form.get("plan-exercise-one-modifier-two"),
+            "modifier_three": request.form.get("plan-exercise-one-modifier-three"),
+            "exercise_two_modifier": request.form.get("plan-exercise-two-modifier-one"),
+            "exercise_two_modifier_two": request.form.get("plan-exercise-two-modifier-two"),
+            "exercise_two_modifier_three": request.form.get("plan-exercise-two-modifier-three"),
+            "exercise_three_modifier": request.form.get("plan-exercise-three-modifier-one"),
+            "exercise_three_modifier_two": request.form.get("plan-exercise-three-modifier-two"),
+            "exercise_three_modifier_three": request.form.get("plan-exercise-three-modifier-three"),
+            "exercise_four_modifier": request.form.get("plan-exercise-four-modifier-one"),
+            "exercise_four_modifier_two": request.form.get("plan-exercise-four-modifier-two"),
+            "exercise_four_modifier_three": request.form.get("plan-exercise-four-modifier-three"),
+            "exercise_five_modifier": request.form.get("plan-exercise-five-modifier-one"),
+            "exercise_five_modifier_two": request.form.get("plan-exercise-five-modifier-two"),
+            "exercise_five_modifier_three": request.form.get("plan-exercise-five-modifier-three"),
+            "exercise_six_modifier": request.form.get("plan-exercise-six-modifier-one"),
+            "exercise_six_modifier_two": request.form.get("plan-exercise-six-modifier-two"),
+            "exercise_six_modifier_three": request.form.get("plan-exercise-six-modifier-three"),
+            "exercise_seven_modifier": request.form.get("plan-exercise-seven-modifier-one"),
+            "exercise_seven_modifier_two": request.form.get("plan-exercise-seven-modifier-two"),
+            "exercise_seven_modifier_three": request.form.get("plan-exercise-seven-modifier-three"),
+            "exercise_eight_modifier": request.form.get("plan-exercise-eight-modifier-one"),
+            "exercise_eight_modifier_two": request.form.get("plan-exercise-eight-modifier-two"),
+            "exercise_eight_modifier_three": request.form.get("plan-exercise-eight-modifier-three"),
+            "total_one": request.form.get(str("plan-total-one")),
+            "total_two": request.form.get(str("plan-total-two")),
+            "total_three": request.form.get(str("plan-total-three")),
+            "exercise_two_total_one": request.form.get("exercise_two_total_one"),
+            "exercise_two_total_two": request.form.get(str("exercise_two_total_two")),
+            "exercise_two_total_three": request.form.get(str("exercise_two_total_three")),
+            "exercise_three_total_one": request.form.get(str("exercise_three_total_one")),
+            "exercise_three_total_two": request.form.get(str("exercise_three_total_two")),
+            "exercise_three_total_three": request.form.get(str("exercise_three_total_three")),
+            "exercise_four_total_one": request.form.get(str("exercise_four_total_one")),
+            "exercise_four_total_two": request.form.get(str("exercise_four_total_two")),
+            "exercise_four_total_three": request.form.get(str("exercise_four_total_three")),
+            "exercise_five_total_one": request.form.get(str("exercise_five_total_one")),
+            "exercise_five_total_two": request.form.get(str("exercise_five_total_two")),
+            "exercise_five_total_three": request.form.get(str("exercise_five_total_three")),
+            "exercise_six_total_one": request.form.get(str("exercise_six_total_one")),
+            "exercise_six_total_two": request.form.get(str("exercise_six_total_two")),
+            "exercise_six_total_three": request.form.get(str("exercise_six_total_three")),
+            "exercise_seven_total_one": request.form.get(str("exercise_seven_total_one")),
+            "exercise_seven_total_two": request.form.get(str("exercise_seven_total_two")),
+            "exercise_seven_total_three": request.form.get(str("exercise_seven_total_three")),
+            "exercise_eight_total_one": request.form.get(str("exercise_eight_total_one")),
+            "exercise_eight_total_two": request.form.get(str("exercise_eight_total_two")),
+            "exercise_eight_total_three": request.form.get(str("exercise_eight_total_three")),
             "additional_information": request.form.get(
                 "plan-additional-information"),
             "planned_by": session["user"],
@@ -403,10 +527,24 @@ def plan_workout(workout_id):
         planned_workout=planned_workout, planned_workouts=planned_workouts,
         workout=workout, workouts=workouts)
 
+# function to display full details of a workout added as a plan
+@app.route("/plan_workout_details/<plan_workout_id>")
+def plan_workout_details(plan_workout_id):
+    workout = mongo.db.workouts.find_one()
+    workouts = list(mongo.db.workouts.find())
+    planned_workouts = list(mongo.db.planned_workouts.find())
+    planned_workout = mongo.db.planned_workouts.find_one({"_id": ObjectId(plan_workout_id)})
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    return render_template(
+        "plan_workout_details.html", planned_workouts=planned_workouts, planned_workout=planned_workout, workouts=workouts, workout=workout)
 
 # function to mark planned workout as complete
 @app.route("/delete_planned_workout/<plan_workout_id>")
 def delete_planned_workout(plan_workout_id):
+    completed_workout = mongo.db.planned_workouts.find_one({"_id": ObjectId(plan_workout_id)})
+    mongo.db.completed_planned_workouts.insert_one(completed_workout)
     mongo.db.planned_workouts.delete_one(
         {"_id": ObjectId(plan_workout_id)})
     workouts = list(mongo.db.workouts.find())
