@@ -14,6 +14,7 @@
     </div>
     
     <!--form row one-->
+
     <div id="workout-description-block" class="col-12 col-md-12 form-group">
       <label for="workout-description"><h2>Workout Description</h2></label>
       <input type="text" class="form-control" id="workout-description" name="workout-description" minlength="5"
@@ -21,22 +22,30 @@
     </div>
     <div id="exercise-one-header" class="row"><h3>Exercise One</h3></div>
     <div class="form-group col-sm-6 col-md-2 exercise-one">
-      <label for="exercise">Exercise:</label>
-      <br>
-      <select name="exercise" id="exercise" required>
-        <option disabled selected value> -- Select -- </option>
-        {% for exercise in exercises %}
-        <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
-        {% endfor %}
-      </select>
-    </div>
-    <div class="form-group col-sm-6 col-md-2 exercise-one">
       <label for="category">Category:</label>
       <br>
       <select name="category" id="category" required>
         <option disabled selected value> -- Select -- </option>
         {% for category in categories %}
-        <option value="{{ category.category }}"> {{ category.category}} </option>
+            <option value="{{ category.category }}"> {{ category.category}} </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group col-sm-6 col-md-2 exercise-one">
+      <label for="exercise">Exercise:</label>
+      <br>
+      <select name="exercise" id="exercise" required>
+        <option disabled selected value> -- Select -- </option>}
+        {% for exercise in exercises %}
+          {% if exercise.category == "Weightlifting" %}
+            <option class="weightlifting-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Cardio" %}
+            <option class="cardio-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Calisthenics" %}
+            <option class="calisthenics-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
         {% endfor %}
       </select>
     </div>
@@ -85,25 +94,34 @@
     <div class="row"><i id="exercise-row-two-add" class="fa fa-plus-circle fa-xl"></i></div>
 
     <!--form row 2 -->
+    
     <div id="exercise-two-container" class="row hidden">
       <div id="exercise-two-header" class="row"><h3>Exercise Two</h3></div>
+      <div class="form-group col-sm-6 col-md-2">
+        <label for="category-two">Category:</label>
+        <br>
+        <select name="category-two" id="category-two">
+          <option disabled selected value> -- Select -- </option>
+          {% for category in categories %}
+          <option value="{{ category.category }}"> {{ category.category}} </option>
+          {% endfor %}
+        </select>
+      </div>
     <div class="form-group col-sm-6 col-md-2 ">
       <label for="exercise-two">Exercise:</label>
       <br>
       <select name="exercise-two" id="exercise-two">
         <option disabled selected value> -- Select -- </option>
         {% for exercise in exercises %}
-        <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
-        {% endfor %}
-      </select>
-    </div>
-    <div class="form-group col-sm-6 col-md-2">
-      <label for="category-two">Category:</label>
-      <br>
-      <select name="category-two" id="category-two">
-        <option disabled selected value> -- Select -- </option>
-        {% for category in categories %}
-        <option value="{{ category.category }}"> {{ category.category}} </option>
+          {% if exercise.category == "Weightlifting" %}
+            <option class="weightlifting-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Cardio" %}
+            <option class="cardio-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Calisthenics" %}
+            <option class="calisthenics-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
         {% endfor %}
       </select>
     </div>
@@ -157,23 +175,31 @@
 
     <div id="exercise-three-container" class="row hidden">
       <div id="exercise-three-header" class="row"><h3>Exercise Three</h3></div>
+      <div class="form-group col-sm-6 col-md-2">
+        <label for="category-three">Category:</label>
+        <br>
+        <select name="category-three" id="category-three">
+          <option disabled selected value> -- Select -- </option>
+          {% for category in categories %}
+          <option value="{{ category.category }}"> {{ category.category}} </option>
+          {% endfor %}
+        </select>
+      </div>
     <div class="form-group col-sm-6 col-md-2 ">
       <label for="exercise-three">Exercise:</label>
       <br>
       <select name="exercise-three" id="exercise-three">
         <option disabled selected value> -- Select -- </option>
         {% for exercise in exercises %}
-        <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
-        {% endfor %}
-      </select>
-    </div>
-    <div class="form-group col-sm-6 col-md-2">
-      <label for="category-three">Category:</label>
-      <br>
-      <select name="category-three" id="category-three">
-        <option disabled selected value> -- Select -- </option>
-        {% for category in categories %}
-        <option value="{{ category.category }}"> {{ category.category}} </option>
+          {% if exercise.category == "Weightlifting" %}
+            <option class="weightlifting-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Cardio" %}
+            <option class="cardio-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Calisthenics" %}
+            <option class="calisthenics-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
         {% endfor %}
       </select>
     </div>
@@ -226,23 +252,31 @@
 
     <div id="exercise-four-container" class="row hidden">
       <div id="exercise-four-header" class="row"><h3>Exercise Four</h3></div>
+      <div class="form-group col-sm-6 col-md-2">
+        <label for="category-four">Category:</label>
+        <br>
+        <select name="category-four" id="category-four">
+          <option disabled selected value> -- Select -- </option>
+          {% for category in categories %}
+          <option value="{{ category.category }}"> {{ category.category}} </option>
+          {% endfor %}
+        </select>
+      </div>
     <div class="form-group col-sm-6 col-md-2 ">
       <label for="exercise-four">Exercise:</label>
       <br>
       <select name="exercise-four" id="exercise-four">
         <option disabled selected value> -- Select -- </option>
         {% for exercise in exercises %}
-        <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
-        {% endfor %}
-      </select>
-    </div>
-    <div class="form-group col-sm-6 col-md-2">
-      <label for="category-four">Category:</label>
-      <br>
-      <select name="category-four" id="category-four">
-        <option disabled selected value> -- Select -- </option>
-        {% for category in categories %}
-        <option value="{{ category.category }}"> {{ category.category}} </option>
+          {% if exercise.category == "Weightlifting" %}
+            <option class="weightlifting-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Cardio" %}
+            <option class="cardio-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Calisthenics" %}
+            <option class="calisthenics-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
         {% endfor %}
       </select>
     </div>
@@ -295,23 +329,31 @@
 
     <div id="exercise-five-container" class="row hidden">
       <div id="exercise-five-header" class="row"><h3>Exercise Five</h3></div>
+      <div class="form-group col-sm-6 col-md-2">
+        <label for="category-five">Category:</label>
+        <br>
+        <select name="category-five" id="category-five">
+          <option disabled selected value> -- Select -- </option>
+          {% for category in categories %}
+          <option value="{{ category.category }}"> {{ category.category}} </option>
+          {% endfor %}
+        </select>
+      </div>
     <div class="form-group col-sm-6 col-md-2 ">
       <label for="exercise-five">Exercise:</label>
       <br>
       <select name="exercise-five" id="exercise-five">
         <option disabled selected value> -- Select -- </option>
         {% for exercise in exercises %}
-        <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
-        {% endfor %}
-      </select>
-    </div>
-    <div class="form-group col-sm-6 col-md-2">
-      <label for="category-five">Category:</label>
-      <br>
-      <select name="category-five" id="category-five">
-        <option disabled selected value> -- Select -- </option>
-        {% for category in categories %}
-        <option value="{{ category.category }}"> {{ category.category}} </option>
+          {% if exercise.category == "Weightlifting" %}
+            <option class="weightlifting-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Cardio" %}
+            <option class="cardio-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Calisthenics" %}
+            <option class="calisthenics-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
         {% endfor %}
       </select>
     </div>
@@ -364,24 +406,32 @@
 
   <div id="exercise-six-container" class="row hidden">
     <div id="exercise-six-header" class="row"><h3>Exercise Six</h3></div>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="category-six">Category:</label>
+      <br>
+      <select name="category-six" id="category-six">
+        <option disabled selected value> -- Select -- </option>
+        {% for category in categories %}
+        <option value="{{ category.category }}"> {{ category.category}} </option>
+        {% endfor %}
+      </select>
+    </div>
   <div class="form-group col-sm-6 col-md-2 ">
     <label for="exercise-six">Exercise:</label>
     <br>
     <select name="exercise-six" id="exercise-six">
       <option disabled selected value> -- Select -- </option>
       {% for exercise in exercises %}
-      <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
-      {% endfor %}
-    </select>
-  </div>
-  <div class="form-group col-sm-6 col-md-2">
-    <label for="category-six">Category:</label>
-    <br>
-    <select name="category-six" id="category-six">
-      <option disabled selected value> -- Select -- </option>
-      {% for category in categories %}
-      <option value="{{ category.category }}"> {{ category.category}} </option>
-      {% endfor %}
+          {% if exercise.category == "Weightlifting" %}
+            <option class="weightlifting-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Cardio" %}
+            <option class="cardio-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Calisthenics" %}
+            <option class="calisthenics-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+        {% endfor %}
     </select>
   </div>
   <div class="form-group col-sm-6 col-md-2">
@@ -433,24 +483,32 @@
 
   <div id="exercise-seven-container" class="row hidden">
     <div id="exercise-seven-header" class="row"><h3>Exercise Seven</h3></div>
+    <div class="form-group col-sm-6 col-md-2">
+      <label for="category-seven">Category:</label>
+      <br>
+      <select name="category-seven" id="category-seven">
+        <option disabled selected value> -- Select -- </option>
+        {% for category in categories %}
+        <option value="{{ category.category }}"> {{ category.category}} </option>
+        {% endfor %}
+      </select>
+    </div>
   <div class="form-group col-sm-6 col-md-2 ">
     <label for="exercise-seven">Exercise:</label>
     <br>
     <select name="exercise-seven" id="exercise-seven">
       <option disabled selected value> -- Select -- </option>
       {% for exercise in exercises %}
-      <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
-      {% endfor %}
-    </select>
-  </div>
-  <div class="form-group col-sm-6 col-md-2">
-    <label for="category-seven">Category:</label>
-    <br>
-    <select name="category-seven" id="category-seven">
-      <option disabled selected value> -- Select -- </option>
-      {% for category in categories %}
-      <option value="{{ category.category }}"> {{ category.category}} </option>
-      {% endfor %}
+          {% if exercise.category == "Weightlifting" %}
+            <option class="weightlifting-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Cardio" %}
+            <option class="cardio-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Calisthenics" %}
+            <option class="calisthenics-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+        {% endfor %}
     </select>
   </div>
   <div class="form-group col-sm-6 col-md-2">
@@ -502,24 +560,32 @@
 
 <div id="exercise-eight-container" class="row hidden">
   <div id="exercise-eight-header" class="row"><h3>Exercise Eight</h3></div>
+  <div class="form-group col-sm-6 col-md-2">
+    <label for="category-eight">Category:</label>
+    <br>
+    <select name="category-eight" id="category-eight">
+      <option disabled selected value> -- Select -- </option>
+      {% for category in categories %}
+      <option value="{{ category.category }}"> {{ category.category}} </option>
+      {% endfor %}
+    </select>
+  </div>
 <div class="form-group col-sm-6 col-md-2 ">
   <label for="exercise-eight">Exercise:</label>
   <br>
   <select name="exercise-eight" id="exercise-eight">
     <option disabled selected value> -- Select -- </option>
     {% for exercise in exercises %}
-    <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
-    {% endfor %}
-  </select>
-</div>
-<div class="form-group col-sm-6 col-md-2">
-  <label for="category-eight">Category:</label>
-  <br>
-  <select name="category-eight" id="category-eight">
-    <option disabled selected value> -- Select -- </option>
-    {% for category in categories %}
-    <option value="{{ category.category }}"> {{ category.category}} </option>
-    {% endfor %}
+          {% if exercise.category == "Weightlifting" %}
+            <option class="weightlifting-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Cardio" %}
+            <option class="cardio-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Calisthenics" %}
+            <option class="calisthenics-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+        {% endfor %}
   </select>
 </div>
 <div class="form-group col-sm-6 col-md-2">
@@ -617,21 +683,29 @@
     <div id="mobile-exercise-row-1" class="row mobile-exercise-row">
       <h3>Exercise One Details</h3>
       <div class="form-group col-6">
-        <label for="mobile-exercise">Exercise</label>
-        <select name="exercise"id="mobile-exercise" class="form-select-sm col-12" required>
-          <option disabled selected value> -- Select -- </option>
-          {% for exercise in exercises %}
-          <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="form-group col-6">
         <label for="mobile-category">Category</label>
         <select name="category"id="mobile-category" class="form-select-sm col-12" required>
           <option disabled selected value> -- Select -- </option>
           {% for category in categories %}
           <option value="{{ category.category }}"> {{ category.category}} </option>
           {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-6">
+        <label for="mobile-exercise">Exercise</label>
+        <select name="exercise"id="mobile-exercise" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for exercise in exercises %}
+          {% if exercise.category == "Weightlifting" %}
+            <option class="weightlifting-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Cardio" %}
+            <option class="cardio-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Calisthenics" %}
+            <option class="calisthenics-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+        {% endfor %}
         </select>
       </div>
       <div class="form-group col-4">
@@ -682,21 +756,29 @@
     <div id="mobile-exercise-row-2" class="row mobile-exercise-row hidden">
       <h3>Exercise Two Details</h3>
       <div class="form-group col-6">
-        <label for="mobile-exercise-two">Exercise</label>
-        <select name="exercise-two"id="mobile-exercise-two" class="form-select-sm col-12" required>
-          <option disabled selected value> -- Select -- </option>
-          {% for exercise in exercises %}
-          <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="form-group col-6">
         <label for="mobile-category-two">Category</label>
         <select name="category-two"id="mobile-category-two" class="form-select-sm col-12" required>
           <option disabled selected value> -- Select -- </option>
           {% for category in categories %}
           <option value="{{ category.category }}"> {{ category.category}} </option>
           {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-6">
+        <label for="mobile-exercise-two">Exercise</label>
+        <select name="exercise-two"id="mobile-exercise-two" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for exercise in exercises %}
+          {% if exercise.category == "Weightlifting" %}
+            <option class="weightlifting-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Cardio" %}
+            <option class="cardio-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Calisthenics" %}
+            <option class="calisthenics-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+        {% endfor %}
         </select>
       </div>
       <div class="form-group col-4">
@@ -746,21 +828,29 @@
     <div id="mobile-exercise-row-3" class="row mobile-exercise-row hidden">
       <h3>Exercise Three Details</h3>
       <div class="form-group col-6">
-        <label for="mobile-exercise-three">Exercise</label>
-        <select name="exercise-three"id="mobile-exercise-three" class="form-select-sm col-12" required>
-          <option disabled selected value> -- Select -- </option>
-          {% for exercise in exercises %}
-          <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="form-group col-6">
         <label for="mobile-category-three">Category</label>
         <select name="category-three"id="mobile-category-three" class="form-select-sm col-12" required>
           <option disabled selected value> -- Select -- </option>
           {% for category in categories %}
           <option value="{{ category.category }}"> {{ category.category}} </option>
           {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-6">
+        <label for="mobile-exercise-three">Exercise</label>
+        <select name="exercise-three"id="mobile-exercise-three" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for exercise in exercises %}
+          {% if exercise.category == "Weightlifting" %}
+            <option class="weightlifting-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Cardio" %}
+            <option class="cardio-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Calisthenics" %}
+            <option class="calisthenics-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+        {% endfor %}
         </select>
       </div>
       <div class="form-group col-4">
@@ -810,21 +900,29 @@
     <div id="mobile-exercise-row-4" class="row mobile-exercise-row hidden">
       <h3>Exercise Four Details</h3>
       <div class="form-group col-6">
-        <label for="mobile-exercise-four">Exercise</label>
-        <select name="exercise-four"id="mobile-exercise-four" class="form-select-sm col-12" required>
-          <option disabled selected value> -- Select -- </option>
-          {% for exercise in exercises %}
-          <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="form-group col-6">
         <label for="mobile-category-four">Category</label>
         <select name="category-four"id="mobile-category-four" class="form-select-sm col-12" required>
           <option disabled selected value> -- Select -- </option>
           {% for category in categories %}
           <option value="{{ category.category }}"> {{ category.category}} </option>
           {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-6">
+        <label for="mobile-exercise-four">Exercise</label>
+        <select name="exercise-four"id="mobile-exercise-four" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for exercise in exercises %}
+          {% if exercise.category == "Weightlifting" %}
+            <option class="weightlifting-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Cardio" %}
+            <option class="cardio-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Calisthenics" %}
+            <option class="calisthenics-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+        {% endfor %}
         </select>
       </div>
       <div class="form-group col-4">
@@ -874,21 +972,29 @@
     <div id="mobile-exercise-row-5" class="row mobile-exercise-row hidden">
       <h3>Exercise Five Details</h3>
       <div class="form-group col-6">
-        <label for="mobile-exercise-five">Exercise</label>
-        <select name="exercise-five"id="mobile-exercise-five" class="form-select-sm col-12" required>
-          <option disabled selected value> -- Select -- </option>
-          {% for exercise in exercises %}
-          <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="form-group col-6">
         <label for="mobile-category-five">Category</label>
         <select name="category-five"id="mobile-category-five" class="form-select-sm col-12" required>
           <option disabled selected value> -- Select -- </option>
           {% for category in categories %}
           <option value="{{ category.category }}"> {{ category.category}} </option>
           {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-6">
+        <label for="mobile-exercise-five">Exercise</label>
+        <select name="exercise-five"id="mobile-exercise-five" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for exercise in exercises %}
+          {% if exercise.category == "Weightlifting" %}
+            <option class="weightlifting-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Cardio" %}
+            <option class="cardio-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Calisthenics" %}
+            <option class="calisthenics-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+        {% endfor %}
         </select>
       </div>
       <div class="form-group col-4">
@@ -938,21 +1044,29 @@
     <div id="mobile-exercise-row-6" class="row mobile-exercise-row hidden">
       <h3>Exercise Six Details</h3>
       <div class="form-group col-6">
-        <label for="mobile-exercise-six">Exercise</label>
-        <select name="exercise-six"id="mobile-exercise-six" class="form-select-sm col-12" required>
-          <option disabled selected value> -- Select -- </option>
-          {% for exercise in exercises %}
-          <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="form-group col-6">
         <label for="mobile-category-six">Category</label>
         <select name="category-six"id="mobile-category-six" class="form-select-sm col-12" required>
           <option disabled selected value> -- Select -- </option>
           {% for category in categories %}
           <option value="{{ category.category }}"> {{ category.category}} </option>
           {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-6">
+        <label for="mobile-exercise-six">Exercise</label>
+        <select name="exercise-six"id="mobile-exercise-six" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for exercise in exercises %}
+          {% if exercise.category == "Weightlifting" %}
+            <option class="weightlifting-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Cardio" %}
+            <option class="cardio-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Calisthenics" %}
+            <option class="calisthenics-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+        {% endfor %}
         </select>
       </div>
       <div class="form-group col-4">
@@ -1002,21 +1116,29 @@
     <div id="mobile-exercise-row-7" class="row mobile-exercise-row hidden">
       <h3>Exercise Seven Details</h3>
       <div class="form-group col-6">
-        <label for="mobile-exercise-seven">Exercise</label>
-        <select name="exercise-seven"id="mobile-exercise-seven" class="form-select-sm col-12" required>
-          <option disabled selected value> -- Select -- </option>
-          {% for exercise in exercises %}
-          <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="form-group col-6">
         <label for="mobile-category-seven">Category</label>
         <select name="category-seven"id="mobile-category-seven" class="form-select-sm col-12" required>
           <option disabled selected value> -- Select -- </option>
           {% for category in categories %}
           <option value="{{ category.category }}"> {{ category.category}} </option>
           {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-6">
+        <label for="mobile-exercise-seven">Exercise</label>
+        <select name="exercise-seven"id="mobile-exercise-seven" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for exercise in exercises %}
+          {% if exercise.category == "Weightlifting" %}
+            <option class="weightlifting-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Cardio" %}
+            <option class="cardio-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Calisthenics" %}
+            <option class="calisthenics-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+        {% endfor %}
         </select>
       </div>
       <div class="form-group col-4">
@@ -1067,21 +1189,29 @@
     <div id="mobile-exercise-row-8" class="row mobile-exercise-row hidden">
       <h3>Exercise Eight Details</h3>
       <div class="form-group col-6">
-        <label for="mobile-exercise-eight">Exercise</label>
-        <select name="exercise-eight"id="mobile-exercise-eight" class="form-select-sm col-12" required>
-          <option disabled selected value> -- Select -- </option>
-          {% for exercise in exercises %}
-          <option value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="form-group col-6">
         <label for="mobile-category-eight">Category</label>
         <select name="category-eight"id="mobile-category-eight" class="form-select-sm col-12" required>
           <option disabled selected value> -- Select -- </option>
           {% for category in categories %}
           <option value="{{ category.category }}"> {{ category.category}} </option>
           {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-6">
+        <label for="mobile-exercise-eight">Exercise</label>
+        <select name="exercise-eight"id="mobile-exercise-eight" class="form-select-sm col-12" required>
+          <option disabled selected value> -- Select -- </option>
+          {% for exercise in exercises %}
+          {% if exercise.category == "Weightlifting" %}
+            <option class="weightlifting-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Cardio" %}
+            <option class="cardio-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+          {% if exercise.category == "Calisthenics" %}
+            <option class="calisthenics-option hidden" value="{{ exercise.exercise }}"> {{ exercise.exercise}} </option>
+          {% endif %}
+        {% endfor %}
         </select>
       </div>
       <div class="form-group col-4">

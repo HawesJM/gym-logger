@@ -14,6 +14,14 @@ if (document.getElementById("workout-record-container")) {
     document.getElementById("exercise-row-six-add").addEventListener("click", duplicateExerciseFive);
     document.getElementById("exercise-row-seven-add").addEventListener("click", duplicateExerciseSix);
     document.getElementById("exercise-row-eight-add").addEventListener("click", duplicateExerciseSeven);
+    document.getElementById("category").addEventListener("change", selectCategoryOne);
+    document.getElementById("category-two").addEventListener("change", selectCategoryTwo);
+    document.getElementById("category-three").addEventListener("change", selectCategoryThree);
+    document.getElementById("category-four").addEventListener("change", selectCategoryFour);
+    document.getElementById("category-five").addEventListener("change", selectCategoryFive);
+    document.getElementById("category-six").addEventListener("change", selectCategorySix);
+    document.getElementById("category-seven").addEventListener("change", selectCategorySeven);
+    document.getElementById("category-eight").addEventListener("change", selectCategoryEight);
     
 
 //mobile form event listeners //
@@ -26,10 +34,352 @@ if (document.getElementById("workout-record-container")) {
     document.getElementById("mobile-exercise-add-5").addEventListener("click", hideWorkoutRow5);
     document.getElementById("mobile-exercise-add-6").addEventListener("click", hideWorkoutRow6);
     document.getElementById("mobile-exercise-add-7").addEventListener("click", hideWorkoutRow7);
+    document.getElementById("mobile-category").addEventListener("change", selectMobileCategoryOne);
+    document.getElementById("mobile-category-two").addEventListener("change", selectMobileCategoryTwo);
+    document.getElementById("mobile-category-three").addEventListener("change", selectMobileCategoryThree);
+    document.getElementById("mobile-category-four").addEventListener("change", selectMobileCategoryFour);
+    document.getElementById("mobile-category-five").addEventListener("change", selectMobileCategoryFive);
+    document.getElementById("mobile-category-six").addEventListener("change", selectMobileCategorySix);
+    document.getElementById("mobile-category-seven").addEventListener("change", selectMobileCategorySeven);
+    document.getElementById("mobile-category-eight").addEventListener("change", selectMobileCategoryEight);
 
 
 
-// record workout section 2 functions //    
+
+// dropdown functions  //   
+
+function selectCategoryOne() {    
+    let categoryOne = document.getElementById("category").value;
+    if (categoryOne == "Weightlifting") {
+        $(".weightlifting-option").removeClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+    }
+    if (categoryOne == "Cardio") {
+        $(".cardio-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+    }
+    if (categoryOne == "Calisthenics") {
+        $(".calisthenics-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".cardio-option").addClass("hidden")
+    }
+}
+
+function selectCategoryTwo() {
+    let categoryTwo = document.getElementById("category-two").value;
+    if (categoryTwo == "Weightlifting") {
+        $(".weightlifting-option").removeClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+    }
+    if (categoryTwo == "Cardio") {
+        $(".cardio-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+    }
+    if (categoryTwo == "Calisthenics") {
+        $(".calisthenics-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".cardio-option").addClass("hidden")
+    }
+}
+
+function selectCategoryThree() {
+    let categoryThree = document.getElementById("category-three").value;
+    if (categoryThree == "Weightlifting") {
+        $(".weightlifting-option").removeClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+    }
+    if (categoryThree == "Cardio") {
+        $(".cardio-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+    }
+    if (categoryThree == "Calisthenics") {
+        $(".calisthenics-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".cardio-option").addClass("hidden")
+    }
+}
+
+function selectCategoryFour() {
+    let categoryFour = document.getElementById("category-four").value;
+    if (categoryFour == "Weightlifting") {
+        $(".weightlifting-option").removeClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+    }
+    if (categoryFour == "Cardio") {
+        $(".cardio-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+    }
+    if (categoryFour == "Calisthenics") {
+        $(".calisthenics-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".cardio-option").addClass("hidden")
+    }
+}
+
+function selectCategoryFive() {
+    let categoryFive = document.getElementById("category-five").value;
+    if (categoryFive == "Weightlifting") {
+        $(".weightlifting-option").removeClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+    }
+    if (categoryFive == "Cardio") {
+        $(".cardio-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+    }
+    if (categoryFive == "Calisthenics") {
+        $(".calisthenics-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".cardio-option").addClass("hidden")
+    }
+}
+
+function selectCategorySix() {
+    let categorySix = document.getElementById("category-six").value;
+    if (categorySix == "Weightlifting") {
+        $(".weightlifting-option").removeClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+    }
+    if (categorySix == "Cardio") {
+        $(".cardio-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+    }
+    if (categorySix == "Calisthenics") {
+        $(".calisthenics-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".cardio-option").addClass("hidden")
+    }
+}
+
+function selectCategorySeven() {
+    let categorySeven = document.getElementById("category-seven").value;
+    if (categorySeven == "Weightlifting") {
+        $(".weightlifting-option").removeClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+    }
+    if (categorySeven == "Cardio") {
+        $(".cardio-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+    }
+    if (categorySeven == "Calisthenics") {
+        $(".calisthenics-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".cardio-option").addClass("hidden")
+    }
+}
+
+function selectCategoryEight() {
+    let categoryEight = document.getElementById("category-eight").value;
+    if (categoryEight == "Weightlifting") {
+        $(".weightlifting-option").removeClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+    }
+    if (categoryEight == "Cardio") {
+        $(".cardio-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+    }
+    if (categoryEight == "Calisthenics") {
+        $(".calisthenics-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".cardio-option").addClass("hidden")
+    }
+}
+
+// mobile dropdown functions  // 
+
+function selectMobileCategoryOne() {    
+    let mobileCategoryOne = document.getElementById("mobile-category").value;
+    if (mobileCategoryOne == "Weightlifting") {
+        $(".weightlifting-option").removeClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+        console.log(mobileCategoryOne)
+    }
+    if (mobileCategoryOne == "Cardio") {
+        $(".cardio-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+        console.log(mobileCategoryOne)
+    }
+    if (mobileCategoryOne == "Calisthenics") {
+        $(".calisthenics-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        console.log(mobileCategoryOne)
+    }
+}
+
+
+function selectMobileCategoryTwo() {    
+    let mobileCategoryTwo = document.getElementById("mobile-category-two").value;
+    if (mobileCategoryTwo == "Weightlifting") {
+        $(".weightlifting-option").removeClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+        console.log(mobileCategoryTwo)
+    }
+    if (mobileCategoryTwo == "Cardio") {
+        $(".cardio-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+        console.log(mobileCategoryTwo)
+    }
+    if (mobileCategoryTwo == "Calisthenics") {
+        $(".calisthenics-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        console.log(mobileCategoryTwo)
+    }
+}
+
+function selectMobileCategoryThree() {    
+    let mobileCategoryThree = document.getElementById("mobile-category-three").value;
+    if (mobileCategoryThree == "Weightlifting") {
+        $(".weightlifting-option").removeClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+        console.log(mobileCategoryThree)
+    }
+    if (mobileCategoryThree == "Cardio") {
+        $(".cardio-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+        console.log(mobileCategoryThree)
+    }
+    if (mobileCategoryThree == "Calisthenics") {
+        $(".calisthenics-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        console.log(mobileCategoryThree)
+    }
+}
+
+function selectMobileCategoryFour() {    
+    let mobileCategoryFour = document.getElementById("mobile-category-four").value;
+    if (mobileCategoryFour == "Weightlifting") {
+        $(".weightlifting-option").removeClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+        console.log(mobileCategoryFour)
+    }
+    if (mobileCategoryFour == "Cardio") {
+        $(".cardio-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+        console.log(mobileCategoryFour)
+    }
+    if (mobileCategoryFour == "Calisthenics") {
+        $(".calisthenics-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        console.log(mobileCategoryFour)
+    }
+}
+
+function selectMobileCategoryFive() {    
+    let mobileCategoryFive = document.getElementById("mobile-category-five").value;
+    if (mobileCategoryFive == "Weightlifting") {
+        $(".weightlifting-option").removeClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+        console.log(mobileCategoryFive)
+    }
+    if (mobileCategoryFive == "Cardio") {
+        $(".cardio-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+        console.log(mobileCategoryFive)
+    }
+    if (mobileCategoryFive == "Calisthenics") {
+        $(".calisthenics-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        console.log(mobileCategoryFive)
+    }
+}
+
+function selectMobileCategorySix() {    
+    let mobileCategorySix = document.getElementById("mobile-category-six").value;
+    if (mobileCategorySix == "Weightlifting") {
+        $(".weightlifting-option").removeClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+        console.log(mobileCategorySix)
+    }
+    if (mobileCategorySix == "Cardio") {
+        $(".cardio-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+        console.log(mobileCategorySix)
+    }
+    if (mobileCategorySix == "Calisthenics") {
+        $(".calisthenics-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        console.log(mobileCategorySix)
+    }
+}
+
+function selectMobileCategorySeven() {    
+    let mobileCategorySeven = document.getElementById("mobile-category-seven").value;
+    if (mobileCategorySeven == "Weightlifting") {
+        $(".weightlifting-option").removeClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+        console.log(mobileCategorySeven)
+    }
+    if (mobileCategorySeven == "Cardio") {
+        $(".cardio-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+        console.log(mobileCategorySeven)
+    }
+    if (mobileCategorySeven == "Calisthenics") {
+        $(".calisthenics-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        console.log(mobileCategorySeven)
+    }
+}
+
+function selectMobileCategoryEight() {    
+    let mobileCategoryEight = document.getElementById("mobile-category-eight").value;
+    if (mobileCategoryEight == "Weightlifting") {
+        $(".weightlifting-option").removeClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+        console.log(mobileCategoryEight)
+    }
+    if (mobileCategoryEight == "Cardio") {
+        $(".cardio-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".calisthenics-option").addClass("hidden")
+        console.log(mobileCategoryEight)
+    }
+    if (mobileCategoryEight == "Calisthenics") {
+        $(".calisthenics-option").removeClass("hidden")
+        $(".weightlifting-option").addClass("hidden")
+        $(".cardio-option").addClass("hidden")
+        console.log(mobileCategoryEight)
+    }
+}
+
+// record workout section 2 functions // 
 
 function duplicateExerciseOne() {
     $("#exercise-two-container").removeClass("hidden");
