@@ -21,7 +21,7 @@
 
 ### Introduction
 
-Gym Logger is a web application designed to aid the individual user in achieving their fitness goals by creating an updatable and shareable library of workout plans based on the individual's own metrics and exercise records, and also those of the wider Gym Logger community, as well as common fitness metrics, standards and widely available online resources.
+Gym Logger is a web application designed to aid the individual user in achieving their fitness goals, by creating an updatable and shareable library of workout plans based on the individual's own metrics and exercise records, and also those of the wider Gym Logger community, as well as common fitness metrics, standards and widely available online resources.
 
 Through Gym Logger the experienced user will be able to keep a record of their recent workouts, build future workout plans, and share this with other users. They will also be able to login to view these records. Users who are just beginning their fitness journeys will be able to search for and save plans that are relevant to them and helpful to get them started. Both sets of users will be able to keep track of their developments and measure them against relevant metrics and updated information.
 
