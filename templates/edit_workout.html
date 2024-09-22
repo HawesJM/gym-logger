@@ -49,19 +49,19 @@
             <input type="text" class="form-control" id="exercise" name="exercise" value="{{workout.exercise}}">
           </div>
           <div class="btn col-md-2 gx-0">
-            <h5>Total One</h5>
-            <input type="text" class="form-control" id="modifier" name="modifier"
-              value="{{workout.modifier}} : {{workout.total_one}}">
+            <h5>Total One ({{workout.modifier}}) : </h5>
+            <input type="text" class="form-control" id="total_one" name="total_one"
+              value="{{workout.total_one}}">
           </div>
           <div class="btn col-md-2 gx-0">
-            <h5>Total Two</h5>
-            <input type="text" class="form-control" id="modifier" name="modifier"
-              value="{{workout.modifier_two}} : {{workout.total_two}}">
+            <h5>Total Two ({{workout.modifier_two}}) : </h5>
+            <input type="text" class="form-control" id="total_two" name="total_two"
+              value="{{workout.total_two}}">
           </div>
           <div class=" btn col-md-2 gx-0">
-            <h5>Total Three</h5>
-            <input type="text" class="form-control" id="total" name="total"
-              value="{{workout.modifier_three}} : {{workout.total_three}}">
+            <h5>Total Three ({{workout.modifier_three}}) : </h5>
+            <input type="text" class="form-control" id="total_three" name="total_three"
+              value="{{workout.total_three}}">
           </div>
         </div>
 
@@ -70,22 +70,27 @@
         {% if workout.exercise2 %}
         <div class="col-12">
           <div class="btn col-md-2">
-            <input type="text" class="form-control" id="category2" name="category2" value="{{workout.category2}}">
+            <h5>Category</h5>
+            <input type="text" class="form-control" id="category2" name="category-two" value="{{workout.category2}}">
           </div>
           <div class="btn col-md-2">
-            <input type="text" class="form-control" id="exercise2" name="exercise2" value="{{workout.exercise2}}">
+            <h5>Specific Exercise</h5>
+            <input type="text" class="form-control" id="exercise2" name="exercise-two" value="{{workout.exercise2}}">
           </div>
           <div class="btn col-md-2 gx-0">
-            <input type="text" class="form-control" id="modifier2" name="modifier2"
-              value="{{workout.exercise_two_modifier}} : {{workout.exercise_two_total_one}}">
+            <h5>Total One ({{workout.exercise_two_modifier}}) :</h5>
+            <input type="text" class="form-control" id="modifier2" name="exercise_two_total_one"
+              value="{{workout.exercise_two_total_one}}">
           </div>
           <div class="btn col-md-2 gx-0">
-            <input type="text" class="form-control" id="modifier2" name="modifier2"
-              value="{{workout.exercise_two_modifier_two}} : {{workout.exercise_two_total_two}}">
+            <h5>Total Two ({{workout.exercise_two_modifier_two}}) :</h5>
+            <input type="text" class="form-control" id="modifier2" name="exercise_two_total_two"
+              value="{{workout.exercise_two_total_two}}">
           </div>
           <div class=" btn col-md-2 gx-0">
-            <input type="text" class="form-control" id="total2" name="total2"
-              value="{{workout.exercise_two_modifier_three}}: {{workout.exercise_two_total_three}}">
+            <h5>Total Two ({{workout.exercise_two_modifier_three}}) :</h5>
+            <input type="text" class="form-control" id="total2" name="exercise_two_total_three"
+              value="{{workout.exercise_two_total_three}}">
           </div>
         </div>
         {% endif %}
@@ -95,22 +100,27 @@
         {% if workout.exercise3 %}
         <div class="col-12">
           <div class="btn col-md-2">
-            <input type="text" class="form-control" id="category3" name="category3" value="{{workout.category3}}">
+            <h5>Category</h5>
+            <input type="text" class="form-control" id="category3" name="category-three" value="{{workout.category3}}">
           </div>
           <div class="btn col-md-2">
-            <input type="text" class="form-control" id="exercise3" name="exercise3" value="{{workout.exercise3}}">
+            <h5>Specific Exercise</h5>
+            <input type="text" class="form-control" id="exercise3" name="exercise-three" value="{{workout.exercise3}}">
           </div>
           <div class="btn col-md-2 gx-0">
-            <input type="text" class="form-control" id="modifier3" name="modifier3"
-              value="{{workout.exercise_three_modifier}} : {{workout.exercise_three_total_one}}">
+            <h5>Total One ({{workout.exercise_three_modifier}}) :</h5>
+            <input type="text" class="form-control" id="modifier3" name="exercise_three_total_one"
+              value="{{workout.exercise_three_total_one}}">
           </div>
           <div class="btn col-md-2 gx-0">
-            <input type="text" class="form-control" id="modifier3" name="modifier3"
-              value="{{workout.exercise_three_modifier_two}} : {{workout.exercise_three_total_two}}">
+            <h5>Total One ({{workout.exercise_three_modifier_two}}) :</h5>
+            <input type="text" class="form-control" id="modifier3" name="exercise_three_total_two"
+              value="{{workout.exercise_three_total_two}}">
           </div>
           <div class=" btn col-md-2 gx-0">
-            <input type="text" class="form-control" id="total3" name="total3"
-              value="{{workout.exercise_three_modifier_three}}: {{workout.exercise_three_total_three}}">
+            <h5>Total One ({{workout.exercise_three_modifier_three}}) :</h5>
+            <input type="text" class="form-control" id="total3" name="exercise_three_total_three"
+              value="{{workout.exercise_three_total_three}}">
           </div>
           {% endif %}
         </div>
@@ -120,22 +130,27 @@
         {% if workout.exercise4 %}
         <div class="col-12">
           <div class="btn col-md-2">
-            <input type="text" class="form-control" id="category4" name="category4" value="{{workout.category4}}">
+            <h5>Category</h5>
+            <input type="text" class="form-control" id="category4" name="category-four" value="{{workout.category4}}">
           </div>
           <div class="btn col-md-2">
-            <input type="text" class="form-control" id="exercise4" name="exercise2" value="{{workout.exercise4}}">
+            <h5>Specific Exercise</h5>
+            <input type="text" class="form-control" id="exercise4" name="exercise-four" value="{{workout.exercise4}}">
           </div>
           <div class="btn col-md-2 gx-0">
-            <input type="text" class="form-control" id="modifier4" name="modifier4"
-              value="{{workout.exercise_four_modifier}} : {{workout.exercise_four_total_one}}">
+            <h5>Total One ({{workout.exercise_four_modifier}}) :</h5>
+            <input type="text" class="form-control" id="modifier4" name="exercise_four_total_one"
+              value="{{workout.exercise_four_total_one}}">
           </div>
           <div class="btn col-md-2 gx-0">
-            <input type="text" class="form-control" id="modifier4" name="modifier4"
-              value="{{workout.exercise_four_modifier_two}} : {{workout.exercise_four_total_two}}">
+            <h5>Total One ({{workout.exercise_four_modifier_two}}) :</h5>
+            <input type="text" class="form-control" id="modifier4" name="exercise_four_total_two"
+              value="{{workout.exercise_four_total_two}}">
           </div>
           <div class=" btn col-md-2 gx-0">
-            <input type="text" class="form-control" id="total4" name="total4"
-              value="{{workout.exercise_four_modifier_three}}: {{workout.exercise_four_total_three}}">
+            <h5>Total One ({{workout.exercise_four_modifier_three}}) :</h5>
+            <input type="text" class="form-control" id="total4" name="exercise_four_total_three"
+              value="{{workout.exercise_four_total_three}}">
           </div>
           {% endif %}
 
@@ -144,22 +159,27 @@
           {% if workout.exercise5 %}
           <div class="col-12">
             <div class="btn col-md-2">
-              <input type="text" class="form-control" id="category5" name="category5" value="{{workout.category5}}">
+              <h5>Category</h5>
+              <input type="text" class="form-control" id="category5" name="category-five" value="{{workout.category5}}">
             </div>
             <div class="btn col-md-2">
-              <input type="text" class="form-control" id="exercise5" name="exercise5" value="{{workout.exercise5}}">
+              <h5>Specific Exercise</h5>
+              <input type="text" class="form-control" id="exercise5" name="exercise-five" value="{{workout.exercise5}}">
             </div>
             <div class="btn col-md-2 gx-0">
-              <input type="text" class="form-control" id="modifier5" name="modifier5"
-                value="{{workout.exercise_five_modifier}} : {{workout.exercise_five_total_one}}">
+              <h5>Total One ({{workout.exercise_five_modifier}}) :</h5>
+              <input type="text" class="form-control" id="modifier5" name="exercise_five_total_one"
+                value="{{workout.exercise_five_total_one}}">
             </div>
             <div class="btn col-md-2 gx-0">
-              <input type="text" class="form-control" id="modifier5" name="modifier5"
-                value="{{workout.exercise_five_modifier_two}} : {{workout.exercise_five_total_two}}">
+              <h5>Total One ({{workout.exercise_five_modifier_two}}) :</h5>
+              <input type="text" class="form-control" id="modifier5" name="exercise_five_total_two"
+                value="{{workout.exercise_five_total_two}}">
             </div>
             <div class=" btn col-md-2 gx-0">
-              <input type="text" class="form-control" id="total5" name="total5"
-                value="{{workout.exercise_five_modifier_three}}: {{workout.exercise_five_total_three}}">
+              <h5>Total One ({{workout.exercise_five_modifier_three}}) :</h5>
+              <input type="text" class="form-control" id="total5" name="exercise_five_total_three"
+                value="{{workout.exercise_five_total_three}}">
             </div>
             {% endif %}
 
@@ -169,22 +189,27 @@
             {% if workout.exercise6 %}
             <div class="col-12">
               <div class="btn col-md-2">
-                <input type="text" class="form-control" id="category6" name="category6" value="{{workout.category6}}">
+                <h5>Category</h5>
+                <input type="text" class="form-control" id="category6" name="category-six" value="{{workout.category6}}">
               </div>
               <div class="btn col-md-2">
-                <input type="text" class="form-control" id="exercise6" name="exercise6" value="{{workout.exercise6}}">
+                <h5>Specific Exercise</h5>
+                <input type="text" class="form-control" id="exercise6" name="exercise-six" value="{{workout.exercise6}}">
               </div>
               <div class="btn col-md-2 gx-0">
-                <input type="text" class="form-control" id="modifier6" name="modifier6"
-                  value="{{workout.exercise_six_modifier}} : {{workout.exercise_six_total_one}}">
+                <h5>Total One ({{workout.exercise_six_modifier}}) :</h5>
+                <input type="text" class="form-control" id="modifier6" name="exercise_six_total_one"
+                  value="{{workout.exercise_six_total_one}}">
               </div>
               <div class="btn col-md-2 gx-0">
-                <input type="text" class="form-control" id="modifier6" name="modifier6"
-                  value="{{workout.exercise_six_modifier_two}} : {{workout.exercise_six_total_two}}">
+                <h5>Total One ({{workout.exercise_six_modifier_two}}) :</h5>
+                <input type="text" class="form-control" id="modifier6" name="exercise_six_total_two"
+                  value="{{workout.exercise_six_total_two}}">
               </div>
               <div class=" btn col-md-2 gx-0">
-                <input type="text" class="form-control" id="total6" name="total6"
-                  value="{{workout.exercise_six_modifier_three}}: {{workout.exercise_six_total_three}}">
+                <h5>Total One ({{workout.exercise_six_modifier_three}}) :</h5>
+                <input type="text" class="form-control" id="total6" name="exercise_six_total_three"
+                  value="{{workout.exercise_six_total_three}}">
               </div>
               {% endif %}
 
@@ -193,22 +218,27 @@
               {% if workout.exercise7 %}
               <div class="col-12">
                 <div class="btn col-md-2">
-                  <input type="text" class="form-control" id="category7" name="category7" value="{{workout.category7}}">
+                  <h5>Category</h5>
+                  <input type="text" class="form-control" id="category7" name="category-seven" value="{{workout.category7}}">
                 </div>
                 <div class="btn col-md-2">
-                  <input type="text" class="form-control" id="exercise7" name="exercise7" value="{{workout.exercise7}}">
+                  <h5>Specific Exercise</h5>
+                  <input type="text" class="form-control" id="exercise7" name="exercise-seven" value="{{workout.exercise7}}">
                 </div>
                 <div class="btn col-md-2 gx-0">
-                  <input type="text" class="form-control" id="modifier7" name="modifier7"
-                    value="{{workout.exercise_seven_modifier}} : {{workout.exercise_seven_total_one}}">
+                  <h5>Total One ({{workout.exercise_seven_modifier}})</h5>
+                  <input type="text" class="form-control" id="modifier7" name="exercise_seven_total_one"
+                    value="{{workout.exercise_seven_total_one}}">
                 </div>
                 <div class="btn col-md-2 gx-0">
-                  <input type="text" class="form-control" id="modifier7" name="modifier7"
-                    value="{{workout.exercise_seven_modifier_two}} : {{workout.exercise_seven_total_two}}">
+                  <h5>Total Two ({{workout.exercise_seven_modifier_two}})</h5>
+                  <input type="text" class="form-control" id="modifier7" name="exercise_seven_total_two"
+                    value="{{workout.exercise_seven_total_two}}">
                 </div>
                 <div class=" btn col-md-2 gx-0">
-                  <input type="text" class="form-control" id="total7" name="total7"
-                    value="{{workout.exercise_seven_modifier_three}}: {{workout.exercise_seven_total_three}}">
+                 <h5>Total Three ({{workout.exercise_seven_modifier_three}})</h5> 
+                  <input type="text" class="form-control" id="total7" name="exercise_seven_total_three"
+                    value="{{workout.exercise_seven_total_three}}">
                 </div>
                 {% endif %}
 
@@ -217,25 +247,30 @@
                 {% if workout.exercise8 %}
                 <div class="col-12">
                   <div class="btn col-md-2">
-                    <input type="text" class="form-control" id="category8" name="category8"
-                      value="{{workout.category7}}" disabled>
+                    <h5>Category</h5>
+                    <input type="text" class="form-control" id="category8" name="category-eight"
+                      value="{{workout.category8}}">
                   </div>
                   <div class="btn col-md-2">
-                    <input type="text" class="form-control" id="exercise8" name="exercise8"
-                      value="{{workout.exercise7}}" disabled>
+                    <h5>Specific Exercise</h5>
+                    <input type="text" class="form-control" id="exercise8" name="exercise-eight"
+                      value="{{workout.exercise8}}">
                   </div>
                   <div class="btn col-md-2 gx-0">
-                    <input type="text" class="form-control" id="modifier8" name="modifier8"
-                      value="{{workout.exercise_eight_modifier}} : {{workout.exercise_eight_total_one}}">
+                    <h5>Total One ({{workout.exercise_eight_modifier}})</h5>
+                    <input type="text" class="form-control" id="modifier8" name="exercise_eight_total_one"
+                      value="{{workout.exercise_eight_total_one}}">
                   </div>
                   <div class="btn col-md-2 gx-0">
-                    <input type="text" class="form-control" id="modifier8" name="modifier8"
-                      value="{{workout.exercise_eight_modifier_two}} : {{workout.exercise_eight_total_two}}">
+                    <h5>Total Two ({{workout.exercise_eight_modifier_two}})</h5>
+                    <input type="text" class="form-control" id="modifier8" name="exercise_eight_total_two"
+                      value="{{workout.exercise_eight_total_two}}">
                   </div>
                   <div class=" btn col-md-2 gx-0">
-                    <input type="text" class="form-control" id="total8" name="total8"
-                      value="{{workout.exercise_eight_modifier_three}}: {{workout.exercise_eight_total_three}}"
-                      disabled>
+                    <h5>Total Three ({{workout.exercise_eight_modifier_three}})</h5>
+                    <input type="text" class="form-control" id="total8" name="exercise_eight_total_three"
+                      value="{{workout.exercise_eight_total_three}}"
+                      >
                   </div>
                   {% endif %}
 
